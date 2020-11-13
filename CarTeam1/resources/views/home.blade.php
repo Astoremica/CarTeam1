@@ -1,4 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+
+<!-- header -->
+@include('common.header')
+<link rel="stylesheet" href="{{asset('css/app.css')}}" />
+<link rel="stylesheet" href="{{asset('css/layout/header.css')}}" />
 
 @section('content')
 <div class="container">
@@ -21,3 +26,6 @@
     </div>
 </div>
 @endsection
+
+<!-- header -->
+@include('common.footer')
