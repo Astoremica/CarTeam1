@@ -7,8 +7,5 @@
         <button type="submit" class="btn btn-primary btn-lg mr-3">新規登録</button>
     </div>
 </div>
-<div class="mb-2">
-</div>
 </header>
-    
 @endsection

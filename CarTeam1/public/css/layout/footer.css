@@ -1,0 +1,79 @@
+footer {
+    margin-top: 1%;
+    padding: 5% 14% 0 14%;
+    background-color: #D2393E;
+    opacity: 0.7;
+    color: #ffffff;
+}
+
+
+/* 左側 */
+
+.roboto {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+    font-size: 35px;
+    margin-left: 20%;
+    margin-top: 2%;
+}
+
+.logo-l {
+    margin-right: 8%;
+}
+
+.address {
+    margin-top: 20px;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.logo-l:nth-of-type(1) {
+    margin-left: 19%;
+}
+
+
+/* 右側 */
+
+.right-panel a {
+    margin-left: 13%;
+}
+
+.right-panel a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.left-link,
+.right-link {
+    width: 220px;
+    font-weight: bolder;
+}
+
+.link-l,
+.link-r {
+    display: block;
+    margin-bottom: 10%;
+}
+
+
+/* 下側 */
+
+.btm-link {
+    margin-top: 4%;
+}
+
+.btm-left {
+    width: 520px;
+}
+
+.btm-left a {
+    display: inline;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 1.5%;
+}
+
+.btm-left a:nth-last-of-type(1) {
+    display: inline;
+    margin-right: 0;
+}
