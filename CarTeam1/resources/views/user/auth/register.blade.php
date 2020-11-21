@@ -1,4 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+
+<!-- head -->
+@include('common.head')
+
+<!-- header -->
+@include('common.header')
 
 @section('content')
 <div class="container">
@@ -75,3 +81,6 @@
     </div>
 </div>
 @endsection
+
+<!-- header -->
+@include('common.footer')
