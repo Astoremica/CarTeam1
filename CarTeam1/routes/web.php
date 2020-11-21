@@ -14,3 +14,9 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+// 管理者側ルート
+Route::prefix('admin')->namespace('Admin')->group(function () {
+  // TOP
+  Route::get('/', 'AdminController@index')->name('admin');
+});
