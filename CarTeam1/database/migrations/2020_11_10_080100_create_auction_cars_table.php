@@ -19,7 +19,7 @@ class CreateAuctionCarsTable extends Migration
             $table->string('CARNO')->comment('車台NO');
             $table->integer('start_price')->comment('スタート価格');
             $table->integer('min_price')->nullable()->comment('最小価格');
-            $table->string('stats')->comment('売り方ステータス');
+            $table->string('stats')->nullable()->comment('売り方ステータス');
             $table->timestamps();
 
             $table->primary('auction_id','no');
