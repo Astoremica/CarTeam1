@@ -44,9 +44,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name1'       => ['required', 'string', 'max:255'],
+            'name2'       => ['required', 'string', 'max:255'],
+            'furi1'       => ['required', 'string', 'max:255'],
+            'furi2'       => ['required', 'string', 'max:255'],
+            'name3'       => ['required', 'string', 'max:255'],
+            'email'       => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'    => ['required', 'string', 'min:5', 'confirmed'],
+            'tel'         => ['required', 'string', 'max:255'],
+            'postal_code' => ['required', 'string', 'max:255'],
+            'address1'    => ['required', 'string', 'max:255'],
+            'address2'    => ['required', 'string', 'max:255'],
+            'address3'    => ['required', 'string', 'max:255'],
+            'birthday'    => ['required', 'string', 'max:8'],
         ]);
     }
 
@@ -54,9 +64,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name'     => $data['name'],
-            'email'    => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name1'       => $data['name1'],
+            'name2'       => $data['name2'],
+            'name3'       => $data['name3'],
+            'furi1'       => $data['furi1'],
+            'furi2'       => $data['furi2'],
+            'email'       => $data['email'],
+            'password'    => bcrypt($data['password']),
+            'tel'         => $data['tel'],
+            'postal_code' => $data['postal_code'],
+            'address1'    => $data['address1'],
+            'address2'    => $data['address2'],
+            'address3'    => $data['address3'],
+            'birthday'    => $data['birthday'],
         ]);
     }
 }
