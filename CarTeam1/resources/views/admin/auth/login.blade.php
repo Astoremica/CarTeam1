@@ -33,7 +33,7 @@
                             <div class="col-md-6">
                                 {{-- 作業用ログイン定数 --}}
                                 {{-- <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"> --}}
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="secret"　required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="adminsecret"　required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
