@@ -188,11 +188,11 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/home',
 
-    'logout_url' => 'logout',
+    'logout_url' => 'admin/logout',
 
-    'login_url' => 'login',
+    'login_url' => 'admin/login',
 
     'register_url' => 'register',
 

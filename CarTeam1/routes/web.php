@@ -1,4 +1,8 @@
 <?php
+// 最初の画面
+Route::get('/', function () {
+  return view('user.home');
+})->name('user.home');
 
 // ユーザー
 Route::namespace('User')->prefix('user')->name('user.')->group(function () {
@@ -10,11 +14,13 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     'verify'   => false
   ]);
 
+  // TOPページ
+  Route::resource('home', 'HomeController', ['only' => 'index']);
+
   // ログイン認証後
   Route::middleware('auth:user')->group(function () {
 
-    // TOPページ
-    Route::resource('home', 'HomeController', ['only' => 'index']);
+    // ログインしないとだめなroute
 
   });
 });
@@ -29,10 +35,11 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     'verify'   => false
   ]);
 
-  // ログイン認証後
+  // ログイン認証後(Adminはすべてここ)
   Route::middleware('auth:admin')->group(function () {
 
     // TOPページ
+    Route::resource('/', 'HomeController', ['only' => 'index']);
     Route::resource('home', 'HomeController', ['only' => 'index']);
 
   });
