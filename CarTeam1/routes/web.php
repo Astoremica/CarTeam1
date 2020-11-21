@@ -21,6 +21,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
   Route::middleware('auth:user')->group(function () {
 
     // ログインしないとだめなroute
+    Route::get('mypage/', 'MyPageController@index')->name('mypage');
 
   });
 });

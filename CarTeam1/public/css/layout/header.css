@@ -11,6 +11,10 @@
     margin-right: 5%;
 }
 
+.logreg-btn a {
+    text-decoration: none;
+}
+
 .clear-decoration {
     border: none;
     /* 枠線を消す */
