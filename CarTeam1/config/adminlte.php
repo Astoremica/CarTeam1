@@ -194,11 +194,11 @@ return [
 
     'login_url' => 'admin/login',
 
-    'register_url' => 'register',
+    'register_url' => false,
 
-    'password_reset_url' => 'password/reset',
+    'password_reset_url' => false,
 
-    'password_email_url' => 'password/email',
+    'password_email_url' => false,
 
     'profile_url' => false,
 
@@ -233,8 +233,8 @@ return [
     'menu' => [
         [
             'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'search' => false,
+            'topnav' => false,
         ],
         [
             'text' => 'blog',
@@ -248,7 +248,7 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => '登録'],
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
@@ -297,22 +297,8 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        ['header' => '通知'],
+        ['header' => '情報'],
     ],
 
     /*
