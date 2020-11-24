@@ -11,12 +11,12 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * 複数代入しない属性
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+    protected $guarded = [
+        'id', 'email_verified_at', 'remember_token', 'created_at', 'updated_at','deleted_at'
     ];
 
     /**
