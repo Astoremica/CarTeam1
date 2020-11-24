@@ -69,11 +69,11 @@ class CreateCarsTable extends Migration
             $table->boolean('KOUGU')->comment('工具');
             $table->text('COMNT')->comment('コメント');
             $table->integer('KTRKN')->comment('買取金額（千円');
-            $table->unsignedBigInteger('auction_id')->nullable()->comment('オークションID');
-            $table->integer('no')->nullable()->comment('順序NO');
-            $table->integer('start_price')->nullable()->comment('スタート価格');
-            $table->integer('min_price')->nullable()->comment('最小価格');
-            $table->string('stats')->nullable()->comment('売り方ステータス');
+            $table->unsignedBigInteger('AUCID')->nullable()->comment('オークションID');
+            $table->integer('JUNNO')->nullable()->comment('順序NO');
+            $table->integer('STRKK')->nullable()->comment('スタート価格');
+            $table->integer('SISKK')->nullable()->comment('最小価格');
+            $table->string('URIST')->nullable()->comment('売り方ステータス');
             $table->timestamps();
             $table->primary('CARNO');
 
