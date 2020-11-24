@@ -52,6 +52,39 @@
         </div>
         <a href="#">開催予定一覧へ</a>
     </div>
+    <div class="serchMaker">
+        <h2>メーカーから探す</h2>
+        <ul>
+            <li><a href=""><img src="" alt="メーカー名のロゴ" />レクサス</a></li>
+            <li><a href=""><img src="" alt="メーカー名のロゴ" />トヨタ</a></li>
+            <li><a href=""><img src="" alt="メーカー名のロゴ" />ホンダ</a></li>
+            <li><a href=""><img src="" alt="メーカー名のロゴ" />日産</a></li>
+            <li><a href=""><img src="" alt="メーカー名のロゴ" />スズキ</a></li>
+            <li><a href=""><img src="" alt="メーカー名のロゴ" />マツダ</a></li>
+            <li><a href=""><img src="" alt="メーカー名のロゴ" />スバル</a></li>
+            <li><a href=""><img src="" alt="メーカー名のロゴ" />三菱</a></li>
+        </ul>
+    </div>
+    <div class="serchBodyType">
+        <h2>ボディータイプから探す</h2>
+        <ul>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />軽自動車</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />コンパクトカー</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />ミニバン</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />SUV・クロカン</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />セダン</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />オープンカー</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />トラック</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />軽自動車</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />コンパクトカー</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />ミニバン</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />SUV・クロカン</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />セダン</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />オープンカー</a></li>
+            <li><a href=""><img src="" alt="ボディータイプの画像" />トラック</a></li>
+
+        </ul>
+    </div>
 </div>
 
 @endsection
