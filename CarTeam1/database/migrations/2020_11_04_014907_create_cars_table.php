@@ -71,13 +71,13 @@ class CreateCarsTable extends Migration
             $table->integer('KTRKN')->comment('買取金額（千円');
             $table->unsignedBigInteger('AUCID')->nullable()->comment('オークションID');
             $table->integer('JUNNO')->nullable()->comment('順序NO');
-            $table->integer('STRKK')->nullable()->comment('スタート価格');
-            $table->integer('SISKK')->nullable()->comment('最小価格');
+            $table->integer('STRPR')->nullable()->comment('スタート価格');
+            $table->integer('SAIPR')->nullable()->comment('最小価格');
             $table->string('URIST')->nullable()->comment('売り方ステータス');
             $table->timestamps();
             $table->primary('CARNO');
 
-            $table->foreign('auction_id')
+            $table->foreign('AUCID')
                 ->references('id')
                 ->on('auctions')
                 ->onDelete('cascade');
