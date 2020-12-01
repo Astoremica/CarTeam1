@@ -14,32 +14,12 @@ class ControllersTableSeeder extends Seeder
         DB::table('controllers')->insert([
             [
                 'CARNO' => 'Z12-123456',
-                'controller'    => 'TV',
-                'created_at' => new DateTime(),
-            ],
-            [
-                'CARNO' => 'Z12-123456',
-                'controller'    => 'エアコン',
-                'created_at' => new DateTime(),
-            ],
-            [
-                'CARNO' => 'Z12-123456',
-                'controller'    => '純正AW',
-                'created_at' => new DateTime(),
-            ],
-            [
-                'CARNO' => 'Z12-121111',
                 'controller'    => 'エアコン',
                 'created_at' => new DateTime(),
             ],
             [
                 'CARNO' => 'Z12-121111',
-                'controller'    => '純正ナビ',
-                'created_at' => new DateTime(),
-            ],
-            [
-                'CARNO' => 'Z12-121111',
-                'controller'    => '純正エアロ',
+                'controller'    => 'エアコン',
                 'created_at' => new DateTime(),
             ],
             [
@@ -53,18 +33,8 @@ class ControllersTableSeeder extends Seeder
                 'created_at' => new DateTime(),
             ],
             [
-                'CARNO' => 'G-332-22',
-                'controller'    => '本革シート',
-                'created_at' => new DateTime(),
-            ],
-            [
                 'CARNO' => 'EEQs-212k22',
-                'controller'    => '本革シート',
-                'created_at' => new DateTime(),
-            ],
-            [
-                'CARNO' => 'EEQs-212k22',
-                'controller'    => '純正ナビ',
+                'controller'    => 'エアコン',
                 'created_at' => new DateTime(),
             ],
 

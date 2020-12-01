@@ -30,7 +30,7 @@ class CarStatusesTableSeeder extends Seeder
                 'stats' => 'P',
                 'created_at' => new DateTime(),
             ],
-            DB::table('car_statuses')->insert([
+           
                 [
                     'CARNO' => 'Z12-121111',
                     'no'    => 10,
@@ -49,7 +49,7 @@ class CarStatusesTableSeeder extends Seeder
                     'stats' => 'P',
                     'created_at' => new DateTime(),
                 ],
-                DB::table('car_statuses')->insert([
+               
                     [
                         'CARNO' => 'GGD2-111456',
                         'no'    => 1,
@@ -68,7 +68,7 @@ class CarStatusesTableSeeder extends Seeder
                         'stats' => 'P',
                         'created_at' => new DateTime(),
                     ],
-                    DB::table('car_statuses')->insert([
+                   
                         [
                             'CARNO' => 'G-332-22',
                             'no'    => 2,
@@ -87,7 +87,7 @@ class CarStatusesTableSeeder extends Seeder
                             'stats' => 'P',
                             'created_at' => new DateTime(),
                         ],
-                        DB::table('car_statuses')->insert([
+                       
                             [
                                 'CARNO' => 'EEQs-212k22',
                                 'no'    => 2,
