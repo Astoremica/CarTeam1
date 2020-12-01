@@ -232,73 +232,78 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => false,
-            'topnav' => false,
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => '登録'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
+            'text'    => '登録',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
+                    'text' => '車両登録',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'オークション登録',
+                    'url'  => '#',
                 ],
                 [
-                    'text' => 'level_one',
+                    'text' => '社員登録',
                     'url'  => '#',
                 ],
             ],
         ],
-        ['header' => '通知'],
-        ['header' => '情報'],
+        [
+            'text'    => '通知',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => '通知確認',
+                    'url'  => '#',
+                ],
+                
+                [
+                    'text' => '通知登録',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        [
+            'text'    => '取引',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => '取引状況確認',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => '請求書確認',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => '帳票確認',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        [
+            'text'    => '情報',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => '売上確認',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'ユーザー一覧',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => '車両一覧',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => '社員一覧',
+                    'url'  => '#',
+                ],
+            ],
+        ],
     ],
 
     /*
