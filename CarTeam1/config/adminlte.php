@@ -237,7 +237,7 @@ return [
             'submenu' => [
                 [
                     'text' => '車両登録',
-                    'url'  => '#',
+                    'url'  => 'admin/regist/car',
                 ],
                 [
                     'text' => 'オークション登録',

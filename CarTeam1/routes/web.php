@@ -43,6 +43,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('/', 'HomeController', ['only' => 'index']);
     Route::resource('home', 'HomeController', ['only' => 'index']);
 
+    // 登録系
+    Route::prefix('regist')->group(function () {
+      Route::get('car','RegistController@car')->name('regist.car');
+      Route::get('auction','RegistController@auction')->name('regist.auction');
+      Route::get('employee','RegistController@employee')->name('regist.employee');
+    });
+
   });
 
 });
