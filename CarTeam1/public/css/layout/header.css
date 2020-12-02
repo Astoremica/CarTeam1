@@ -1,36 +1,100 @@
-.btn {
-    padding: 10px 40px;
-}
+@charset "UTF-8";
 
-.logo {
-    margin: 0.5% 0 0.5% 5%;
-}
 
-.logreg-btn {
-    padding-top: 1.8%;
-    margin-right: 5%;
-}
-
-.logreg-btn a {
+header a:hover {
     text-decoration: none;
 }
 
-.clear-decoration {
-    border: none;
-    /* 枠線を消す */
-    outline: none;
-    /* クリックしたときに表示される枠線を消す */
-    background: transparent;
-    /* 背景の灰色を消す */
+h1 {
+    height: 48px;
+    margin: auto 0;
 }
 
-.red {
-    background-color: #D2393E;
-    opacity: 0.7;
-    color: #ffffff;
+#logo {
+    line-height: 65px;
+    height     : 100%;
+    display    : block;
 }
 
-.red:hover {
-    background-color: #ffffff;
-    color: #D2393E;
+#link {
+    display    : flex;
+    align-items: center;
+
+}
+
+#link a {
+    margin: 5px;
+}
+
+#loginLink,
+#registerLink,
+#mypageLink,
+#logoutLink {
+    display      : block;
+    width        : 200px;
+    height       : 50px;
+    text-align   : center;
+    line-height  : 50px;
+    font-size    : 20px;
+    padding-left : 30px;
+    border-radius: 5px;
+    position     : relative;
+}
+
+
+#loginLink::before,
+#registerLink::before,
+#mypageLink::before,
+#logoutLink::before {
+    content  : '';
+    position : absolute;
+    width    : 35px;
+    height   : 35px;
+    left     : 30px;
+    top      : 50%;
+    transform: translateY(-50%);
+}
+
+#loginLink {
+    color : #000;
+    border: 2px solid #000;
+}
+
+#registerLink,
+#logoutLink {
+    background: rgba(210, 57, 62, 0.7);
+    color     : #fff;
+}
+
+#loginLink::before {
+    background     : url("/img/layout/loginLink.png") no-repeat center center;
+    background-size: cover;
+}
+
+#registerLink::before {
+    background     : url("/img/layout/registerLink.png") no-repeat center center;
+    background-size: cover;
+}
+
+#mypageLink,
+#logoutLink {
+    color: #fff;
+}
+
+#mypageLink {
+    background: #649ACC;
+}
+
+#logoutLink {
+    background: #FFC3C3;
+}
+
+#mypageLink::before {
+    background     : url("/img/layout/myPageLink.png") no-repeat center center;
+    background-size: cover;
+}
+
+#logoutLink::before {
+    background     : url("/img/layout/logoutLink.png") no-repeat center center;
+    background-size: cover;
 }
