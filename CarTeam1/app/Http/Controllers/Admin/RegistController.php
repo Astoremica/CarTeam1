@@ -13,6 +13,7 @@ class RegistController extends Controller
         $this->middleware('auth:admin');
     }
 
+    // View
     public function car()
     {
         return view('admin.regist.car');
@@ -26,6 +27,13 @@ class RegistController extends Controller
     public function employye()
     {
         return view('admin.regist.employee');
+    }
+
+    // Store
+    public function storeCar(Request $request)
+    {
+        dd($request);
+        return view('admin.regist.car');
     }
 
 }

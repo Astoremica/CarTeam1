@@ -48,60 +48,63 @@
                     </button>
                   </div>
                 </div>
-                <div class="bs-stepper-content">
-                  <!-- your steps content here -->
-                  <div id="car-part" class="content" role="tabpanel" aria-labelledby="car-part-trigger">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <form method="POST" action="/admin/regist/car">
+                  @csrf
+                  <div class="bs-stepper-content">
+                    <!-- your steps content here -->
+                    <div id="car-part" class="content" role="tabpanel" aria-labelledby="car-part-trigger">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" name="pass" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <div id="comment-part" class="content" role="tabpanel" aria-labelledby="comment-part-trigger">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
-                    <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                  </div>
-                  <div id="comment-part" class="content" role="tabpanel" aria-labelledby="comment-part-trigger">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <div id="status-part" class="content" role="tabpanel" aria-labelledby="status-part-trigger">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                    <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                  </div>
-                  <div id="status-part" class="content" role="tabpanel" aria-labelledby="status-part-trigger">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                    <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                  </div>
-                  <div id="img-part" class="content" role="tabpanel" aria-labelledby="img-part-trigger">
-                    <div class="form-group">
-                      <label for="exampleInputFile">車両画像</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
+                    <div id="img-part" class="content" role="tabpanel" aria-labelledby="img-part-trigger">
+                      <div class="form-group">
+                        <label for="exampleInputFile">車両画像</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                          </div>
                         </div>
                       </div>
+                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
             <!-- /.card-body -->
