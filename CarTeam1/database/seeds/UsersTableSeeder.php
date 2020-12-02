@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder
                 'created_at'  => new DateTime(),
             ],
             [
-                'email'       => 'haltaro@gmail.com',
+                'email'       => 'testo@gmail.com',
                 'password'    => bcrypt('secret'),
                 'name1'       => '吉川',
                 'name2'       => '宏佳',
