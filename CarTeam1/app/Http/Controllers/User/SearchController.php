@@ -67,34 +67,67 @@ class SearchController extends Controller
 
       if ($sort === 'price-asc') {
         $cars = Car::where('CARNM', 'LIKE', "%$car_name%")
-            ->when($category, function ($query, $category) {
-                return $query->where('category', $category);
-            }, function ($query) {
-                return $query;
-            })
-            ->when($price['min'] && $price['max'], function ($query, $price) {
-                return $query->whereBetween('price', [$price['min'], $price['max']]);
-            }, function ($query) {
-                return $query;
-            })
-            ->orderBy('price', 'asc')->get(['product_code', 'name', 'price', 'sell_user_code','sell_type']);
+          ->when($price['min'] && $price['max'], function ($query, $price) {
+            return $query->whereBetween('STRPR', [$price['min'], $price['max']]);
+          }, function ($query) {
+            return $query;
+          })
+          ->when($nensk['min'] && $nensk['max'], function ($query, $nensk) {
+            return $query->whereBetween('NENSK', [$nensk['min'], $nensk['max']]);
+          }, function ($query) {
+            return $query;
+          })
+          ->when($soukm['min'] && $soukm['max'], function ($query, $soukm) {
+            return $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
+          }, function ($query) {
+            return $query;
+          })
+          ->orderBy('STRPR', 'asc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM']);
 
-        return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
-    } elseif ($sort === 'price-desc') {
-        $products = Product::where('name', 'LIKE', "%$keyword%")
-            ->when($category, function ($query, $category) {
-                return $query->where('category', $category);
-            }, function ($query) {
-                return $query;
-            })
-            ->when($price['min'] && $price['max'], function ($query, $price) {
-                return $query->whereBetween('price', [$price['min'], $price['max']]);
-            }, function ($query) {
-                return $query;
-            })
-            ->orderBy('price', 'desc')->get(['product_code', 'name', 'price', 'sell_user_code','sell_type']);
+        return view('user.search', compact('cars', 'car_name', 'sort', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm'));
+      } elseif ($sort === 'price-desc') {
+          $cars = Car::where('CARNM', 'LIKE', "%$car_name%")
+          ->when($price['min'] && $price['max'], function ($query, $price) {
+            return $query->whereBetween('STRPR', [$price['min'], $price['max']]);
+          }, function ($query) {
+            return $query;
+          })
+          ->when($nensk['min'] && $nensk['max'], function ($query, $nensk) {
+            return $query->whereBetween('NENSK', [$nensk['min'], $nensk['max']]);
+          }, function ($query) {
+            return $query;
+          })
+          ->when($soukm['min'] && $soukm['max'], function ($query, $soukm) {
+            return $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
+          }, function ($query) {
+            return $query;
+          })
+          ->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM']);
 
-        return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
+          return view('user.search', compact('cars', 'car_name', 'sort', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm'));
+      }  elseif ($sort == '') {
+        $cars = Car::where('CARNM', 'LIKE', "%$car_name%")
+        ->when($price['min'] && $price['max'], function ($query, $price) {
+          return $query->whereBetween('STRPR', [$price['min'], $price['max']]);
+        }, function ($query) {
+          return $query;
+        })
+        ->when($nensk['min'] && $nensk['max'], function ($query, $nensk) {
+          return $query->whereBetween('NENSK', [$nensk['min'], $nensk['max']]);
+        }, function ($query) {
+          return $query;
+        })
+        ->when($soukm['min'] && $soukm['max'], function ($query, $soukm) {
+          return $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
+        }, function ($query) {
+          return $query;
+        })
+        ->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM']);
+
+        return view('user.search', compact('cars', 'car_name', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm'));
     }
+
+      $cars = ["aaa"];
+      return view('user.search', compact('car_name', 'sort', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm'));
     }
-}
+  }
