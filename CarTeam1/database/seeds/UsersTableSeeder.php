@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
                 'birthday'    => '19980101',
                 'created_at'  => new DateTime(),
             ],
-                 [
+            [
                 'email'       => 'papapao@gmail.com',
                 'password'    => bcrypt('secret'),
                 'name1'       => '加藤',
@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder
                 'birthday'    => '19211021',
                 'created_at'  => new DateTime(),
             ],
-                 [
+            [
                 'email'       => 'haltaro@gmail.com',
                 'password'    => bcrypt('secret'),
                 'name1'       => '吉川',
@@ -61,7 +61,7 @@ class UsersTableSeeder extends Seeder
                 'birthday'    => '20190101',
                 'created_at'  => new DateTime(),
             ],
-                 [
+            [
                 'email'       => 'dededede@gmail.com',
                 'password'    => bcrypt('secret'),
                 'name1'       => '中村',
@@ -77,7 +77,7 @@ class UsersTableSeeder extends Seeder
                 'birthday'    => '19991001',
                 'created_at'  => new DateTime(),
             ],
-                 [
+            [
                 'email'       => 'hinatsu@gmail.com',
                 'password'    => bcrypt('secret'),
                 'name1'       => '松枝',

@@ -13,8 +13,8 @@ class ControllersTableSeeder extends Seeder
     {
         DB::table('controllers')->insert([
             [
-                'CARNO' => 'Z12-123456',
-                'controller'    => 'エアコン',
+                'CARNO'      => 'Z12-123456',
+                'controller' => 'エアコン',
                 'created_at' => new DateTime(),
             ]
         ]);

@@ -76,7 +76,7 @@ class CarStatusesTableSeeder extends Seeder
                 'created_at' => new DateTime(),
             ],
             [
-                'CARNO' => 'G-332-22'
+                'CARNO' => 'G-332-22',
                 'no'    => 2,
                 'stats' => 'XX',
                 'created_at' => new DateTime(),
