@@ -40,6 +40,13 @@
                       <span class="bs-stepper-label">車両ステータス(図)</span>
                     </button>
                   </div>
+                  <div class="line"></div>
+                  <div class="step" data-target="#img-part">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="img-part" id="img-part-trigger">
+                      <span class="bs-stepper-circle">4</span>
+                      <span class="bs-stepper-label">車両画像</span>
+                    </button>
+                  </div>
                 </div>
                 <div class="bs-stepper-content">
                   <!-- your steps content here -->
@@ -56,23 +63,31 @@
                   </div>
                   <div id="comment-part" class="content" role="tabpanel" aria-labelledby="comment-part-trigger">
                     <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
                     <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary" onclick="stepper.next()">Next</button>
                   </div>
                   <div id="status-part" class="content" role="tabpanel" aria-labelledby="status-part-trigger">
                     <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                    <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                  </div>
+                  <div id="img-part" class="content" role="tabpanel" aria-labelledby="img-part-trigger">
+                    <div class="form-group">
+                      <label for="exampleInputFile">車両画像</label>
                       <div class="input-group">
                         <div class="custom-file">
                           <input type="file" class="custom-file-input" id="exampleInputFile">
