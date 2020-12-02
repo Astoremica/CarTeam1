@@ -69,6 +69,7 @@ class CarsTableSeeder extends Seeder
                 'KOUGU' => false,
                 'COMNT' => '内装のセカンドシートにたばこ焼け、においあり',
                 'KTRKN' => '500',
+                'IMGSU' => 4,
                 'created_at'  => new DateTime(),
             ],
             [
@@ -127,6 +128,7 @@ class CarsTableSeeder extends Seeder
                 'KOUGU' => false,
                 'COMNT' => '車両機関に問題なし、極上車',
                 'KTRKN' => '670',
+                'IMGSU' => 3,
                 'created_at'  => new DateTime(),
             ],
             [
@@ -185,6 +187,7 @@ class CarsTableSeeder extends Seeder
                 'KOUGU' => false,
                 'COMNT' => 'Lドア,Lフェンダー,ロアアームに事故歴あり、要修理',
                 'KTRKN' => '200',
+                'IMGSU' => 5,
                 'created_at'  => new DateTime(),
             ],
             [
@@ -243,6 +246,7 @@ class CarsTableSeeder extends Seeder
                 'KOUGU' => false,
                 'COMNT' => '非常にきれいな状態ですが、定員変更されています',
                 'KTRKN' => '60000',
+                'IMGSU' => 5,
                 'created_at'  => new DateTime(),
             ],
             [
@@ -301,7 +305,7 @@ class CarsTableSeeder extends Seeder
                 'KOUGU' => false,
                 'COMNT' => '非常にきれいな状態ですが、燃焼機関にトラブルあり',
                 'KTRKN' => '500',
-                'IMGSU' => 4,
+                'IMGSU' => 6,
                 'created_at'  => new DateTime(),
             ],
         ]);
