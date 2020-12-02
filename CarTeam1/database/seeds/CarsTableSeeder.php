@@ -301,6 +301,7 @@ class CarsTableSeeder extends Seeder
                 'KOUGU' => false,
                 'COMNT' => '非常にきれいな状態ですが、燃焼機関にトラブルあり',
                 'KTRKN' => '500',
+                'IMGSU' => 4,
                 'created_at'  => new DateTime(),
             ],
         ]);
