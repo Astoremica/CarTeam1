@@ -69,6 +69,7 @@ class CarsTableSeeder extends Seeder
                 'KOUGU' => false,
                 'COMNT' => '非常にきれいな状態です',
                 'KTRKN' => '500',
+                'IMGSU' => 4,
                 'created_at'  => new DateTime(),
             ],
         ]);
