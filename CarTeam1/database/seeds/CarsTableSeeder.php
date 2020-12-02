@@ -70,6 +70,9 @@ class CarsTableSeeder extends Seeder
                 'COMNT' => '非常にきれいな状態です',
                 'KTRKN' => '500',
                 'IMGSU' => 4,
+                'AUCID' => 1,
+                'STRDT' => '2020-12-12 10:00:00',
+                'STRPR' => 100,
                 'created_at'  => new DateTime(),
             ],
         ]);
