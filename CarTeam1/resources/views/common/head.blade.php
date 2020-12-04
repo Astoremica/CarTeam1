@@ -1,4 +1,5 @@
 @section('head')
+<link rel="stylesheet" href="{{asset('css/layout/reset.css')}}" />
 <link rel="stylesheet" href="{{asset('css/app.css')}}" />
 <link rel="stylesheet" href="{{asset('css/layout/header.css')}}" />
 <link rel="stylesheet" href="{{asset('css/layout/footer.css')}}" />

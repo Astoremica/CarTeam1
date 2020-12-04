@@ -1,19 +1,16 @@
 @section('header')
-<header class="shadow-sm">
-<div class="d-flex justify-content-between mb-3">
-    <a href="/" class="logo"><img src="{{ asset('img/layout/logo5.png') }}" width="180px"></a>
-    <div class="logreg-btn">
+<header id="header" class="d-flex justify-content-around align-content-center shadow-sm">
+    <h1><a href="/" class="logo"><img id="logo" src="{{asset('img/layout/logo.png')}}" alt="HALMOTER" srcset=""></a></h1>
+    <div id="link">
         @guest
-            <a href="{{ route('user.login') }}" class="mr-3 btn btn-outline-secondary">ログイン</a>
-            <a href="{{ route('user.register') }}" class="mr-3 btn btn-outline-danger red">新規登録</a>
+        <a id="loginLink" href="{{ route('user.login') }}">ログイン</a>
+        <a id="registerLink" href="{{ route('user.register') }}">新規登録</a>
         @else
-            <a href="{{ route('user.mypage') }}" class="mr-3 btn btn-outline-secondary">マイページ</a>
-            <a href="{{ route('user.logout') }}" class="mr-3 btn btn-outline-danger red" 
-            onclick="event.preventDefault();
+        <a id="mypageLink" href="{{ route('user.mypage') }}">マイページ</a>
+        <a id="logoutLink" href="{{ route('user.logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">ログアウト</a>
-            <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">@csrf</form>
+        <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">@csrf</form>
         @endguest
     </div>
-</div>
 </header>
 @endsection
