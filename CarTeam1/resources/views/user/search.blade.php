@@ -9,10 +9,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <form action="{{ url('user/search/detail')}}" method="POST">
+      <form action="" method="POST">
         @csrf
         <h3>車名</h3>
-        <p><input type="text" name="car_name" value="{{ $car_name }}" id="add-input"></p>
+        <p><input type="text" name="car_name" id="add-input"></p>
         <h3>価格</h3>
         <p>
           <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">
@@ -27,7 +27,7 @@
         </p>
         <input type="radio" name="sort" value="price-asc">価格の高い順
         <input type="radio" name="sort" value="price-desc">価格の低い順
-        <button type="submit" class="btn btn-primary">検索</button>
+        <input type="submit" name="send" class="btn btn-primary" value="検索">
       </form>
     </div>
 
@@ -43,6 +43,7 @@
           <p>{{ $car['CARNM'] }}</p>
           <p>{{ $car['NENSK'] }}</p>
           <p>{{ $car['SOUKM'] }}</p>
+          <p>{{ $car['STRDT'] }}</p>
         </div>
         @endforeach
       </ul>
