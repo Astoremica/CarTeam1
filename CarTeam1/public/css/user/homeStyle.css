@@ -1,7 +1,47 @@
 .plans {
-    border: 1px solid #000;
+    background: #f0f;
+    border    : 1px solid #000;
+
+}
+
+#planHeader {
+    background: #00f;
 }
 
 .car {
-    border: 1px solid #000;
+    width     : 350px;
+    background: #0ff;
+    border    : 1px solid #000;
+}
+
+.car a {
+    display: block;
+}
+
+.car img {
+    width: 100%;
+}
+
+#search img {
+    width: 35px;
+}
+
+.serchMaker img {
+    width: 80px;
+}
+
+.msContainer {
+    position: relative;
+    /*for IE7*/
+    overflow: hidden;
+    width   : 100%;
+    padding : 10px;
+}
+
+.msItemWrapper {
+    position: relative;
+    overflow: hidden;
+    width   : 1000%;
+    /*適当に大きな値を入れておく*/
+    display : flex;
 }
