@@ -18,7 +18,6 @@ class CarController extends Controller
   public function car_detail($car_no)
   {
     $cars = Car::find($car_no);
-    DD($cars);
 
     return view('user.search', $cars);
   }

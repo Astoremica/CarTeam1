@@ -7,12 +7,11 @@
 
 @section('content')
 <div class="container">
-  <div class="row justify-content-center">
     <div class="col-md-8">
-      <form action="" method="POST">
+      <form action="/user/search/" method="POST">
         @csrf
         <h3>車名</h3>
-        <p><input type="text" name="car_name" id="add-input"></p>
+        <p><input type="text" name="car_name" id="add-input" value="{{ $car_name }}"></p>
         <h3>価格</h3>
         <p>
           <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">
@@ -33,23 +32,63 @@
 
     @isset($cars)
       @if($cars->isEmpty())
-      <p id="not-found">商品が見つかりません</p>
+        <p id="not-found">商品が見つかりません</p>
       @else
-      <ul class="search_flex">
         @foreach($cars as $car)
-        <div class="search_item">
-          <p>{{ $car['CARNO'] }}</p>
-          <p>{{ $car['MKRNM'] }}</p>
-          <p>{{ $car['CARNM'] }}</p>
-          <p>{{ $car['NENSK'] }}</p>
-          <p>{{ $car['SOUKM'] }}</p>
-          <p>{{ $car['STRDT'] }}</p>
+        <div class="d-flex mb-2">
+          <div class="item-left">
+            <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="300px">
+          </div>
+          <div class="item-right">
+            <div class="d-flex">
+              <div class="column">
+                <p>{{ $car['MKRNM'] }}</p>
+                <p>{{ $car['CARNM'] }}</p>
+              </div>
+              <div>
+                <p>{{ $car['STRDT'] }}</p>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="column">
+                <p>販売価格</p>
+                <p>{{ number_format($car['STRPR'] * 1000) }}</p>
+              </div>
+              <div class="column">
+                <p>年式</p>
+                <p>{{ substr($car['NENSK'],0,2) }}年{{ substr($car['NENSK'],2,2) }}月</p>
+              </div>
+              <div class="column">
+                <p>走行距離</p>
+                <p>{{ number_format($car['SOUKM']) }}km</p>
+              </div>
+              <div class="column">
+                <p>排気量</p>
+                <p>{{ number_format($car['HIKRY']) }}cc</p>
+              </div>            
+              <div class="column">
+                <p>修復歴</p>
+                @if(!$car['SYURK'])
+                  <p>なし</p>
+                @else
+                  <p>{{ $car['SYURK'] }}回</p>
+                @endif
+              </div>
+              <div class="column">
+                <p>ミッション</p>
+                @if(!$car['MISYN'])
+                  <p>AT</p>
+                @else
+                  <p>MT</p>
+                @endif
+              </div>
+            </div>
+            <a id="" href="">詳細ページへ</a>
+          </div>
         </div>
         @endforeach
-      </ul>
       @endif
     @else
-      <p>aaa</p>
     @endif
     <p>
 

@@ -17,17 +17,21 @@ class SearchController extends Controller
     // 車両名で検索
     public function car_name($car_name)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM'])->where('CARNM', 'LIKE', "%$car_name%")->get();
-      DD($cars);
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->get();
 
-      return view('user.search', $cars);
+      foreach($cars as $car){
+        if(!($car['STRDT'] == NULL)){
+          $car['STRDT'] = date('Y/m/d H:i', strtotime($car['STRDT']));
+        }
+      }
+
+      return view('user.search', compact('cars','car_name'));
     }
 
     // メーカー名で検索
     public function maker_name($maker_name)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM'])->ofMaker($maker_name)->get();
-      DD($cars);
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofMaker($maker_name)->get();
 
       return view('user.search', $cars);
     }
@@ -35,8 +39,7 @@ class SearchController extends Controller
     // ボディータイプで検索
     public function body_type($body_type)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM'])->ofBodyType($body_type)->get();
-      DD($cars);
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofBodyType($body_type)->get();
 
       return view('user.search', $cars);
     }
@@ -83,7 +86,7 @@ class SearchController extends Controller
             $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
           }
           
-          $cars = $query->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT']);
+          $cars = $query->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
   
           foreach($cars as $car){
             if(!($car['STRDT'] == NULL)){
@@ -108,7 +111,7 @@ class SearchController extends Controller
               $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
             }
             
-            $cars = $query->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT']);
+            $cars = $query->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
   
             foreach($cars as $car){
               if(!($car['STRDT'] == NULL)){
@@ -133,7 +136,7 @@ class SearchController extends Controller
             $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
           }
 
-          $cars = $query->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT']);
+          $cars = $query->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
 
           foreach($cars as $car){
             if(!($car['STRDT'] == NULL)){
@@ -144,8 +147,5 @@ class SearchController extends Controller
           return view('user.search', compact('cars', 'car_name', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm'));
         }
       }
-
-      $cars = ["aaa"];
-      return view('user.search', compact('car_name', 'sort', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm'));
     }
   }
