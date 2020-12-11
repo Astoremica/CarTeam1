@@ -46,7 +46,7 @@ http://wood-roots.com/?p=514
                 width: i * 2 + 'px',
                 height: settings.height + 'px',
                 position: 'relative',
-                overflow: 'hidden'
+                // overflow: 'hidden'
             }).children('li').css({
                 display: 'inline',
                 float: 'left'

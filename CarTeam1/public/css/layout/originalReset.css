@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* ----------追加---------- */
+
+a {
+    color: #000;
+}
+
+a:hover {
+    text-decoration: none;
+    color          : #000;
+}
+
+body {
+    background: #F6F6F6;
+}

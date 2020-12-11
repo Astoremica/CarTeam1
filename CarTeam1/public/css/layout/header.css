@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+header {
+    padding: 0 11%;
+}
 
 header a:hover {
     text-decoration: none;
