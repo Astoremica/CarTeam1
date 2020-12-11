@@ -189,7 +189,121 @@
                     {{-- 車両情報（選択） --}}
                     <div id="car-part2" class="content" role="tabpanel" aria-labelledby="car-part2-trigger">
                       <div class="form-group">
-                      
+                        <label for="option">装備品</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option1" name="options[]" value="PS">
+                          <label for="option1" class="opacity">PS</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option2" name="options[]" value="PW">
+                          <label for="option2" class="opacity">PW</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option3" name="options[]" value="ABS">
+                          <label for="option3" class="opacity">ABS</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option4" name="options[]" value="AW">
+                          <label for="option4" class="opacity">AW</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option5" name="options[]" value="カセット">
+                          <label for="option5" class="opacity">カセット</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option6" name="options[]" value="CD">
+                          <label for="option6" class="opacity">CD</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option7" name="options[]" value="MD">
+                          <label for="option7" class="opacity">MD</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option8" name="options[]" value="TV">
+                          <label for="option8" class="opacity">TV</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option9" name="options[]" value="ナビ">
+                          <label for="option9" class="opacity">ナビ</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="option10" name="options[]" value="革シート">
+                          <label for="option10" class="opacity">革シート</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="controller">リモコン</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="controller1" name="controllers[]" value="TV">
+                          <label for="controller1" class="opacity">TV</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="controller2" name="controllers[]" value="ナビ">
+                          <label for="controller2" class="opacity">ナビ</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="controller3" name="controllers[]" value="エアコン">
+                          <label for="controller3" class="opacity">エアコン</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="controller4" name="controllers[]" value="オーディオ">
+                          <label for="controller4" class="opacity">オーディオ</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="ONEON">ワンオーナー車</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="ONEON1" name="ONEON" value="1" checked>
+                          <label for="ONEON1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="ONEON2" name="ONEON" value="0">
+                          <label for="ONEON2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="USRBY">ユーザー買取</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="USRBY1" name="USRBY" value="1" checked>
+                          <label for="USRBY1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="USRBY2" name="USRBY" value="0">
+                          <label for="USRBY2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="NENRY">燃料</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="NENRY1" name="NENRY" value="G" checked>
+                          <label for="NENRY1">G</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="NENRY2" name="NENRY" value="D">
+                          <label for="NENRY2">D</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="HANRT">販売ルート</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="HANRT1" name="HANRT" value="ディーラー" checked>
+                          <label for="HANRT1">ディーラー</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="HANRT2" name="HANRT" value="並行">
+                          <label for="HANRT2">並行</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="NENRY">燃料</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="NENRY1" name="NENRY" value="G" checked>
+                          <label for="NENRY1">G</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="NENRY2" name="NENRY" value="D">
+                          <label for="NENRY2">D</label>
+                        </div>
                       </div>
                       <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
                       <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
@@ -258,6 +372,14 @@
 @section('css')
   <!-- BS Stepper -->
   <link href="{{ asset('plugins/bs-stepper/css/bs-stepper.min.css') }}" rel="stylesheet">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}" rel="stylesheet">
+
+  <style type="text/css">
+  .opacity{
+    opacity: 0.7;
+  }
+  </style>
 @stop
 
 @section('js')
