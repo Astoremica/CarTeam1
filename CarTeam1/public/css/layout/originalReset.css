@@ -1,5 +1,14 @@
 @charset "UTF-8";
+
 /* ----------追加---------- */
+body,
+html {
+    padding: 0;
+    /*　追加*/
+    margin : 0;
+    /*　追加*/
+    height : 100%;
+}
 
 a {
     color: #000;

@@ -1,5 +1,6 @@
 .container {
-    width: 100%;
+    width : 100%;
+    height: 100%;
 }
 
 
@@ -185,8 +186,9 @@
     border-bottom: 1px dashed #000;
 }
 
-.container__searchBrand__domestic p a:hover,
-.container__searchBrand__foreign p a:hover {
+.container__searchBrand__domestic p a:hover img,
+.container__searchBrand__foreign p a:hover img,
+.container__searchBody__list p a:hover img {
     transform : scale(1.2, 1.2);
     transition: 0.4s;
 }
@@ -231,4 +233,39 @@
 .container__searchBrand__foreign p a span {
     margin-top: 10px;
     display   : block;
+}
+
+.container__searchBody__list {
+    display    : flex;
+    flex-wrap  : wrap;
+    align-items: center;
+}
+
+.container__searchBody__list p {
+    margin    : 0;
+    height    : 100px;
+    width     : calc(100%/5);
+    text-align: center;
+    border    : 1px solid #C4C4C4;
+    position  : relative;
+}
+
+.container__searchBody__list p:nth-child(n):nth-child(-n+5) {
+    border-bottom: 1px dashed #000;
+}
+
+.container__searchBody__list p a {
+    display  : block;
+    position : absolute;
+    top      : 50%;
+    transform: translateY(-50%);
+}
+
+
+.container__searchBody__list p span {
+    display: block;
+}
+
+.container__searchBody__list img {
+    width: 60%;
 }

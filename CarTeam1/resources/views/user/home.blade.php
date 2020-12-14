@@ -102,23 +102,18 @@
     </div>
     <div class="container__searchBody">
         <h2>ボディータイプから探す</h2>
-        <ul>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />軽自動車</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />コンパクトカー</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />ミニバン</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />SUV・クロカン</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />セダン</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />オープンカー</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />トラック</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />軽自動車</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />コンパクトカー</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />ミニバン</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />SUV・クロカン</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />セダン</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />オープンカー</a></li>
-            <li><a href=""><img src="" alt="ボディータイプの画像" />トラック</a></li>
-
-        </ul>
+        <div class="container__searchBody__list">
+            <p><a href=""><img src="{{asset('img/bodytypes/1.png')}}" /><span>軽自動車</span></a></p>
+            <p><a href=""><img src="{{asset('img/bodytypes/2.png')}}" alt="" /><span>SUV・クロカン</span></a></p>
+            <p><a href=""><img src="{{asset('img/bodytypes/3.png')}}" alt="" /><span>ステーションワゴン</span></a></p>
+            <p><a href=""><img src="{{asset('img/bodytypes/4.png')}}" alt="" /><span>セダン</span></a></p>
+            <p><a href=""><img src="{{asset('img/bodytypes/5.png')}}" alt="" /><span>クーペ</span></a></p>
+            <p><a href=""><img src="{{asset('img/bodytypes/6.png')}}" alt="" /><span>オープンカー</span></a></p>
+            <p><a href=""><img src="{{asset('img/bodytypes/7.png')}}" alt="" /><span>ハッチパック</span></a></p>
+            <p><a href=""><img src="{{asset('img/bodytypes/9.png')}}" alt="" /><span>ピックアップトラック</span></a></p>
+            <p><a href=""><img src="{{asset('img/bodytypes/10.png')}}" alt="" /><span>ミニバン・ワゴン</span></a></p>
+            <p><a href=""><img src="{{asset('img/bodytypes/8.png')}}" alt="" /><span>トラック・その他</span></a></p>
+        </div>
     </div>
 </div>
 @endsection
