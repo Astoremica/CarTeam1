@@ -37,7 +37,7 @@ class CreateCarsTable extends Migration
             $table->string('KEIZO')->comment('形状');
             $table->integer('SKSRY')->comment('最大積載量')->nullable();
             $table->integer('SOUKM')->comment('走行距離(km)');
-            $table->integer('MTRPN')->comment('メーターパネル状態');
+            $table->string('MTRPN')->comment('メーターパネル状態');
             $table->string('GAISK')->comment('外装色');
             $table->boolean('TWOTN')->comment('ツートン');
             $table->string('GAINO')->comment('外装色カラーNO')->nullable();
@@ -47,8 +47,8 @@ class CreateCarsTable extends Migration
             $table->string('NAINO')->comment('内装色カラーNO')->nullable();
             $table->boolean('SNSHS')->comment('新車保証書');
             $table->boolean('TRIST')->comment('取扱説明書');
-            $table->char('SFTNB', 1)->comment('シフトノブ位置');
-            $table->boolean('MISYN')->comment('ミッション');
+            $table->string('SFTNB')->comment('シフトノブ位置');
+            $table->char('MISYN', 2)->comment('ミッション');
             $table->integer('GIASU')->comment('ギア数');
             $table->char('AIRBG', 1)->comment('エアバッグ');
             $table->string('AIRCN')->comment('エアコン');

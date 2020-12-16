@@ -273,6 +273,61 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label for="TWOTN">ツートン</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="TWOTN1" name="TWOTN" value="1" checked>
+                          <label for="TWOTN1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="TWOTN2" name="TWOTN" value="0">
+                          <label for="TWOTN2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="IROKE">色替</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="IROKE1" name="IROKE" value="1" checked>
+                          <label for="IROKE1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="IROKE2" name="IROKE" value="0">
+                          <label for="IROKE2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="SNSHS">新車保有書</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="SNSHS1" name="SNSHS" value="1" checked>
+                          <label for="SNSHS1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="SNSHS2" name="SNSHS" value="0">
+                          <label for="SNSHS2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="TRIST">取扱説明書</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="TRIST1" name="TRIST" value="1" checked>
+                          <label for="TRIST1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="TRIST2" name="TRIST" value="0">
+                          <label for="TRIST2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="SUNRF">サンルーフ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="SUNRF1" name="SUNRF" value="1" checked>
+                          <label for="SUNRF1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="SUNRF2" name="SUNRF" value="0">
+                          <label for="SUNRF2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label for="NENRY">燃料</label><br>
                         <div class="icheck-primary d-inline">
                           <input type="radio" id="NENRY1" name="NENRY" value="G" checked>
@@ -295,14 +350,182 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="NENRY">燃料</label><br>
+                        <label for="RHAND">ハンドル</label><br>
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="NENRY1" name="NENRY" value="G" checked>
-                          <label for="NENRY1">G</label>
+                          <input type="radio" id="RHAND1" name="RHAND" value="1" checked>
+                          <label for="RHAND1">右</label>
                         </div>
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="NENRY2" name="NENRY" value="D">
-                          <label for="NENRY2">D</label>
+                          <input type="radio" id="RHAND2" name="RHAND" value="0">
+                          <label for="RHAND2">左</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="KDHSK">駆動方式</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KDHSK1" name="KDHSK" value="2WD" checked>
+                          <label for="KDHSK1">2WD</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KDHSK2" name="KDHSK" value="4WD">
+                          <label for="KDHSK2">4WD</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="MTRPN">メーターパネル</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="MTRPN1" name="MTRPN" value="通常" checked>
+                          <label for="MTRPN1">通常</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="MTRPN2" name="MTRPN" value="交換">
+                          <label for="MTRPN2">交換</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="MTRPN3" name="MTRPN" value="改ざん">
+                          <label for="MTRPN3">改ざん</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="MTRPN4" name="MTRPN" value="不明">
+                          <label for="MTRPN4">不明</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="SFTNB">シフトノブ位置</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="SFTNB1" name="SFTNB" value="フロア" checked>
+                          <label for="SFTNB1">フロア</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="SFTNB2" name="SFTNB" value="コラム">
+                          <label for="SFTNB2">コラム</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="SFTNB3" name="SFTNB" value="ダッシュ">
+                          <label for="SFTNB3">ダッシュ</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="MISYN">ミッション</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="MISYN1" name="MISYN" value="AT" checked>
+                          <label for="MISYN1">AT</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="MISYN2" name="MISYN" value="MT">
+                          <label for="MISYN2">MT</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="AIRBG">エアバック</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="AIRBG1" name="AIRBG" value="S" checked>
+                          <label for="AIRBG1">S</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="AIRBG2" name="AIRBG" value="W">
+                          <label for="AIRBG2">W</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="AIRCN">エアコン</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="AIRCN1" name="AIRCN" value="WAC" checked>
+                          <label for="AIRCN1">WAC</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="AIRCN2" name="AIRCN" value="AAC">
+                          <label for="AIRCN2">AAC</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="AIRCN3" name="AIRCN" value="AC">
+                          <label for="AIRCN3">AC</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="AIRCN4" name="AIRCN" value="C">
+                          <label for="AIRCN4">C</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="AIRCN5" name="AIRCN" value="無">
+                          <label for="AIRN5">無</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="ENOSY">8ナンバー種別</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="ENOSY1" name="ENOSY" value="0" checked>
+                          <label for="ENOSY1">無</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="ENOSY2" name="ENOSY" value="1">
+                          <label for="ENOSY2">キャンピング</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="ENOSY3" name="ENOSY" value="2">
+                          <label for="ENOSY3">放送宣伝</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="ENOSY3" name="ENOSY" value="3">
+                          <label for="ENOSY3">その他</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="NOXFG">NOX期限</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="NOXFG1" name="NOXFG" value="0" checked>
+                          <label for="NOXFG1">可</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="NOXFG2" name="NOXFG" value="1">
+                          <label for="NOXFG2">不適合</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="CARRK">車歴</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="CARRK1" name="CARRK" value="0" checked>
+                          <label for="CARRK1">自家用車</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="CARRK2" name="CARRK" value="1">
+                          <label for="CARRK2">事業用車</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="CARRK3" name="CARRK" value="2">
+                          <label for="CARRK3">レンタカー</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="SYURK">修復歴</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="SYURK1" name="SYURK" value="1" checked>
+                          <label for="SYURK1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="SYURK2" name="SYURK" value="0">
+                          <label for="SYURK2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="JAKKI">ジャッキ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="JAKKI1" name="JAKKI" value="1" checked>
+                          <label for="JAKKI1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="JAKKI2" name="JAKKI" value="0">
+                          <label for="JAKKI2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="KOUGU">工具</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KOUGU1" name="KOUGU" value="1" checked>
+                          <label for="KOUGU1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KOUGU2" name="KOUGU" value="0">
+                          <label for="KOUGU2">×</label>
                         </div>
                       </div>
                       <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
