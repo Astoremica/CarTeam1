@@ -84,6 +84,7 @@
               </div>
             </div>
             <a id="" href="">詳細ページへ</a>
+            <button>お気に入り</button>
           </div>
         </div>
         @endforeach
