@@ -4,8 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
 use App\Models\Car;
+use Auth;
 
 class SearchController extends Controller
 {
@@ -25,7 +26,10 @@ class SearchController extends Controller
         }
       }
 
-      return view('user.search', compact('cars','car_name'));
+      $user = User::find(Auth::id());
+      $favorites = $user->favorites()->get();
+
+      return view('user.search', compact('cars','car_name','favorites'));
     }
 
     // メーカー名で検索
@@ -144,7 +148,10 @@ class SearchController extends Controller
             }
           }
 
-          return view('user.search', compact('cars', 'car_name', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm'));
+          $user = User::find(Auth::id());
+          $favorites = $user->favorites()->get();
+
+          return view('user.search', compact('cars', 'car_name', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm','favorites'));
         }
       }
     }

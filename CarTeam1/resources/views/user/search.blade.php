@@ -76,15 +76,23 @@
               </div>
               <div class="column">
                 <p>ミッション</p>
-                @if(!$car['MISYN'])
-                  <p>AT</p>
-                @else
-                  <p>MT</p>
-                @endif
               </div>
             </div>
             <a id="" href="">詳細ページへ</a>
-            <button>お気に入り</button>
+            @isset($favorites)
+              @if($favorites->isEmpty())
+                <button type="button" class="btn" data-toggle="modal" data-target="#modal1"><img src="{{ asset('img/layout/unfavorite.png') }}" width="25px"> お気に入り登録</button>
+              @else
+                @foreach($favorites as $favorite)
+                  @if($car['CARNO'] == $favorite['CARNO'])
+                    <button type="button" class="btn" data-toggle="modal" data-target="#modal1"><img src="{{ asset('img/layout/favorite.png') }}" width="25px"> お気に入り解除</button>
+                  @else
+                    <button type="button" class="btn" data-toggle="modal" data-target="#modal1"><img src="{{ asset('img/layout/unfavorite.png') }}" width="25px"> お気に入り登録</button>
+                  @endif
+                @endforeach
+              @endif
+            @else
+            @endif
           </div>
         </div>
         @endforeach
