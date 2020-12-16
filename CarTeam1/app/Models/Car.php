@@ -71,6 +71,18 @@ class Car extends Model
     }
 
     /**
+     * 指定したボディータイプの車両だけを含むクエリのスコープ
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  mixed  $body_type
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfBodyType($query, $body_type)
+    {
+        return $query->where('KEIZO', $body_type);
+    }
+
+    /**
      * 車両の装備品を取得
      */
     public function options()
