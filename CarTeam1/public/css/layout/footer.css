@@ -1,11 +1,10 @@
 @charset "UTF-8";
 
 footer {
-    margin-top      : 1%;
-    padding         : 5% 14% 0 14%;
-    background-color: #D2393E;
-    opacity         : 0.7;
+    width           : 100%;
+    background-color: #DF7478;
     color           : #ffffff;
+    padding         : 0 14%;
 }
 
 

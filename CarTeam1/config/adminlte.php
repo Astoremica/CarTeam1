@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>HAL</b>MOTOR',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -237,7 +237,7 @@ return [
             'submenu' => [
                 [
                     'text' => '車両登録',
-                    'url'  => '#',
+                    'url'  => 'admin/regist/car',
                 ],
                 [
                     'text' => 'オークション登録',
