@@ -11,7 +11,11 @@
       <form action="/user/search/" method="POST">
         @csrf
         <h3>車名</h3>
+        @if(isset( $car_name ))
         <p><input type="text" name="car_name" id="add-input" value="{{ $car_name }}"></p>
+        @else
+        <p><input type="text" name="car_name" id="add-input" value=""></p>
+        @endif
         <h3>価格</h3>
         <p>
           <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">
@@ -35,15 +39,15 @@
         <p id="not-found">商品が見つかりません</p>
       @else
         @foreach($cars as $car)
-        <div class="d-flex mb-2">
-          <div class="item-left">
+        <div class="d-flex mb-2" id="car-one">
+          <div class="item-left" id="car-img">
             <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="300px">
           </div>
           <div class="item-right">
             <div class="d-flex">
               <div class="column">
-                <p>{{ $car['MKRNM'] }}</p>
-                <p>{{ $car['CARNM'] }}</p>
+                <p class="car-maker">{{ $car['MKRNM'] }}</p>
+                <p class="car-name">{{ $car['CARNM'] }}</p>
               </div>
               <div>
                 <p>{{ $car['STRDT'] }}</p>
@@ -52,7 +56,7 @@
             <div class="d-flex">
               <div class="column">
                 <p>販売価格</p>
-                <p>{{ number_format($car['STRPR'] * 1000) }}</p>
+                <p id="prise">{{ number_format($car['STRPR'] * 1000) }}</p>
               </div>
               <div class="column">
                 <p>年式</p>
