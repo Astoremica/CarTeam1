@@ -32,7 +32,7 @@ class RegistController extends Controller
     // Store
     public function storeCar(Request $request)
     {
-        dd($request);
+        dd($request, 'あけおめ');
         return view('admin.regist.car');
     }
 

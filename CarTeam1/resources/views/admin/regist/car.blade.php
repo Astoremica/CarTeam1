@@ -534,26 +534,110 @@
                     {{-- 検査員コメント --}}
                     <div id="comment-part" class="content" role="tabpanel" aria-labelledby="comment-part-trigger">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <label for="KIZU">キズ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KIZU1" name="KIZU" value="1">
+                          <label for="KIZU1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KIZU2" name="KIZU" value="0" checked>
+                          <label for="KIZU2">×</label>
+                        </div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label for="KOGE">コゲ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KOGE1" name="KOGE" value="1">
+                          <label for="KOGE1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KOGE2" name="KOGE" value="0" checked>
+                          <label for="KOGE2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="KGAN">コゲ穴</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KGAN1" name="KGAN" value="1">
+                          <label for="KGAN1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KGAN2" name="KGAN" value="0" checked>
+                          <label for="KGAN2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="YGRE">汚れ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="YGRE1" name="YGRE" value="1">
+                          <label for="YGRE1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="YGRE2" name="YGRE" value="0" checked>
+                          <label for="YGRE2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="YBRE">破れ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="YBRE1" name="YBRE" value="1">
+                          <label for="YBRE1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="YBRE2" name="YBRE" value="0" checked>
+                          <label for="YBRE2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="CMNT">検査員コメント</label>
+                        <input type="text" class="form-control" name="CMNT" id="CMNT" placeholder="コメント">
                       </div>
                       <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
                       <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
                     {{-- 車両ステータス（図） --}}
                     <div id="status-part" class="content" role="tabpanel" aria-labelledby="status-part-trigger">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                      </div>
+                      @for ($i = 1; $i < 26; $i ++)
+                        <div class="form-group">
+                          <label for="option">項番{{ $i }}</label><br>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}A" name="status{{ $i }}[]" value="A">
+                            <label for="{{ $i }}A" class="opacity">A(キズ)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}U" name="status{{ $i }}[]" value="U">
+                            <label for="{{ $i }}U" class="opacity">U(凹)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}W" name="status{{ $i }}[]" value="W">
+                            <label for="{{ $i }}W" class="opacity">W(補修波)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}X" name="status{{ $i }}[]" value="X">
+                            <label for="{{ $i }}X" class="opacity">X(要交換)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}XX" name="status{{ $i }}[]" value="XX">
+                            <label for="{{ $i }}XX" class="opacity">XX(交換済み)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}P" name="status{{ $i }}[]" value="P">
+                            <label for="{{ $i }}P" class="opacity">P(要塗装)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}S" name="status{{ $i }}[]" value="S">
+                            <label for="{{ $i }}S" class="opacity">S(錆)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}C" name="status{{ $i }}[]" value="C">
+                            <label for="{{ $i }}C" class="opacity">C(腐食)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}B" name="status{{ $i }}[]" value="B">
+                            <label for="{{ $i }}B" class="opacity">B(優凹)</label>
+                          </div>
+                        </div>
+                      @endfor
                       <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
                       <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
