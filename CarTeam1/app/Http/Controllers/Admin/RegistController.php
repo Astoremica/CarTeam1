@@ -30,9 +30,9 @@ class RegistController extends Controller
     }
 
     // Store
-    public function storeCar(Request $request)
+    public function storeCar(Request $req)
     {
-        dd($request, 'あけおめ');
+        dd($req);
         return view('admin.regist.car');
     }
 
