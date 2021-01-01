@@ -76,6 +76,7 @@
               </div>
               <div class="column">
                 <p>ミッション</p>
+                <p>{{ $car['MISYN'] }}</p>
               </div>
             </div>
             <a id="" href="">詳細ページへ</a>
@@ -85,14 +86,66 @@
               @else
                 @foreach($favorites as $favorite)
                   @if($car['CARNO'] == $favorite['CARNO'])
-                    <button type="button" class="btn" data-toggle="modal" data-target="#modal1"><img src="{{ asset('img/layout/favorite.png') }}" width="25px"> お気に入り解除</button>
+                    <button type="button" data-toggle="modal" data-target="#modal2" data-carno="{{ $car['CARNO'] }}"><img src="{{ asset('img/layout/favorite.png') }}" width="25px"> お気に入り解除</button>
                   @else
-                    <button type="button" class="btn" data-toggle="modal" data-target="#modal1"><img src="{{ asset('img/layout/unfavorite.png') }}" width="25px"> お気に入り登録</button>
+                    <button type="button" data-toggle="modal" data-target="#modal1"><img src="{{ asset('img/layout/unfavorite.png') }}" width="25px"> お気に入り登録</button>
                   @endif
                 @endforeach
               @endif
             @else
             @endif
+            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="label1">お気に入り登録</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p></p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="label1">お気に入り解除</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+              $('#modal2').on('show.bs.modal', function (event) {
+                // ボタンを取得
+                var button = $(event.relatedTarget);
+                // data-***の部分を取得
+                var sampledata = button.data('carno');
+                console.log(sampledata);
+                var modal = $(this);
+                // モーダルに取得したパラメータを表示
+                // 以下ではh5のモーダルタイトルのクラス名を取得している
+                modal.find('.modal-body').val(sampledata);
+              })
+            </script>
           </div>
         </div>
         @endforeach
@@ -100,7 +153,6 @@
     @else
     @endif
     <p>
-
   </div>
 </div>
 @endsection
