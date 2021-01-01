@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-  <h1>Dashboard</h1>
+  <button type="button" class="btn btn-danger" onclick="addText()">テストデータ入力（自動生成）</button>
 @stop
 
 @section('content')
@@ -55,7 +55,7 @@
                     </button>
                   </div>
                 </div>
-                <form method="POST" action="/admin/regist/car" autocomplete="off">
+                <form method="POST" action="/admin/regist/car" autocomplete="off" name="carPost">
                   @csrf
                   <div class="bs-stepper-content">
                     {{-- 車両情報（入力） --}}
@@ -137,8 +137,8 @@
                         <input type="text" class="form-control" name="NAISK" id="NAISK" placeholder="内装色">
                       </div>
                       <div class="form-group">
-                        <label for="NNAINO">内装色カラーNO</label>
-                        <input type="text" class="form-control" name="NNAINO" id="NNAINO" placeholder="内装色カラーNO">
+                        <label for="NAINO">内装色カラーNO</label>
+                        <input type="text" class="form-control" name="NAINO" id="NAINO" placeholder="内装色カラーNO">
                       </div>
                       <div class="form-group">
                         <label for="GIASU">ギア数</label>
@@ -184,6 +184,7 @@
                         <label for="KTRKN">買取金額(千円)</label>
                         <input type="text" class="form-control" name="KTRKN" id="KTRKN" placeholder="買取金額(千円)" autocomplete="off">
                       </div>
+                      <button type="button" class="btn btn-danger" onclick="addText()">テストデータ入力（自動生成）</button>
                       <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
                     {{-- 車両情報（選択） --}}
@@ -534,26 +535,110 @@
                     {{-- 検査員コメント --}}
                     <div id="comment-part" class="content" role="tabpanel" aria-labelledby="comment-part-trigger">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <label for="KIZU">キズ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KIZU1" name="KIZU" value="1">
+                          <label for="KIZU1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KIZU2" name="KIZU" value="0" checked>
+                          <label for="KIZU2">×</label>
+                        </div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label for="KOGE">コゲ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KOGE1" name="KOGE" value="1">
+                          <label for="KOGE1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KOGE2" name="KOGE" value="0" checked>
+                          <label for="KOGE2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="KGAN">コゲ穴</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KGAN1" name="KGAN" value="1">
+                          <label for="KGAN1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KGAN2" name="KGAN" value="0" checked>
+                          <label for="KGAN2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="YGRE">汚れ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="YGRE1" name="YGRE" value="1">
+                          <label for="YGRE1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="YGRE2" name="YGRE" value="0" checked>
+                          <label for="YGRE2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="YBRE">破れ</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="YBRE1" name="YBRE" value="1">
+                          <label for="YBRE1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="YBRE2" name="YBRE" value="0" checked>
+                          <label for="YBRE2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="CMNT">検査員コメント</label>
+                        <input type="text" class="form-control" name="CMNT" id="CMNT" placeholder="コメント">
                       </div>
                       <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
                       <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
                     {{-- 車両ステータス（図） --}}
                     <div id="status-part" class="content" role="tabpanel" aria-labelledby="status-part-trigger">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                      </div>
+                      @for ($i = 1; $i < 26; $i ++)
+                        <div class="form-group">
+                          <label for="option">項番{{ $i }}</label><br>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}A" name="status{{ $i }}[]" value="A">
+                            <label for="{{ $i }}A" class="opacity">A(キズ)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}U" name="status{{ $i }}[]" value="U">
+                            <label for="{{ $i }}U" class="opacity">U(凹)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}W" name="status{{ $i }}[]" value="W">
+                            <label for="{{ $i }}W" class="opacity">W(補修波)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}X" name="status{{ $i }}[]" value="X">
+                            <label for="{{ $i }}X" class="opacity">X(要交換)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}XX" name="status{{ $i }}[]" value="XX">
+                            <label for="{{ $i }}XX" class="opacity">XX(交換済み)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}P" name="status{{ $i }}[]" value="P">
+                            <label for="{{ $i }}P" class="opacity">P(要塗装)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}S" name="status{{ $i }}[]" value="S">
+                            <label for="{{ $i }}S" class="opacity">S(錆)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}C" name="status{{ $i }}[]" value="C">
+                            <label for="{{ $i }}C" class="opacity">C(腐食)</label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="{{ $i }}B" name="status{{ $i }}[]" value="B">
+                            <label for="{{ $i }}B" class="opacity">B(優凹)</label>
+                          </div>
+                        </div>
+                      @endfor
                       <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
                       <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
@@ -614,6 +699,133 @@
   document.addEventListener('DOMContentLoaded', function () {
     window.stepper = new Stepper(document.querySelector('.bs-stepper'))
   });
+
+  // テストデータ自動作成
+  function addText()
+  {
+    // テキストセット
+    var n_eisu = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    var l_eisu = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    var number = "0123456789"
+    var hira   = "ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをん";
+    var kata   = "ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヲンヴヵヶ";
+    var TNOKN  = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワ";
+    // 配列セット
+    var nen2  = ["95", "96", "97", "98", "99", "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"];
+    var tuki  = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+    var nen4  = ["1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"];
+    var maker = ["レクサス", "トヨタ", "マツダ", "ダイハツ", "スバル", "ホンダ", "三菱", "スズキ", "日産", "メルセデス・ベンツ", "BMW", "フォルクスワーゲン", "アウディ", "ミニ", "ポルシェ", "ボルボ" , "プジョー" , "シトロエン"]
+    var body  = ["軽自動車", "SUV・クロカン", "ステーションワゴン", "セダン", "クーペ", "オープンカー", "ハッチパック", "ピックアップトラック", "ミニバン・ワゴン", "トラック・その他"]
+    var TNORK = ["ヨコハマ", "ショウナン", "シナガワ", "コウベ", "カワゴエ", "サッポロ", "セタガヤ", "オワリコマキ", "ナニワ", "スズカ"]
+    // 色取得
+    var gaiColorArray = randomGaiColor()
+    var naiColorArray = randomNaiColor()
+    // 自動生成
+    document.carPost.CARNO.value = randomText(l_eisu, randomNum(1,5)) + '-' + randomText(n_eisu, randomNum(5,7))
+    document.carPost.UKENO.value = randomText(number, 8)
+    document.carPost.TYOID.value = randomText(number, 3)
+    document.carPost.NENSK.value = randomArray(nen2) + randomArray(tuki)
+    document.carPost.CARNM.value = randomName()
+    document.carPost.MKRNM.value = randomArray(maker)
+    document.carPost.HIKRY.value = Math.round(randomNum(660, 2000) / 10) * 10
+    document.carPost.MDLNE.value = randomArray(nen4)
+    document.carPost.GRADE.value = randomName()
+    document.carPost.KATSK.value = randomText(l_eisu, randomNum(2,5)) + '-' + randomText(l_eisu, randomNum(2,6))
+    document.carPost.TEIIN.value = randomNum(2,7)
+    document.carPost.DOASU.value = randomNum(2,5)
+    document.carPost.KEIZO.value = randomArray(body)
+    document.carPost.SKSRY.value = document.carPost.TEIIN.value * 10
+    document.carPost.SOUKM.value = Math.round(randomNum(0, 100000) / 100) * 10
+    document.carPost.GAISK.value = gaiColorArray[0]
+    document.carPost.GAINO.value = gaiColorArray[1]
+    document.carPost.COLOR.value = gaiColorArray[2]
+    document.carPost.NAISK.value = naiColorArray[0]
+    document.carPost.NAINO.value = naiColorArray[1]
+    document.carPost.GIASU.value = randomNum(6,10)
+    document.carPost.KENKG.value = randomNum(2021,2030).toString() + randomArray(nen4) + ( '00' + randomNum(1,30) ).slice( -2 )
+    document.carPost.TNORK.value = randomArray(TNORK);
+    document.carPost.TNOBN.value = randomText(number, 3);
+    document.carPost.TNOKN.value = randomText(TNOKN, 1);
+    document.carPost.TNORN.value = randomNum(10,99).toString() + randomNum(10,99).toString();
+    document.carPost.MIHKG.value = randomArray(tuki) + ( '00' + randomNum(1,30) ).slice( -2 );
+    document.carPost.KTSNO.value = randomText(number, 5);
+    document.carPost.RKBNO.value = randomText(number, randomNum(3,4));
+    document.carPost.COMNT.value = '特記事項無し';
+    document.carPost.KTRKN.value = randomNum(100,10000);
+  }
+
+  function randomNum(min, max){
+    return Math.floor( Math.random() * (max + 1 - min) ) + min
+  }
+
+  function randomText(set, mlenght) {
+    return Array.from(crypto.getRandomValues(new Uint32Array(mlenght))).map((n)=>set[n%set.length]).join('')
+  }
+
+  function randomName() {
+    var firstKata = "アイウエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤユヨラリルレロワヴ";
+    var kata      = "ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヲンヴヵヶ";
+    var ei        = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    var su        = "0123456789"
+    var lenght1 = randomNum(3, 6)
+    var lenght2 = randomNum(1, 5)
+    var lenght3 = randomNum(1, 5)
+    var ans = ""
+
+    switch (Math.floor( Math.random() * 6 )) {
+      case 0: // カタカナ
+        ans = Array.from(crypto.getRandomValues(new Uint32Array(1))).map((n)=>firstKata[n%firstKata.length]).join('')
+            + Array.from(crypto.getRandomValues(new Uint32Array(lenght1))).map((n)=>kata[n%kata.length]).join('') 
+        break;
+      case 1: // カタカナ + 英字
+        ans = Array.from(crypto.getRandomValues(new Uint32Array(1))).map((n)=>firstKata[n%firstKata.length]).join('')
+            + Array.from(crypto.getRandomValues(new Uint32Array(lenght1))).map((n)=>kata[n%kata.length]).join('')
+            + Array.from(crypto.getRandomValues(new Uint32Array(lenght2))).map((n)=>ei[n%ei.length]).join('')
+        break;
+      case 2: // カタカナ + 数字
+        ans = Array.from(crypto.getRandomValues(new Uint32Array(1))).map((n)=>firstKata[n%firstKata.length]).join('')
+            + Array.from(crypto.getRandomValues(new Uint32Array(lenght1))).map((n)=>kata[n%kata.length]).join('')
+            + Array.from(crypto.getRandomValues(new Uint32Array(lenght2))).map((n)=>su[n%su.length]).join('')
+        break;
+      case 3: // カタカナ + 英字　+ 数字
+        ans = Array.from(crypto.getRandomValues(new Uint32Array(1))).map((n)=>firstKata[n%firstKata.length]).join('')
+            + Array.from(crypto.getRandomValues(new Uint32Array(lenght1))).map((n)=>kata[n%kata.length]).join('')
+            + Array.from(crypto.getRandomValues(new Uint32Array(lenght2))).map((n)=>ei[n%ei.length]).join('')
+            + Array.from(crypto.getRandomValues(new Uint32Array(lenght3))).map((n)=>su[n%su.length]).join('')
+        break;
+      case 4: // 英字
+        ans = Array.from(crypto.getRandomValues(new Uint32Array(lenght1))).map((n)=>ei[n%ei.length]).join('')
+        break;
+      case 5: // 英字 + 数字
+        ans = Array.from(crypto.getRandomValues(new Uint32Array(lenght1))).map((n)=>ei[n%ei.length]).join('')
+            + Array.from(crypto.getRandomValues(new Uint32Array(lenght2))).map((n)=>su[n%su.length]).join('')
+        break;
+      default:
+        break;
+    }
+    return ans
+  }
+
+  function randomGaiColor(){
+    var num   = randomNum(0,18)
+    var GAISK = ["ホワイトパールクリスタルシャイン", "ホワイトパールクリスタルシャイン", "シルバーメタリック", "グレーメタリック", "ブラック", "ボルドーマイカ", "ダークレッドマイカメタリック", "レッドマイカメタリック", "ボルドーマイカメタリック", "ベージュメタリック", "ベージュメタリック", "ダークブラウンマイカメタリック", "シルキーゴールドマイカメタリック", "ライトグリーンメタリック", "ターコイズマイカメタリック", "グレイッシュブルーマイカメタリック", "ブルーメタリック", "ダークブルーマイカ", "ライトブルーマイカメタリック"]
+    var GAINO = ["070", "073", "1F7", "1G2", "202", "3P2", "3Q3", "3R3", "3R9", "4M9", "4T8", "4U3", "5A4", "6U5", "779", "8N6", "8P1", "8S6", "8S7"]
+    var COLOR = ["白", "白", "灰", "灰", "黒", "赤", "赤", "赤", "赤", "黄", "黄", "茶", "茶", "緑", "緑", "青", "青", "青", "青"]
+
+    return [ GAISK[num], GAINO[num], COLOR[num]];
+  }
+
+  function randomNaiColor(){
+    var num   = randomNum(0,3)
+    var NAISK = ["ホワイト", "ブラック", "グレー", "ブラウン"]
+    var NAINO = ["239", "523", "321", "632"]
+
+    return [ NAISK[num], NAINO[num] ];
+  }
+
+  function randomArray(array){
+    return array[Math.floor(Math.random() * array.length)]
+  }
   
   </script>
 
