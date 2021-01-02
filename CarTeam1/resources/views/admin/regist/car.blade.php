@@ -4,6 +4,11 @@
 
 @section('content_header')
   <button type="button" class="btn btn-danger" onclick="addText()">テストデータ入力（自動生成）</button>
+  @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
 @stop
 
 @section('content')
@@ -249,6 +254,17 @@
                         <div class="icheck-primary d-inline">
                           <input type="checkbox" id="controller4" name="controllers[]" value="オーディオ">
                           <label for="controller4" class="opacity">オーディオ</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="KOKSN">国産車</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KOKSN1" name="KOKSN" value="1" checked>
+                          <label for="KOKSN1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KOKSN2" name="KOKSN" value="0">
+                          <label for="KOKSN2">×</label>
                         </div>
                       </div>
                       <div class="form-group">
@@ -590,6 +606,17 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label for="KNEN">禁煙車</label><br>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KNEN1" name="KNEN" value="1">
+                          <label for="KNEN1">〇</label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="KNEN2" name="KNEN" value="0" checked>
+                          <label for="KNEN2">×</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label for="CMNT">検査員コメント</label>
                         <input type="text" class="form-control" name="CMNT" id="CMNT" placeholder="コメント">
                       </div>
@@ -687,6 +714,11 @@
   .opacity{
     opacity: 0.7;
   }
+  .alert-success{
+    opacity: 0.7;
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
   </style>
 @stop
 
@@ -749,7 +781,7 @@
     document.carPost.TNORN.value = randomNum(10,99).toString() + randomNum(10,99).toString();
     document.carPost.MIHKG.value = randomArray(tuki) + ( '00' + randomNum(1,30) ).slice( -2 );
     document.carPost.KTSNO.value = randomText(number, 5);
-    document.carPost.RKBNO.value = randomText(number, randomNum(3,4));
+    document.carPost.RKBNO.value = randomText(number, 3);
     document.carPost.COMNT.value = '特記事項無し';
     document.carPost.KTRKN.value = randomNum(100,10000);
   }
