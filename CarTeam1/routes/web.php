@@ -26,7 +26,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
   });
 
   // お気に入り
-  Route::get('favorites/{CARNO}', 'FavoriteController@store')->name('favorite.store');
+  Route::post('favorites/{CARNO}', 'FavoriteController@store')->name('favorite.store');
 
   // 検索車両詳細
   Route::get('cars/{car_no}', 'CarController@car_detail')->name('cars');
