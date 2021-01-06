@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             OptionsTableSeeder::class,
             EmployeesTableSeeder::class,
             AdminsTableSeeder::class,
+            FavoritesTableSeeder::class,
         ]);
     }
 }

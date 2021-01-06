@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 <!-- head -->
 @include('common.head')
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <!-- header -->
 @include('common.header')
@@ -80,22 +81,96 @@
               </div>
               <div class="column">
                 <p>ミッション</p>
-                @if(!$car['MISYN'])
-                  <p>AT</p>
-                @else
-                  <p>MT</p>
-                @endif
+                <p>{{ $car['MISYN'] }}</p>
               </div>
             </div>
             <a id="" href="">詳細ページへ</a>
+            @isset($favorites)
+              @if($favorites->isEmpty())
+                <button type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="0"><img src="{{ asset('img/layout/unfavorite.png') }}" width="25px"> お気に入り登録</button>
+              @else
+                <?php $cnt = 0; ?>
+                @foreach($favorites as $favorite)
+                  @if($car['CARNO'] == $favorite['CARNO'])
+                    <button type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="1"><img src="{{ asset('img/layout/favorite.png') }}" width="25px"> お気に入り解除</button>
+                    <?php $cnt++; ?>
+                  @endif
+                @endforeach
+                @if($cnt == 0)
+                  <button type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="0"><img src="{{ asset('img/layout/unfavorite.png') }}" width="25px"> お気に入り登録</button>
+                @endif
+              @endif
+            @else
+            @endif
+            <div class="modal fade" id="{{ $car['CARNO'] }}" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="carno"></p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <form method="POST" action="/user/favorites/{{ $car['CARNO'] }}">
+                    @csrf
+                    <input type="submit" class="btn btn-primary fav">
+                  </div>
+                  @csrf
+                  @if(isset( $car_name ))
+                    <input type="hidden" name="car_name" id="add-input" value="{{ $car_name }}">
+                  @endif
+                  @if(isset( $sort ))
+                    <input type="hidden" name="sort" id="add-input" value="{{ $sort }}">
+                  @endif
+                  @if(isset( $min_price ) && isset( $max_price ))
+                    <input type="hidden" name="min_price" id="add-input" value="{{ $min_price }}">
+                    <input type="hidden" name="max_price" id="add-input" value="{{ $max_price }}">
+                  @endif
+                  @if(isset( $min_nensk ) && isset( $max_nensk )) 
+                    <input type="hidden" name="min_nensk" id="add-input" value="{{ $min_nensk }}">
+                    <input type="hidden" name="max_nensk" id="add-input" value="{{ $max_nensk }}">
+                  @endif
+                  @if(isset( $min_soukm ) && isset( $max_soukm ))
+                    <input type="hidden" name="min_soukm" id="add-input" value="{{ $min_soukm }}">
+                    <input type="hidden" name="max_soukm" id="add-input" value="{{ $max_soukm }}">
+                  @endif
+                    </form>
+                </div>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+            jQuery (function (){
+              jQuery('#{{ $car['CARNO'] }}').on('show.bs.modal', function (event) {
+                // ボタンを取得
+                var button = $(event.relatedTarget)
+                // data-***の部分を取得
+                var carno = button.data('carno')
+                var fav = button.data('fav')
+                var modal = $(this)
+                if(fav === 0){
+                  modal.find('.modal-title').text('お気に入り登録')
+                  modal.find('.modal-footer input').val('登録')
+                  modal.find('.carno').text(carno + 'をお気に入り登録しますか？')
+                }else{
+                  modal.find('.modal-title').text('お気に入り解除')
+                  modal.find('.modal-footer input').val('解除')
+                  modal.find('.carno').text(carno + 'をお気に入り解除しますか？')
+                }
+              })
+            })
+            </script>
           </div>
         </div>
         @endforeach
       @endif
     @else
     @endif
-    <p>
-
   </div>
 </div>
 @endsection
