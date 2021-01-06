@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * ユーザーのお気に入り情報取得
+     */
+    public function favorites()
+    {
+        return $this->belongsToMany('App\Models\Car', 'favorites','user_id','CARNO');
+    }
+
 }
