@@ -69,6 +69,7 @@
 }
 
 .container__plans__msContainer__msItemWrapper__car {
+    position     : relative;
     width        : 290px;
     height       : 400px;
     border       : 1px solid #000;
@@ -93,6 +94,28 @@
     height    : 280px;
 }
 
+.end::after {
+    content   : '';
+    left      : 0;
+    top       : 0;
+    width     : 100%;
+    height    : 100%;
+    position  : absolute;
+    background: #C4C4C4;
+    opacity   : 0.8;
+}
+
+.end::before {
+    content        : '';
+    background     : url("/img/layout/endtext.png") no-repeat center center;
+    background-size: 70%;
+    position       : absolute;
+    width          : 100%;
+    height         : 100%;
+    left           : 0;
+    top            : 0;
+    z-index        : 100;
+}
 
 .container__plans__auctionList {
     text-align: right;

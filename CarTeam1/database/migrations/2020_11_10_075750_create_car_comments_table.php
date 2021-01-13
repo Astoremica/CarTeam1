@@ -21,7 +21,7 @@ class CreateCarCommentsTable extends Migration
             $table->boolean('YGRE')->comment('汚れ');
             $table->boolean('YBRE')->comment('破れ');
             $table->boolean('KNEN')->comment('禁煙車');
-            $table->text('CMNT')->comment('点検コメント');
+            $table->text('CMNT')->nullable()->comment('点検コメント');
             $table->timestamps();
 
             $table->foreign('CARNO')
