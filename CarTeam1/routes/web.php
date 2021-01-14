@@ -29,7 +29,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
   Route::post('favorites/{CARNO}', 'FavoriteController@store')->name('favorite.store');
 
   // 検索車両詳細
-  Route::get('cars/{car_no}', 'CarController@car_detail')->name('cars');
+  Route::get('cars/{CARNO}', 'CarController@car_detail')->name('cars');
 
   // ログイン認証後
   Route::middleware('auth:user')->group(function () {

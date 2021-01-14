@@ -87,7 +87,7 @@ class Car extends Model
      */
     public function options()
     {
-        return $this->hasMany('App\Option');
+        return $this->hasMany('App\Models\Option', 'CARNO');
     }
 
     /**
@@ -95,7 +95,7 @@ class Car extends Model
      */
     public function controllers()
     {
-        return $this->hasMany('App\Controller');
+        return $this->hasMany('App\Models\Controller', 'CARNO');
     }
 
     /**
@@ -103,7 +103,7 @@ class Car extends Model
      */
     public function statuses()
     {
-        return $this->hasMany('App\CarStatus');
+        return $this->hasMany('App\Models\CarStatus', 'CARNO');
     }
 
     /**
@@ -111,7 +111,7 @@ class Car extends Model
      */
     public function comment()
     {
-        return $this->hasOne('App\CarComment');
+        return $this->hasOne('App\Models\CarComment', 'CARNO');
     }
 
     /**
@@ -119,6 +119,6 @@ class Car extends Model
      */
     public function transaction()
     {
-        return $this->hasOne('App\Transaction');
+        return $this->hasOne('App\Models\Transaction', 'CARNO');
     }
 }
