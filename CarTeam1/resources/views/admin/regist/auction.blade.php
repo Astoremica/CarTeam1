@@ -25,7 +25,7 @@
               <div class="form-group">
                 <p>オークション日付選択</p><br>
                 <form method="GET" action="{{ route('admin.regist.auction.date') }}">
-                  <input type="date" name="date" id="date" value="2021-01-17" step="7">
+                  <input type="date" name="date" id="date" value="2021-01-23" step="7">
                   <button type="button" class="btn btn-primary" onclick="submit();">Submit</button>
                 </form>
               </div>

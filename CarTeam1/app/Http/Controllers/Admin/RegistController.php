@@ -149,6 +149,7 @@ class RegistController extends Controller
     // Store
     public function storeAuction(Request $req)
     {
+        $time = 10;
         if (isset($req['id'])){
             Auction::where('id', $req['id'])->update([
                 'name' => $req->memo,
@@ -158,6 +159,16 @@ class RegistController extends Controller
                 'start_date' => $req['date'],
                 'name'       => $req['name'],
             ]);
+        }
+        foreach ($req['CARNO'] as $CARNO){
+            $car = Car::select('KTRKN')->where('CARNO', $CARNO)->first();
+            Car::find($CARNO)->update([
+                'AUCID' => $req['id'],
+                'STATS' => 1,
+                'STRDT' => date('Y-m-d H:i:s', strtotime( $time . ' hour' , strtotime($req['date']))),
+                'STRPR' => $car->KTRKN * 1.1,
+            ]);
+            $time++;
         }
         return redirect()->route('admin.regist.auction')->with('message', 'オークション情報登録完了');
     }
