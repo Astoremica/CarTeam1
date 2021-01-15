@@ -14,6 +14,27 @@ class SearchController extends Controller
     {
         return view('user.home');
     }
+
+    // 車両名で検索（HomeControllerからの遷移）
+    public function car_home(Request $req)
+    {
+      $car_name = $req->car_name;
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->get();
+
+      foreach($cars as $car){
+        if(!($car['STRDT'] == NULL)){
+          $car['STRDT'] = date('Y/m/d H:i', strtotime($car['STRDT']));
+        }
+      }
+
+      $user = User::find(Auth::id());
+      $favorites = null;
+      if(isset($user)){
+        $favorites = $user->favorites()->get();
+      }
+
+      return view('user.search', compact('cars','car_name','favorites'));
+    }
  
     // 車両名で検索
     public function car_name($car_name)
@@ -27,7 +48,10 @@ class SearchController extends Controller
       }
 
       $user = User::find(Auth::id());
-      $favorites = $user->favorites()->get();
+      $favorites = null;
+      if(isset($user)){
+        $favorites = $user->favorites()->get();
+      }
 
       return view('user.search', compact('cars','car_name','favorites'));
     }
@@ -37,7 +61,13 @@ class SearchController extends Controller
     {
       $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofMaker($maker_name)->get();
 
-      return view('user.search', $cars);
+      $user = User::find(Auth::id());
+      $favorites = null;
+      if(isset($user)){
+        $favorites = $user->favorites()->get();
+      }
+
+      return view('user.search', compact('cars','maker_name','favorites'));
     }
 
     // ボディータイプで検索
@@ -45,7 +75,12 @@ class SearchController extends Controller
     {
       $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofBodyType($body_type)->get();
 
-      return view('user.search', $cars);
+      $user = User::find(Auth::id());
+      $favorites = null;
+      if(isset($user)){
+        $favorites = $user->favorites()->get();
+      }
+      return view('user.search', compact('cars','body_type','favorites'));
     }
 
     // 詳細検索
