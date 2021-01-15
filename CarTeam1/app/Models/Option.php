@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Option extends Model
 {
-    protected $fillable = [
-        'CARNO', 'option',
+    protected $guarded = [
+        'updated_at',
     ];
-
 }

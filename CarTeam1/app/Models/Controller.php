@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CarComment extends Model
+class Controller extends Model
 {
     protected $guarded = [
         'updated_at',

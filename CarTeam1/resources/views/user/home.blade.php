@@ -29,7 +29,7 @@
                         <p class="startTime">開始：11:00</p>
                     </a>
                 </li>
-                <li class="container__plans__msContainer__msItemWrapper__car">
+                <li class="container__plans__msContainer__msItemWrapper__car end">
                     <!-- display:block -->
                     <a href="#">
                         <img src="{{asset('img/cars/G-332-22_1.jpg')}}" alt="メーカー名:車種名" />
@@ -120,17 +120,17 @@
 <script type="module" src="{{ asset('js/infiniteslide.js') }}"></script>
 <script type="module" src="{{ asset('js/jquery.pause.min.js') }}"></script>
 <script type="module">
-    (function(){
-            $(window).on('load',function() {
-                $('.container__plans__msContainer').infiniteslide({
+    (function() {
+        $(window).on('load', function() {
+            $('.container__plans__msContainer').infiniteslide({
                 'height': 400, //高さ
                 'speed': 10, //速さ
-                'direction' : 'left', //向き
+                'direction': 'left', //向き
                 'pauseonhover': true //マウスオーバーでストップ
             });
         });
-        })();
-    </script>
+    })();
+</script>
 
 <!-- header -->
 @include('common.footer')
