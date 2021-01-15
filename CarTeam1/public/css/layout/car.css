@@ -13,6 +13,7 @@
 
 .column-date {
     border-left: 6px #DF7478 solid;
+    margin-left: 60px;
 }
 
 .column-date h6 {
@@ -26,6 +27,7 @@
 .column-price {
     border-left: 6px #81BEF7 solid;
     margin-top: 20px;
+    margin-left: 60px;
 }
 
 .column-price h6 {
@@ -52,6 +54,10 @@
 
 .column-some:nth-of-type(4) {
     border: none;
+}
+
+.column-some:nth-of-type(1) {
+    margin-left: 60px;
 }
 
 .display {
@@ -110,4 +116,8 @@ a.return-button {
 .return-button:hover,
 a.return-button:hover {
     color: #fff;
+}
+
+.damage-item {
+    margin-left: 60px;
 }
