@@ -1,28 +1,172 @@
 @charset "UTF-8";
+
+.container {
+    padding-top: 10px;
+}
+
+.container_search_h2 {
+    padding-left : 40px;
+    height       : 35px;
+    line-height  : 35px;
+    position     : relative;
+    font-size    : 28px;
+    margin-bottom: 10px;
+}
+
+.container_search_h2::before {
+    content   : '';
+    position  : absolute;
+    width     : 15px;
+    height    : 35px;
+    left      : 0;
+    top       : 0;
+    background: #DF7478;
+}
+
+.container_search h3 {
+    font-size: 22px;
+}
+
+#searchButton {
+    border-radius: 5px;
+    width        : 60px;
+    height       : 45px;
+    margin-bottom: 10px;
+}
+
+#searchButton img {
+    width: 35px;
+}
+
+.container_search_count_detail {
+    border-top     : 1px solid #C4C4C4;
+    display        : flex;
+    justify-content: space-between;
+    height         : 38px;
+
+}
+
+.container_resultCount {
+    font-size: 24px;
+}
+
+.container_search_detailOpen {
+    color        : #DD7F79;
+    font-size    : 24px;
+    position     : relative;
+    padding-right: 50px;
+    padding-left : 10px;
+    cursor       : pointer;
+    margin       : 0;
+    transition   : 0.2s;
+}
+
+.container_search_detailOpen::after {
+    content        : '';
+    width          : 40px;
+    height         : 100%;
+    top            : 0;
+    right          : 0;
+    position       : absolute;
+    background     : url("/img/layout/detail.png")no-repeat center center;
+    background-size: 70%;
+    cursor         : pointer;
+    transition     : 0.2s;
+
+}
+
+.js-accordion-title.open {
+    transition: 0.2s;
+    background: #fff;
+}
+
+.js-accordion-title.open::after {
+    transform : rotate(180deg);
+    transition: 0.2s;
+}
+
+.container_searchDetail {
+    padding           : 20px;
+    background        : #fff;
+    /* padding-left   : 2.3125em; */
+    display           : none;
+    width             : 100%;
+    margin-bottom     : 10px;
+    position          : relative;
+}
+
+.container_searchDetail h3,
+.container_searchDetail p,
+.container_searchDetail .sort {
+    font-size: 16px;
+
+}
+
+.container_searchDetail .sort input {
+    vertical-align: 0;
+    margin-right  : 2px;
+}
+
+#sorthighlabel {
+    margin-right: 10px;
+}
+
+.container_searchDetail_button {
+    position: absolute;
+    right   : 20px;
+    bottom  : 20px;
+}
+
+.container_searchDetail_button_reset {
+    font-size    : 24px;
+    color        : #FFF;
+    border-radius: 5px;
+    border       : none;
+    width        : 156px;
+    background   : #DD7F79;
+}
+
+.container_searchDetail_button_submit {
+    font-size    : 24px;
+    color        : #FFF;
+    border-radius: 5px;
+    border       : none;
+    width        : 156px;
+    background   : #DD7F79;
+}
+
+#add-input {
+    width       : 600px;
+    font-size   : 24px;
+    margin-right: 5px;
+}
+
 .column {
     margin-left: 10px;
 }
 
-#car-one{
+#car-one {
     background-color: #ffffff;
-    width: 1100px;
-    height: 240px;
-    align-items: center;
+    width           : 1100px;
+    height          : 240px;
+    align-items     : center;
 }
-#car-img{
+
+#car-img {
     margin-left: 30px;
 }
 
-.item-right{
+.item-right {
     margin-left: 5%;
-    margin-top: 1%;
+    margin-top : 1%;
 }
 
-.car-maker,.car-name{
+.car-maker,
+.car-name {
     font-size: 18px;
 }
 
-#prise{
-    font-size: 30px;
+#prise {
+    font-size  : 30px;
     font-weight: bolder;
 }

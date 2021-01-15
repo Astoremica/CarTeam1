@@ -9,30 +9,46 @@
 
 @section('content')
 <div class="container">
-    <div class="col-md-8">
+    <div class="container_search">
+        <h2 class="container_search_h2">車両検索</h2>
         <form action="/user/search/" method="POST">
             @csrf
-            <h3>車名</h3>
+            <h3>車名で検索</h3>
             @if(isset( $car_name ))
-            <p><input type="text" name="car_name" id="add-input" value="{{ $car_name }}"></p>
+            <input type="text" name="car_name" id="add-input" value="{{ $car_name }}">
             @else
-            <p><input type="text" name="car_name" id="add-input" value=""></p>
+            <input type="text" name="car_name" id="add-input" value="">
             @endif
-            <h3>価格</h3>
-            <p>
-                <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">
-            </p>
-            <h3>年式</h3>
-            <p>
-                <input type="number" name="min_nensk" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input">
-            </p>
-            <h3>走行距離</h3>
-            <p>
-                <input type="number" name="min_soukm" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input">
-            </p>
-            <input type="radio" name="sort" value="price-asc">価格の高い順
-            <input type="radio" name="sort" value="price-desc">価格の低い順
-            <input type="submit" name="send" class="btn btn-primary" value="検索">
+            <button type="submit" name="send" id="searchButton" value="検索"><img src="{{asset('img/layout/search.png')}}" alt="検索"></button>
+            <div class="container_search_count_detail">
+                <p class="container_resultCount">検索結果: 99件</p>
+                <p class="container_search_detailOpen js-accordion-title">詳細検索</p>
+
+            </div>
+            <div class="container_searchDetail">
+                <h3>価格</h3>
+                <p>
+                    <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">&nbsp;円
+                </p>
+                <h3>年式</h3>
+                <p>
+                    <input type="number" name="min_nensk" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input">&nbsp;年
+                </p>
+                <h3>走行距離</h3>
+                <p>
+                    <input type="number" name="min_soukm" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input">&nbsp;km
+                </p>
+
+                <h3>並び替え</h3>
+                <div class="sort">
+                    <input id="sorthigh" type="radio" name="sort" value="price-asc"><label for="sorthigh" id="sorthighlabel">価格の高い順</label>
+                    <input id="sortlower" type="radio" name="sort" value="price-desc"><label for="sortlower">価格の低い順</label>
+                </div>
+                <div class="container_searchDetail_button">
+                    <button type="reset" name="send" class="container_searchDetail_button_reset">リセット</button>
+                    <button type="submit" name="send" class="container_searchDetail_button_submit" value="検索">検索</button>
+                </div>
+            </div>
         </form>
     </div>
 
@@ -176,6 +192,15 @@
 </div>
 </div>
 @endsection
-
+<script type="module">
+    (function() {
+        $('.js-accordion-title').on('click', function() {
+            /*クリックでコンテンツを開閉*/
+            $('.container_searchDetail').slideToggle(200);
+            /*矢印の向きを変更*/
+            $(this).toggleClass('open', 200);
+        });
+    })();
+</script>
 <!-- header -->
 @include('common.footer')
