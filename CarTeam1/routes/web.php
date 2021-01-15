@@ -1,8 +1,6 @@
 <?php
 // 最初の画面
-Route::get('/', function () {
-  return view('user.home');
-})->name('user.home');
+Route::get('/', 'User\HomeController@index')->name('user.home');
 
 // ユーザー
 Route::namespace('User')->prefix('user')->name('user.')->group(function () {
@@ -23,6 +21,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     Route::get('maker_name/{maker_name}', 'SearchController@maker_name')->name('search.maker');
     Route::get('body_type/{body_type}', 'SearchController@body_type')->name('search.type');
     Route::post('/', 'SearchController@search_detail')->name('search.detail');
+    Route::get('home', 'SearchController@car_home');
   });
 
   // お気に入り
