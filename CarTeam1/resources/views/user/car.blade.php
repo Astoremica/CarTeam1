@@ -104,7 +104,7 @@
           <img src="{{ asset('img/layout/car_development_view.png') }}" width="300px">
         </div>
       </div>
-      <div class="item-right">
+      <div class="damage-item">
         <table class="table" style="text-align:center;">
           <thead>
             <tr>
