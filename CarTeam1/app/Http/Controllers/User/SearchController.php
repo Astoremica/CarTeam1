@@ -94,7 +94,7 @@ class SearchController extends Controller
   
           foreach($cars as $car){
             if(!($car['STRDT'] == NULL)){
-              $$car['STRDT'] = date('Y/m/d H:i', strtotime($car['STRDT']));
+              $car['STRDT'] = date('Y/m/d H:i', strtotime($car['STRDT']));
             }
           }
   

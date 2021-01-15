@@ -1,0 +1,113 @@
+@charset "UTF-8";
+.main-img {
+    margin-bottom: 15px;
+}
+
+.sub-img {
+    margin-right: 5px;
+}
+
+.sub-img:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.column-date {
+    border-left: 6px #DF7478 solid;
+}
+
+.column-date h6 {
+    margin-left: 10px;
+}
+
+.column-date h2 {
+    margin-left: 30px;
+}
+
+.column-price {
+    border-left: 6px #81BEF7 solid;
+    margin-top: 20px;
+}
+
+.column-price h6 {
+    margin-left: 10px;
+}
+
+.column-price h2 {
+    margin-left: 30px;
+}
+
+.price {
+    margin: 0 0 0 10px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.column-some {
+    color: #0174DF;
+    padding: 10px 30px 0 30px;
+    text-align: center;
+    border-right: 1px solid #c4c4c4;
+    margin-top: 10px;
+}
+
+.column-some:nth-of-type(4) {
+    border: none;
+}
+
+.display {
+    margin-top: -15px;
+    font-weight: 900;
+}
+
+.column-title {
+    border-left: 6px #DF7478 solid;
+    padding: 10px 0 10px 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.car-info {
+    margin-bottom: 50px;
+}
+
+.damage-list {
+    border: solid 1px #c4c4c4;
+    text-align: center;
+}
+
+.column-con {
+    border-right: 1px solid #c4c4c4;
+    padding: 15px 15px 0 15px;
+    margin: 5px 0;
+    width: 79px;
+}
+
+.damage-det {
+    font-size: 11.5px;
+    margin-top: -8px;
+}
+
+.column-con:nth-of-type(9) {
+    border: none;
+}
+
+.return-button,
+a.return-button {
+    background-color: #DF7478 !important;
+    opacity: 0.8;
+    width: 160px;
+    height: 60px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin: 30px 0;
+    color: #ffffff;
+    padding: 19px 12px 0 0;
+}
+
+.return-button:hover,
+a.return-button:hover {
+    color: #fff;
+}

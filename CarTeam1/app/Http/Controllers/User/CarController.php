@@ -15,10 +15,27 @@ class CarController extends Controller
   }
 
   // 選択した車両の詳細情報
-  public function car_detail($car_no)
+  public function car_detail($CARNO)
   {
-    $cars = Car::find($car_no);
+    $car = Car::find($CARNO);
+    $have_options = $car->options;
+    $controllers = $car->controllers;
+    $statuses = $car->statuses;
+    $comments = $car->comment;
+    $car['STRDT'] = date('Y/m/d H:i', strtotime($car['STRDT']));
 
-    return view('user.search', $cars);
+    $options = [
+      'PS' => 'パワーステアリング',
+      'PW' => 'パワーウィンドウ',
+      'ABS' => 'アンチロックブレーキシステム',
+      'AW' => 'アルミホイール',
+      'カセット' => 'カセットステレオ',
+      'CD' => 'CDステレオ',
+      'MD' => 'MDステレオ',
+      'TV' => 'テレビ',
+      'ナビ' => 'ナビ',
+      '革シート' => '革シート'];
+
+    return view('user.car', compact('car','options','controllers','statuses','comments','have_options'));
   }
 }

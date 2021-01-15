@@ -93,7 +93,7 @@
                     @if(!$car['SYURK'])
                     <p>なし</p>
                     @else
-                    <p>{{ $car['SYURK'] }}回</p>
+                  <p>あり</p>
                     @endif
                 </div>
                 <div class="column">
@@ -101,7 +101,7 @@
                     <p>{{ $car['MISYN'] }}</p>
                 </div>
             </div>
-            <a id="" href="">詳細ページへ</a>
+            <a id="" href="/user/cars/{{ $car['CARNO'] }}">詳細ページへ</a>
             @isset($favorites)
             @if($favorites->isEmpty())
             <button type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="0"><img src="{{ asset('img/layout/unfavorite.png') }}" width="25px"> お気に入り登録</button>
