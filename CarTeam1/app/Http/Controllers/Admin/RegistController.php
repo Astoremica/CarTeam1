@@ -9,10 +9,10 @@ use App\Models\Option;
 use App\Models\Controllers;
 use App\Models\CarComment;
 use App\Models\CarStatus;
+use App\Models\Auction;
 
 class RegistController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:admin');
@@ -133,6 +133,33 @@ class RegistController extends Controller
             }
         }
         return redirect()->route('admin.regist.car')->with('message', '車両情報登録完了');
+    }
+
+    public function auctionDate(Request $req)
+    {
+        $date = $req->date;
+        $auction = Auction::where('start_date', $date)->first();
+        if (is_null($auction)){
+            $auction['name'] = date("n月j日", strtotime($date)) . 'のオークション';
+        }
+        $cars = Car::where('STATS', 0)->select('CARNO')->get();
+        return view('admin.regist.auction_date', compact('auction','cars','date'));
+    }
+
+    // Store
+    public function storeAuction(Request $req)
+    {
+        if (isset($req['id'])){
+            Auction::where('id', $req['id'])->update([
+                'name' => $req->memo,
+            ]);
+        } else{
+            Auction::create([
+                'start_date' => $req['date'],
+                'name'       => $req['name'],
+            ]);
+        }
+        return redirect()->route('admin.regist.auction')->with('message', 'オークション情報登録完了');
     }
 
 }

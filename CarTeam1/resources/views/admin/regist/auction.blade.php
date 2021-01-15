@@ -23,13 +23,11 @@
             <div class="card-body">
               <!-- Date -->
               <div class="form-group">
-                <label>オークション日付選択</label>
-                  <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                      <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                      <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                      </div>
-                  </div>
+                <p>オークション日付選択</p><br>
+                <form method="GET" action="{{ route('admin.regist.auction.date') }}">
+                  <input type="date" name="date" id="date" value="2021-01-17" step="7">
+                  <button type="button" class="btn btn-primary" onclick="submit();">Submit</button>
+                </form>
               </div>
               <!-- /.form group -->
             </div>
@@ -48,37 +46,9 @@
 @stop
 
 @section('css')
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
-  <style type="text/css">
-  .opacity{
-    opacity: 0.7;
-  }
-  .alert-success{
-    opacity: 0.7;
-    margin-top: 5px;
-    margin-bottom: 0px;
-  }
-  </style>
+
 @stop
 
 @section('js')
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="{{ asset('js/app.js') }}"></script>
-  <!-- Tempusdominus Bootstrap 4 -->
-  <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
-<!-- Select2 -->
-<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
-<!-- InputMask -->
-<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-<script src="{{ asset('plugins/inputmask/jquery.inputmask.min.js') }}"></script>
-
-  <script>
-    $(function () {
-      //Date range picker
-      $('#reservationdate').datetimepicker({
-        format: 'L'
-      });
-    })
-  </script>
 @stop
