@@ -70,9 +70,9 @@ class CarsTableSeeder extends Seeder
                 'COMNT' => '内装のセカンドシートにたばこ焼け、においあり',
                 'KTRKN' => '500',
                 'IMGSU' => 4,
-                'AUCID' => 1,
-                'STRDT' => '2020-12-12 10:00:00',
-                'STRPR' => 100,
+                'AUCID' => null,
+                'STRDT' => null,
+                'STRPR' => null,
                 'created_at' => new DateTime(),
             ],
             [

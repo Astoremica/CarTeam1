@@ -62,6 +62,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
       Route::get('car','RegistController@car')->name('regist.car');
       Route::post('car','RegistController@storeCar')->name('regist.store.car');
       Route::get('auction','RegistController@auction')->name('regist.auction');
+      Route::post('auction','RegistController@storeAuction')->name('regist.store.auction');
+      Route::get('auction/date','RegistController@auctionDate')->name('regist.auction.date');
       Route::get('employee','RegistController@employee')->name('regist.employee');
     });
 

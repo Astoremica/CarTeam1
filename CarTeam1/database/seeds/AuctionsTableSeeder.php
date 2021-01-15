@@ -12,8 +12,8 @@ class AuctionsTableSeeder extends Seeder
     public function run()
     {
         DB::table('auctions')->insert([
-            'start_date' => '2020-12-12',
-            'name'       => '12月12日のオークション',
+            'start_date' => '2021-01-17',
+            'name'       => '1月17日のオークション',
             'created_at' => new DateTime(),
         ]);
     }

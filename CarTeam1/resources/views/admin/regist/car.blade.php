@@ -8,7 +8,7 @@
     <div class="alert alert-success">
         {{ session('message') }}
     </div>
-@endif
+  @endif
 @stop
 
 @section('content')

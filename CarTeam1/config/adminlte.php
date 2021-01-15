@@ -241,7 +241,7 @@ return [
                 ],
                 [
                     'text' => 'オークション登録',
-                    'url'  => '#',
+                    'url'  => 'admin/regist/auction',
                 ],
                 [
                     'text' => '社員登録',
