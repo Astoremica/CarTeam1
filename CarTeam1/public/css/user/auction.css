@@ -1,0 +1,99 @@
+@charset "UTF-8";
+.item-right {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 500px;
+}
+
+.column1-right h2 {
+    color: red;
+    font-size: 35px;
+}
+
+.column2 {
+    margin-top: 40px;
+    width: 500px;
+}
+
+.column2-left h1 {
+    font-size: 50px;
+}
+
+.column2-right h1 {
+    font-size: 50px;
+}
+
+.column3-left {
+    margin-top: 20px;
+}
+
+.column3 {
+    width: 1020px;
+}
+
+.column-some {
+    padding: 10px 30px 0 30px;
+    text-align: center;
+    border-right: 1px solid #c4c4c4;
+    margin-top: 10px;
+}
+
+.column-some:nth-of-type(4) {
+    border: none;
+}
+
+.column3-right {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    height: 60px;
+    width: 200px;
+}
+
+.zero {
+    font-size: 30px;
+}
+
+.button01 {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    background-color: #58ACFA;
+    /*ボタン色*/
+    border-radius: 10px;
+    /*角丸*/
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    border: none;
+    margin-left: 40px;
+}
+
+.button01:hover {
+    background-color: #81BEF7;
+    /*ボタン色*/
+}
+
+.return-button,
+a.return-button {
+    background-color: #DF7478 !important;
+    opacity: 0.8;
+    width: 160px;
+    height: 60px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin: 30px 0;
+    color: #ffffff;
+    padding: 19px 12px 0 0;
+}
+
+.return-button:hover,
+a.return-button:hover {
+    color: #fff;
+}
