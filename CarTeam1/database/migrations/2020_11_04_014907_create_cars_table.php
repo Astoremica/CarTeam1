@@ -77,11 +77,6 @@ class CreateCarsTable extends Migration
             $table->string('URIST')->nullable()->comment('売り方ステータス');
             $table->timestamps();
             $table->primary('CARNO');
-
-            $table->foreign('AUCID')
-                ->references('id')
-                ->on('auctions')
-                ->onDelete('cascade');
         });
     }
 

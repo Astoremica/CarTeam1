@@ -14,9 +14,14 @@
   @isset($car)
   <div class="d-flex">
     <div class="item-left">
-      <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="565px" class="main-img">
+      <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
+      @if(file_exists($filename))
+        <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="565px" class="main-img">
+      @else
+        <img src="{{ asset('img/cars/car.png') }}" width="565px" class="main-img">
+      @endif
       <div class="d-flex">
-        @for($i = 1 ; $i <= $car['IMGSU'] ; $i++)
+        @for($i = 1 ; $i < $car['IMGSU'] ; $i++)
           <img src="{{ asset('img/cars/' . $car['CARNO'] . '_' . $i . '.jpg') }}" width="90px" class="sub-img">
         @endfor
       </div>
@@ -51,7 +56,7 @@
         </div>
         <div class="column-some">
           <p><u>修復歴</u></p>
-          @if($car['SYURK'] == 0)
+          @if(!$car['SYURK'])
             <p class="display">無し</p>
           @else
             <p class="display">有り</p>

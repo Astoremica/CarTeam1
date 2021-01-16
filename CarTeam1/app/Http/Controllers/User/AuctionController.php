@@ -13,6 +13,6 @@ class AuctionController extends Controller
   public function index($CARNO)
   {
     $car = Car::find($CARNO);
-    return view('user.auction', $car);
+    return view('user.auction', compact('car'));
   }
 }

@@ -13,13 +13,18 @@
 
   <div class="d-flex">
     <div class="item-left">
-      <img src="{{ asset('img/cars/Z12-123456_1.jpg') }}" width="500px" >
+      <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
+      @if(file_exists($filename))
+          <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" alt="メーカー名:車種名" width="500px" />
+      @else
+          <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" width="500px" />
+      @endif
     </div>
     <div class="item-right">
       <div class="d-flex justify-content-between">
         <div class="column1-left">
-          <h5>メルセデス・ベンツ</h5>
-          <h2>A-Class AMGライン</h2>
+          <h5>{{ $car->MKRNM }}</h5>
+          <h2>{{ $car->CARNM }} {{ $car->GRADE }}</h2>
         </div>
         <div class="column1-right">
           <h4>残り時間</h4>
@@ -47,19 +52,23 @@
           <div class="d-flex">
             <div class="column-some">
               <p>年式</p>
-              <p class="display">2020/11</p>
+              <p class="display">{{ substr($car->NENSK,0,2) }}年<br>{{ substr($car->NENSK,2,2) }}月</p>
             </div>
             <div class="column-some">
               <p>走行距離</p>
-              <p class="display">3,000km</p>
+              <p class="display">{{ number_format($car->SOUKM) }}km</p>
             </div>
             <div class="column-some">
               <p>車検期限</p>
-              <p class="display">2023/11</p>
+              <p class="display">{{ substr($car->KENKG, 0, 4) }}年<br>{{ substr($car->KENKG, 4, 2) }}月{{ substr($car->KENKG, 6, 2) }}日</p>
             </div>
             <div class="column-some">
               <p>修復歴</p>
-              <p>なし</p>
+              @if(!$car->SYURK)
+                <p class="display">無し</p>
+              @else
+                <p class="display">有り</p>
+              @endif
             </div>
           </div>
         </div>
