@@ -25,6 +25,8 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     Route::post('/', 'SearchController@search_detail')->name('search.detail');
   });
 
+  // オークション
+  Route::get('auction/{car_no}', 'AuctionController@index')->name('auction');
 
   // 検索車両詳細
   Route::get('cars/{car_no}', 'CarController@car_detail')->name('cars');
