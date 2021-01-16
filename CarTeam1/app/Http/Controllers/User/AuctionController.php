@@ -10,9 +10,9 @@ use App\Models\Car;
 class AuctionController extends Controller
 {
   // オークション
-  public function index($car_no)
+  public function index($CARNO)
   {
-    $car = Car::find($car_no);
+    $car = Car::find($CARNO);
     return view('user.auction', $car);
   }
 }
