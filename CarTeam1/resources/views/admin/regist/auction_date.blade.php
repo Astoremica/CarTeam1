@@ -33,7 +33,7 @@
                     <div id="input_plural">
                       <select name="CARNO[]">
                         @foreach($cars as $car)
-                          <option value="{{ $car->CARNO }}">{{ $car->CARNO }}</option>
+                          <option value="{{ $car->CARNO }}">{{ $car->CARNO . ' / ' . $car->MKRNM . ' / ' . $car->CARNM }}</option>
                         @endforeach
                       </select>
                       <input type="button" value="＋" class="add pluralBtn">

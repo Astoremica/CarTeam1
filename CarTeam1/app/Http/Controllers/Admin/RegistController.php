@@ -142,7 +142,7 @@ class RegistController extends Controller
         if (is_null($auction)){
             $auction['name'] = date("n月j日", strtotime($date)) . 'のオークション';
         }
-        $cars = Car::where('STATS', 0)->select('CARNO')->get();
+        $cars = Car::where('STATS', 0)->select('CARNO', 'MKRNM', 'CARNM')->get();
         return view('admin.regist.auction_date', compact('auction','cars','date'));
     }
 
@@ -152,13 +152,16 @@ class RegistController extends Controller
         $time = 10;
         if (isset($req['id'])){
             Auction::where('id', $req['id'])->update([
-                'name' => $req->memo,
+                'name' => $req->name,
             ]);
         } else{
             Auction::create([
                 'start_date' => $req['date'],
                 'name'       => $req['name'],
             ]);
+        }
+        if(is_null($req['id'])){
+            $req['id'] = Auction::all()->count() + 1;
         }
         foreach ($req['CARNO'] as $CARNO){
             $car = Car::select('KTRKN')->where('CARNO', $CARNO)->first();
