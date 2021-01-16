@@ -38,6 +38,20 @@
     margin-left: 30px;
 }
 
+.column-auction {
+    border-left: 6px #74df74 solid;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.column-auction h6 {
+    margin-left: 10px;
+}
+
+.column-auction h2 {
+    margin-left: 30px;
+}
+
 .price {
     margin: 0 0 0 10px;
     font-size: 15px;

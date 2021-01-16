@@ -34,7 +34,8 @@ class CarController extends Controller
       'MD' => 'MDステレオ',
       'TV' => 'テレビ',
       'ナビ' => 'ナビ',
-      '革シート' => '革シート'];
+      '革シート' => '革シート'
+    ];
 
     return view('user.car', compact('car','options','controllers','statuses','comments','have_options'));
   }

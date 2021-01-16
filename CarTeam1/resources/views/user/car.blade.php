@@ -22,6 +22,7 @@
       </div>
     </div>
     <div class="item-right">
+      @if(strtotime($car['STRDT']) > strtotime('2000/1/1'))
       <div class="column-date">
         <h6>開催日時</h6>
         <h2>{{ $car['STRDT'] }} 〜</h2>
@@ -30,6 +31,11 @@
         <h6>オークション開始価格</h6>
         <h2>{{ number_format($car['STRPR'] * 1000) }}<span class="price">円</span></h2>
       </div>
+      <div class="column-auction">
+        <h6>オークション会場へ</h6>
+        <a href="/user/auction/{{ $car['CARNO'] }}"><h2>入場</h2></a>
+      </div>
+      @endif
       <div class="d-flex">
         <div class="column-some">
           <p><u>年式</u></p>

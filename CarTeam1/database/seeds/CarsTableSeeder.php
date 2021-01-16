@@ -254,7 +254,7 @@ class CarsTableSeeder extends Seeder
                 'JAKKI' => false,
                 'KOUGU' => false,
                 'COMNT' => '非常にきれいな状態ですが、定員変更されています',
-                'KTRKN' => '60000',
+                'KTRKN' => '600',
                 'IMGSU' => 5,
                 'AUCID' => null,
                 'STRDT' => null,
