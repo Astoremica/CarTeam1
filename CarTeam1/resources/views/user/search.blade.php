@@ -21,7 +21,7 @@
             @endif
             <button type="submit" name="send" id="searchButton" value="検索"><img src="{{asset('img/layout/search.png')}}" alt="検索"></button>
             <div class="container_search_count_detail">
-                <p class="container_resultCount">検索結果: 99件</p>
+                <p class="container_resultCount">検索結果: {{ count($cars) }}件</p>
                 <p class="container_search_detailOpen js-accordion-title">詳細検索</p>
 
             </div>
@@ -71,7 +71,12 @@
     @foreach($cars as $car)
     <div class="car_list" id="car-one">
         <div class="car_img">
-            <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}">
+            <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
+                @if(file_exists($filename))
+                    <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" alt="メーカー名:車種名" />
+                @else
+                    <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" />
+                @endif
         </div>
         <div class="car_contents">
             <p class="car_maker">{{ $car['MKRNM'] }}</p>
