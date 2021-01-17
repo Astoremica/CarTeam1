@@ -20,7 +20,7 @@ class SearchController extends Controller
     {
       $car_name = $req->car_name;
       $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->get();
-
+      
       foreach($cars as $car){
         if(!($car['STRDT'] == NULL)){
           $car['STRDT'] = date('Y/m/d H:i', strtotime($car['STRDT']));

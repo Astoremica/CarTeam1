@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Car;
 use Auth;
 
 class MyPageController extends Controller
@@ -18,8 +19,15 @@ class MyPageController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-        dd($user->favorites()->get());
-        return view('user.mypage');
+        $favorites = $user->favorites()->get();
+        $transactions = $user->transactions;
+        $cars = $user->cars()->get();
+        foreach($cars as $car){
+            if(!($car['STRDT'] == NULL)){
+              $car['STRDT'] = date('Y/m/d', strtotime($car['STRDT']));
+            }
+        }
+        return view('user.mypage', compact('user','favorites','transactions','cars'));
     }
     
 }
