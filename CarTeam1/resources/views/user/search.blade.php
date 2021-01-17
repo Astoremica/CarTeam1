@@ -28,15 +28,27 @@
             <div class="container_searchDetail">
                 <h3>価格</h3>
                 <p>
-                    <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">&nbsp;円
+                    @if(isset( $min_price ) && isset( $max_price ))
+                    <input type="number" name="min_price" placeholder="Min" class="price-input" value="{{ $min_price }}"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input" value="{{ $max_price }}">&nbsp;円
+                    @else
+                    <input type="number" name="min_price" placeholder="Min" class="price-input" value=""> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input" value="">&nbsp;円
+                    @endif
                 </p>
                 <h3>年式</h3>
                 <p>
-                    <input type="number" name="min_nensk" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input">&nbsp;年
+                    @if(isset( $min_nensk ) && isset( $max_nensk ))
+                    <input type="number" name="min_nensk" placeholder="Min" class="price-input" value="{{ $min_nensk }}"> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input" value="{{ $max_nensk }}">&nbsp;年
+                    @else
+                    <input type="number" name="min_nensk" placeholder="Min" class="price-input" value=""> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input" value="">&nbsp;年
+                    @endif
                 </p>
                 <h3>走行距離</h3>
                 <p>
-                    <input type="number" name="min_soukm" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input">&nbsp;km
+                    @if(isset( $min_soukm ) && isset( $max_soukm ))
+                    <input type="number" name="min_soukm" placeholder="Min" class="price-input" value="{{ $min_soukm }}"> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input" value="{{ $max_soukm }}">&nbsp;km
+                    @else
+                    <input type="number" name="min_soukm" placeholder="Min" class="price-input" value=""> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input" value="">&nbsp;km
+                    @endif
                 </p>
 
                 <h3>並び替え</h3>
@@ -164,8 +176,7 @@
 
             <script type="text/javascript">
                 jQuery(function() {
-                    jQuery('#{{ $car['
-                        CARNO '] }}').on('show.bs.modal', function(event) {
+                    jQuery('#{{ $car['CARNO'] }}').on('show.bs.modal', function(event) {
                         // ボタンを取得
                         var button = $(event.relatedTarget)
                         // data-***の部分を取得
