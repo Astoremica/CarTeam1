@@ -21,4 +21,6 @@ a:hover {
 
 body {
     background: #F6F6F6;
+    overflow-y: scroll;
+    height    : 100%;
 }

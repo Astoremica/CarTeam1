@@ -9,30 +9,46 @@
 
 @section('content')
 <div class="container">
-    <div class="col-md-8">
+    <div class="container_search">
+        <h2 class="container_search_h2">車両検索</h2>
         <form action="/user/search/" method="POST">
             @csrf
-            <h3>車名</h3>
+            <h3>車名で検索</h3>
             @if(isset( $car_name ))
-            <p><input type="text" name="car_name" id="add-input" value="{{ $car_name }}"></p>
+            <input type="text" name="car_name" id="add-input" value="{{ $car_name }}">
             @else
-            <p><input type="text" name="car_name" id="add-input" value=""></p>
+            <input type="text" name="car_name" id="add-input" value="">
             @endif
-            <h3>価格</h3>
-            <p>
-                <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">
-            </p>
-            <h3>年式</h3>
-            <p>
-                <input type="number" name="min_nensk" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input">
-            </p>
-            <h3>走行距離</h3>
-            <p>
-                <input type="number" name="min_soukm" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input">
-            </p>
-            <input type="radio" name="sort" value="price-asc">価格の高い順
-            <input type="radio" name="sort" value="price-desc">価格の低い順
-            <input type="submit" name="send" class="btn btn-primary" value="検索">
+            <button type="submit" name="send" id="searchButton" value="検索"><img src="{{asset('img/layout/search.png')}}" alt="検索"></button>
+            <div class="container_search_count_detail">
+                <p class="container_resultCount">検索結果: 99件</p>
+                <p class="container_search_detailOpen js-accordion-title">詳細検索</p>
+
+            </div>
+            <div class="container_searchDetail">
+                <h3>価格</h3>
+                <p>
+                    <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">&nbsp;円
+                </p>
+                <h3>年式</h3>
+                <p>
+                    <input type="number" name="min_nensk" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input">&nbsp;年
+                </p>
+                <h3>走行距離</h3>
+                <p>
+                    <input type="number" name="min_soukm" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input">&nbsp;km
+                </p>
+
+                <h3>並び替え</h3>
+                <div class="sort">
+                    <input id="sorthigh" type="radio" name="sort" value="price-asc"><label for="sorthigh" id="sorthighlabel">価格の高い順</label>
+                    <input id="sortlower" type="radio" name="sort" value="price-desc"><label for="sortlower">価格の低い順</label>
+                </div>
+                <div class="container_searchDetail_button">
+                    <button type="reset" name="send" class="container_searchDetail_button_reset">リセット</button>
+                    <button type="submit" name="send" class="container_searchDetail_button_submit" value="検索">検索</button>
+                </div>
+            </div>
         </form>
     </div>
 
@@ -41,68 +57,69 @@
     <p id="not-found">商品が見つかりません</p>
     @else
     @foreach($cars as $car)
-    <div class="d-flex mb-2" id="car-one">
-        <div class="item-left" id="car-img">
-            <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="300px">
+    <div class="car_list" id="car-one">
+        <div class="car_img">
+            <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}">
         </div>
-        <div class="item-right">
-            <div class="d-flex">
-                <div class="column">
-                    <p class="car-maker">{{ $car['MKRNM'] }}</p>
-                    <p class="car-name">{{ $car['CARNM'] }}</p>
+        <div class="car_contents">
+            <p class="car_maker">{{ $car['MKRNM'] }}</p>
+            <p class="car_name">{{ $car['CARNM'] }}</p>
+            <p class="start_time">開始時間：<span>{{ $car['STRDT'] }}</span></p>
+            <div class="car_detail">
+
+                <div class="price">
+                    <p class="price_title">販売価格</p>
+                    <p class="price_price">{{ number_format($car['STRPR'] * 1000) }}</p>
                 </div>
-                <div>
-                    <p>{{ $car['STRDT'] }}</p>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="column">
-                    <p>販売価格</p>
-                    <p id="prise">{{ number_format($car['STRPR'] * 1000) }}</p>
-                </div>
-                <div class="column">
+                <div class="year">
                     <p>年式</p>
                     <p>{{ substr($car['NENSK'],0,2) }}年{{ substr($car['NENSK'],2,2) }}月</p>
                 </div>
-                <div class="column">
+                <div class="mileage">
                     <p>走行距離</p>
                     <p>{{ number_format($car['SOUKM']) }}km</p>
                 </div>
-                <div class="column">
+                <div class="displacement">
                     <p>排気量</p>
                     <p>{{ number_format($car['HIKRY']) }}cc</p>
                 </div>
-                <div class="column">
+                <div class="repair">
                     <p>修復歴</p>
                     @if(!$car['SYURK'])
                     <p>なし</p>
                     @else
-                  <p>あり</p>
+                    <p>あり</p>
                     @endif
                 </div>
-                <div class="column">
+                <div class="drive_system">
                     <p>ミッション</p>
                     <p>{{ $car['MISYN'] }}</p>
                 </div>
             </div>
-            <a id="" href="/user/cars/{{ $car['CARNO'] }}">詳細ページへ</a>
-            @isset($favorites)
-            @if($favorites->isEmpty())
-            <button type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="0"><img src="{{ asset('img/layout/unfavorite.png') }}" width="25px"> お気に入り登録</button>
-            @else
-            <?php $cnt = 0; ?>
-            @foreach($favorites as $favorite)
-            @if($car['CARNO'] == $favorite['CARNO'])
-            <button type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="1"><img src="{{ asset('img/layout/favorite.png') }}" width="25px"> お気に入り解除</button>
-            <?php $cnt++; ?>
-            @endif
-            @endforeach
-            @if($cnt == 0)
-            <button type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="0"><img src="{{ asset('img/layout/unfavorite.png') }}" width="25px"> お気に入り登録</button>
-            @endif
-            @endif
-            @else
-            @endif
+            <div class="car_button">
+                @isset($favorites)
+                @if($favorites->isEmpty())
+                <button class="favorite_button" type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="0"><img src="{{ asset('img/layout/unfavorite.png') }}"> お気に入り登録</button>
+                @else
+                <?php $cnt = 0; ?>
+                @foreach($favorites as $favorite)
+                @if($car['CARNO'] == $favorite['CARNO'])
+                <button class="favorite_button" type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="1"><img src="{{ asset('img/layout/favorite.png') }}"> お気に入り解除</button>
+                <?php $cnt++; ?>
+                @endif
+                @endforeach
+                @if($cnt == 0)
+                <button class="favorite_button" type="button" data-toggle="modal" data-target="#{{ $car['CARNO'] }}" data-carno="{{ $car['CARNM'] }}" data-fav="0"><img src="{{ asset('img/layout/unfavorite.png') }}"> お気に入り登録</button>
+                @endif
+                @endif
+                @else
+                @endif
+
+                <button class="link_detail_button">
+                    <a href="/user/cars/{{ $car['CARNO'] }}"><img src="{{asset('img/layout/link_detail.png')}}">詳細ページへ</a>
+                </button>
+            </div>
+
             <div class="modal fade" id="{{ $car['CARNO'] }}" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -176,6 +193,15 @@
 </div>
 </div>
 @endsection
-
+<script type="module">
+    (function() {
+        $('.js-accordion-title').on('click', function() {
+            /*クリックでコンテンツを開閉*/
+            $('.container_searchDetail').slideToggle(200);
+            /*矢印の向きを変更*/
+            $(this).toggleClass('open', 200);
+        });
+    })();
+</script>
 <!-- header -->
 @include('common.footer')
