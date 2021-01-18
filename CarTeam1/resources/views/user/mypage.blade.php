@@ -70,8 +70,8 @@
                   <h4>{{ $favorite['CARNM'] }}</h4>
                   <div class="d-flex">
                     <div class="column">
-                        <p class="p-title">販売価格</p>
-                        <p class="price">{{ number_format($favorite['STRPR'] * 1000) }}</p>
+                        <p class="p-title">オークション開始価格</p>
+                        <p class="price">{{ isset($favorite['STRPR']) ? number_format($favorite['STRPR'] * 1000):'未登録' }}</p>
                     </div>
                     <div class="column">
                         <p class="fav-title">年式</p>
