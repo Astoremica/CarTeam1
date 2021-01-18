@@ -49,7 +49,7 @@
 
         </div>
         <p class="container__plans__auctionList">
-            <a href="#">開催予定一覧へ</a>
+            <a href="/user/auction/list">開催予定一覧へ</a>
         </p>
     </div>
     <hr>

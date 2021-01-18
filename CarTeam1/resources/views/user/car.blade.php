@@ -15,16 +15,18 @@
   <h3 class="column-title1"><span class="maker">{{ $car['MKRNM'] }}</span> {{ $car['CARNM'] }}</h3>
   <div class="d-flex">
     <div class="item-left">
-      <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
+      <?php $filename = 'img/cars/' . $car['CARNO'] . '_6.jpg'; ?>
       @if(file_exists($filename))
         <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="565px" class="main-img">
       @else
-        <img src="{{ asset('img/cars/car.png') }}" width="565px" class="main-img">
+        <img src="{{ asset('img/cars/car.png') }}" width="500px" class="main-img">
       @endif
       <div class="d-flex">
-        @for($i = 1 ; $i < $car['IMGSU'] ; $i++)
-          <img src="{{ asset('img/cars/' . $car['CARNO'] . '_' . $i . '.jpg') }}" width="90px" class="sub-img">
-        @endfor
+        @if($car['IMGSU'] !== 1)
+          @for($i = 1 ; $i < $car['IMGSU'] ; $i++)
+            <img src="{{ asset('img/cars/' . $car['CARNO'] . '_' . $i . '.jpg') }}" width="90px" class="sub-img">
+          @endfor
+        @endif
       </div>
     </div>
     <div class="item-right">

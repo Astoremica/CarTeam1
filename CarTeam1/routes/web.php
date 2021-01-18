@@ -28,6 +28,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
   Route::post('favorites/{CARNO}', 'FavoriteController@store')->name('favorite.store');
 
   // オークション
+  Route::get('auction/list', 'AuctionController@list')->name('auction.list');
   Route::get('auction/{CARNO}', 'AuctionController@index')->name('auction');
 
   // 検索車両詳細
