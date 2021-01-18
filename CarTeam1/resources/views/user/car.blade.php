@@ -19,12 +19,14 @@
       @if(file_exists($filename))
         <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="565px" class="main-img">
       @else
-        <img src="{{ asset('img/cars/car.png') }}" width="565px" class="main-img">
+        <img src="{{ asset('img/cars/car.png') }}" width="500px" class="main-img">
       @endif
       <div class="d-flex">
-        @for($i = 1 ; $i < $car['IMGSU'] ; $i++)
-          <img src="{{ asset('img/cars/' . $car['CARNO'] . '_' . $i . '.jpg') }}" width="90px" class="sub-img">
-        @endfor
+        @if($car['IMGSU'] !== 1)
+          @for($i = 1 ; $i < $car['IMGSU'] ; $i++)
+            <img src="{{ asset('img/cars/' . $car['CARNO'] . '_' . $i . '.jpg') }}" width="90px" class="sub-img">
+          @endfor
+        @endif
       </div>
     </div>
     <div class="item-right">
@@ -40,6 +42,15 @@
       <div class="column-auction">
         <h6>オークション会場へ</h6>
         <a href="/user/auction/{{ $car['CARNO'] }}" class="btn auction-button"><h4>入場する</h4></a>
+      </div>
+      @else
+      <div class="column-date">
+        <h6>開催日時</h6>
+        <h2>未定</h2>
+      </div>
+      <div class="column-price">
+        <h6>オークション開始価格</h6>
+        <h2>未登録</h2>
       </div>
       @endif
       <div class="d-flex">

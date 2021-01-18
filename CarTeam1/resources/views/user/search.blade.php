@@ -75,7 +75,7 @@
                 @if(file_exists($filename))
                     <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" alt="メーカー名:車種名" />
                 @else
-                    <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" />
+                    <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" class="null-img" width="300px"/>
                 @endif
         </div>
         <div class="car_contents">

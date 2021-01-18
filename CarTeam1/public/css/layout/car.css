@@ -138,6 +138,7 @@ a.return-button {
 .return-button:hover,
 a.return-button:hover {
     color: #fff;
+    background-color: #f08186 !important;
 }
 
 .damage-item {

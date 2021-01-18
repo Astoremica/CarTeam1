@@ -19,7 +19,7 @@ class SearchController extends Controller
     public function car_home(Request $req)
     {
       $car_name = $req->car_name;
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->orderBy('STRPR', 'asc')->get();
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->whereIn('STATS', [0,1])->orderBy('STRPR', 'asc')->get();
       
       foreach($cars as $car){
         if(!($car['STRDT'] == NULL)){
@@ -39,7 +39,7 @@ class SearchController extends Controller
     // 車両名で検索
     public function car_name($car_name)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get();
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->whereIn('STATS', [0,1])->orderBy('STRPR', 'asc')->get();
 
       foreach($cars as $car){
         if(!($car['STRDT'] == NULL)){
@@ -59,7 +59,7 @@ class SearchController extends Controller
     // メーカー名で検索
     public function maker_name($maker_name)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofMaker($maker_name)->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get();
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofMaker($maker_name)->whereIn('STATS', [0,1])->orderBy('STRPR', 'asc')->get();
 
       $user = User::find(Auth::id());
       $favorites = null;
@@ -73,7 +73,7 @@ class SearchController extends Controller
     // ボディータイプで検索
     public function body_type($body_type)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofBodyType($body_type)->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get();
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofBodyType($body_type)->whereIn('STATS', [0,1])->orderBy('STRPR', 'asc')->get();
 
       $user = User::find(Auth::id());
       $favorites = null;
@@ -139,7 +139,7 @@ class SearchController extends Controller
             $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
           }
           
-          $cars = $query->whereIn('URIST', [0,1])->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
+          $cars = $query->whereIn('STATS', [0,1])->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
   
           foreach($cars as $car){
             if(!($car['STRDT'] == NULL)){
@@ -171,7 +171,7 @@ class SearchController extends Controller
               $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
             }
             
-            $cars = $query->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
+            $cars = $query->whereIn('STATS', [0,1])->orderBy('STRPR', 'asc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
   
             foreach($cars as $car){
               if(!($car['STRDT'] == NULL)){
@@ -203,7 +203,7 @@ class SearchController extends Controller
             $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
           }
 
-          $cars = $query->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
+          $cars = $query->whereIn('STATS', [0,1])->orderBy('STRPR', 'asc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
 
           foreach($cars as $car){
             if(!($car['STRDT'] == NULL)){
