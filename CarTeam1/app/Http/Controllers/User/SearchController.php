@@ -73,7 +73,7 @@ class SearchController extends Controller
     // ボディータイプで検索
     public function body_type($body_type)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofBodyType($body_type)->whereIn('URIST', [0,1])->get();
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofBodyType($body_type)->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get();
 
       $user = User::find(Auth::id());
       $favorites = null;
