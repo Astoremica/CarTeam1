@@ -21,22 +21,34 @@
             @endif
             <button type="submit" name="send" id="searchButton" value="検索"><img src="{{asset('img/layout/search.png')}}" alt="検索"></button>
             <div class="container_search_count_detail">
-                <p class="container_resultCount">検索結果: 99件</p>
+                <p class="container_resultCount">検索結果: {{ count($cars) }}件</p>
                 <p class="container_search_detailOpen js-accordion-title">詳細検索</p>
 
             </div>
             <div class="container_searchDetail">
                 <h3>価格</h3>
                 <p>
-                    <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">&nbsp;円
+                    @if(isset( $min_price ) && isset( $max_price ))
+                    <input type="number" name="min_price" placeholder="Min" class="price-input" value="{{ $min_price }}"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input" value="{{ $max_price }}">&nbsp;円
+                    @else
+                    <input type="number" name="min_price" placeholder="Min" class="price-input" value=""> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input" value="">&nbsp;円
+                    @endif
                 </p>
                 <h3>年式</h3>
                 <p>
-                    <input type="number" name="min_nensk" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input">&nbsp;年
+                    @if(isset( $min_nensk ) && isset( $max_nensk ))
+                    <input type="number" name="min_nensk" placeholder="Min" class="price-input" value="{{ $min_nensk }}"> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input" value="{{ $max_nensk }}">&nbsp;年
+                    @else
+                    <input type="number" name="min_nensk" placeholder="Min" class="price-input" value=""> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input" value="">&nbsp;年
+                    @endif
                 </p>
                 <h3>走行距離</h3>
                 <p>
-                    <input type="number" name="min_soukm" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input">&nbsp;km
+                    @if(isset( $min_soukm ) && isset( $max_soukm ))
+                    <input type="number" name="min_soukm" placeholder="Min" class="price-input" value="{{ $min_soukm }}"> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input" value="{{ $max_soukm }}">&nbsp;km
+                    @else
+                    <input type="number" name="min_soukm" placeholder="Min" class="price-input" value=""> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input" value="">&nbsp;km
+                    @endif
                 </p>
 
                 <h3>並び替え</h3>
@@ -59,7 +71,12 @@
     @foreach($cars as $car)
     <div class="car_list" id="car-one">
         <div class="car_img">
-            <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}">
+            <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
+                @if(file_exists($filename))
+                    <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" alt="メーカー名:車種名" />
+                @else
+                    <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" />
+                @endif
         </div>
         <div class="car_contents">
             <p class="car_maker">{{ $car['MKRNM'] }}</p>
@@ -164,8 +181,7 @@
 
             <script type="text/javascript">
                 jQuery(function() {
-                    jQuery('#{{ $car['
-                        CARNO '] }}').on('show.bs.modal', function(event) {
+                    jQuery('#{{ $car['CARNO'] }}').on('show.bs.modal', function(event) {
                         // ボタンを取得
                         var button = $(event.relatedTarget)
                         // data-***の部分を取得
