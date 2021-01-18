@@ -15,7 +15,7 @@
   <h3 class="column-title1"><span class="maker">{{ $car['MKRNM'] }}</span> {{ $car['CARNM'] }}</h3>
   <div class="d-flex">
     <div class="item-left">
-      <?php $filename = 'img/cars/' . $car['CARNO'] . '_6.jpg'; ?>
+      <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
       @if(file_exists($filename))
         <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="565px" class="main-img">
       @else
@@ -42,6 +42,15 @@
       <div class="column-auction">
         <h6>オークション会場へ</h6>
         <a href="/user/auction/{{ $car['CARNO'] }}" class="btn auction-button"><h4>入場する</h4></a>
+      </div>
+      @else
+      <div class="column-date">
+        <h6>開催日時</h6>
+        <h2>未定</h2>
+      </div>
+      <div class="column-price">
+        <h6>オークション開始価格</h6>
+        <h2>未登録</h2>
       </div>
       @endif
       <div class="d-flex">
