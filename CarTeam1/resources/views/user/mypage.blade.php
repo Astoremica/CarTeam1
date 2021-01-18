@@ -98,7 +98,11 @@
                         <p>{{ $favorite['MISYN'] }}</p>
                     </div>
                   </div>
+                  @if($car['URIST'] == 2)
+                  <p class="car-end">終了</p>
+                  @else
                   <a href="/user/cars/{{ $favorite['CARNO'] }}" class="btn fav-button fav" style="width: 13rem;">車両詳細</a>
+                  @endif
                 </div>
               </div>
             </div>
