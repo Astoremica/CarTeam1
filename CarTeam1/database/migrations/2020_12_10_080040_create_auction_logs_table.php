@@ -14,7 +14,7 @@ class CreateAuctionLogsTable extends Migration
     public function up()
     {
         Schema::create('auction_logs', function (Blueprint $table) {
-            $table->unsignedBigInteger('auction_id')->comment('オークションID');
+            $table->unsignedBigInteger('CARNO')->comment('オークションID');
             $table->integer('price')->comment('入札金額');
             $table->integer('user_id')->comment('ユーザーID');
             $table->timestamps();
