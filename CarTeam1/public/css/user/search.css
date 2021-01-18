@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 /* Search_Original_Reset */
+
 footer {
     /* position: absolute;
     bottom  : 0; */
@@ -11,21 +12,21 @@ footer {
 }
 
 .container_search_h2 {
-    padding-left : 40px;
-    height       : 35px;
-    line-height  : 35px;
-    position     : relative;
-    font-size    : 28px;
+    padding-left: 40px;
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+    font-size: 28px;
     margin-bottom: 10px;
 }
 
 .container_search_h2::before {
-    content   : '';
-    position  : absolute;
-    width     : 15px;
-    height    : 35px;
-    left      : 0;
-    top       : 0;
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 35px;
+    left: 0;
+    top: 0;
     background: #DF7478;
 }
 
@@ -35,8 +36,8 @@ footer {
 
 #searchButton {
     border-radius: 5px;
-    width        : 60px;
-    height       : 45px;
+    width: 60px;
+    height: 45px;
     margin-bottom: 10px;
 }
 
@@ -45,11 +46,10 @@ footer {
 }
 
 .container_search_count_detail {
-    border-top     : 1px solid #C4C4C4;
-    display        : flex;
+    border-top: 1px solid #C4C4C4;
+    display: flex;
     justify-content: space-between;
-    height         : 38px;
-
+    height: 38px;
 }
 
 .container_resultCount {
@@ -57,14 +57,14 @@ footer {
 }
 
 .container_search_detailOpen {
-    color        : #DD7F79;
-    font-size    : 24px;
-    position     : relative;
+    color: #DD7F79;
+    font-size: 24px;
+    position: relative;
     padding-right: 50px;
-    padding-left : 10px;
-    cursor       : pointer;
-    margin       : 0;
-    transition   : 0.2s;
+    padding-left: 10px;
+    cursor: pointer;
+    margin: 0;
+    transition: 0.2s;
 }
 
 .container_search_detailOpen:hover {
@@ -72,37 +72,36 @@ footer {
 }
 
 .container_search_detailOpen::after {
-    content        : '';
-    width          : 35px;
-    height         : 100%;
-    top            : 0;
-    right          : 0;
-    position       : absolute;
-    background     : url("/img/layout/detail.png")no-repeat center center;
+    content: '';
+    width: 35px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: url("/img/layout/detail.png")no-repeat center center;
     background-size: 70%;
-    cursor         : pointer;
-    transition     : 0.2s;
-
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .js-accordion-title.open {
-    transition   : 0.2s;
-    background   : #fff;
+    transition: 0.2s;
+    background: #fff;
     border-radius: 5px;
 }
 
 .js-accordion-title.open::after {
-    transform : rotate(180deg);
+    transform: rotate(180deg);
     transition: 0.2s;
 }
 
 .container_searchDetail {
-    padding      : 20px;
-    background   : #fff;
-    display      : none;
-    width        : 100%;
+    padding: 20px;
+    background: #fff;
+    display: none;
+    width: 100%;
     margin-bottom: 20px;
-    position     : relative;
+    position: relative;
     border-radius: 5px;
 }
 
@@ -110,12 +109,11 @@ footer {
 .container_searchDetail p,
 .container_searchDetail .sort {
     font-size: 16px;
-
 }
 
 .container_searchDetail .sort input {
     vertical-align: 0;
-    margin-right  : 2px;
+    margin-right: 2px;
 }
 
 #sorthighlabel {
@@ -124,37 +122,37 @@ footer {
 
 .container_searchDetail_button {
     position: absolute;
-    right   : 20px;
-    bottom  : 20px;
+    right: 20px;
+    bottom: 20px;
 }
 
 .container_searchDetail_button_reset,
 .container_searchDetail_button_submit {
-    font-size    : 20px;
-    color        : #000;
+    font-size: 20px;
+    color: #000;
     border-radius: 5px;
-    border       : none;
-    width        : 156px;
-    background   : #F6F6F6;
-    border       : 1px solid #000;
-    padding      : 3px 0;
+    border: none;
+    width: 156px;
+    background: #F6F6F6;
+    border: 1px solid #000;
+    padding: 3px 0;
 }
 
 .container_searchDetail_button_submit {
-    color     : #FFF;
-    border    : none;
+    color: #FFF;
+    border: none;
     background: #DD7F79;
 }
 
 #add-input {
-    width       : 600px;
-    font-size   : 20px;
+    width: 600px;
+    font-size: 20px;
     margin-right: 5px;
 }
 
 #not-found {
-    font-size    : 20px;
-    margin-top   : 3%;
+    font-size: 20px;
+    margin-top: 3%;
     margin-bottom: 51%;
 }
 
@@ -163,25 +161,24 @@ footer {
 }
 
 .car_list {
-    display        : flex;
+    display: flex;
     justify-content: center;
-    padding        : 30px;
-    border-radius  : 5px;
-    position       : relative;
-    background     : #FFF;
-    margin-bottom  : 20px;
+    padding: 30px;
+    border-radius: 5px;
+    position: relative;
+    background: #FFF;
+    margin-bottom: 20px;
 }
 
 .car_img {
-    width       : 400px;
+    width: 400px;
     margin-right: 30px;
 }
 
 .car_img img {
-    width : 100%;
+    width: 100%;
     height: auto;
 }
-
 
 .car_maker {
     font-size: 20px;
@@ -192,9 +189,9 @@ footer {
 }
 
 .start_time {
-    position : absolute;
-    right    : 45px;
-    top      : 30px;
+    position: absolute;
+    right: 45px;
+    top: 30px;
     font-size: 20px;
 }
 
@@ -204,13 +201,13 @@ footer {
 
 .car_detail {
     margin-top: 10px;
-    display   : flex;
+    display: flex;
 }
 
 .car_detail>div {
-    display     : block;
+    display: block;
     border-right: #C4C4C4 1px solid;
-    padding     : 5px;
+    padding: 5px;
 }
 
 .car_detail>div:last-child {
@@ -219,12 +216,11 @@ footer {
 
 .car_detail>div p {
     font-size: 18px;
-
 }
 
 .car_detail>div p:nth-child(2) {
     line-height: 50px;
-    text-align : center;
+    text-align: center;
 }
 
 .price {
@@ -237,17 +233,16 @@ footer {
 
 .car_button {
     position: absolute;
-    right   : 45px;
-    bottom  : 30px;
+    right: 45px;
+    bottom: 30px;
 }
 
 .favorite_button,
 .link_detail_button {
-    width        : 200px;
-    height       : 50px;
-    font-size    : 20px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
     border-radius: 5px;
-
 }
 
 .favorite_button {
@@ -256,12 +251,12 @@ footer {
 
 .link_detail_button {
     background: #DF7478;
-    border    : none;
+    border: none;
 }
 
 .link_detail_button a {
     display: block;
-    color  : #f6f6f6;
+    color: #f6f6f6;
 }
 
 .link_detail_button a:hover {
@@ -274,6 +269,11 @@ footer {
 
 .link_detail_button img,
 .favorite_button img {
-    width : auto;
+    width: auto;
     height: 35px;
+}
+
+.null-img {
+    width: 300px !important;
+    margin: 0 50px;
 }

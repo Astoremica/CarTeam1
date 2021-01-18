@@ -38,7 +38,12 @@
               </div>
               <div class="d-flex detail">
                 <div class="car-item1">
-                  <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="180px">
+                  <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
+                  @if(file_exists($filename))
+                      <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" alt="メーカー名:車種名" width="180px" class="fav-img"/>
+                  @else
+                      <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" width="155px" class="null-img"/>
+                  @endif
                 </div>
                 <div class="car-item2">
                   <h3>{{ $car['CARNM'] }}</h3>
