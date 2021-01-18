@@ -26,7 +26,9 @@
     <div class="item-right">
       <h3 class="title"><img src="{{ asset('img/cars/title-car.png') }}" width="32px" class="title-img">現在取引中の車両</h3>
       @isset($cars)
-        @if(!$cars->isEmpty())
+        @if($cars->isEmpty())
+          <p>現在取引中の車両はありません。</p>
+        @else
           @foreach($cars as $car)
             @foreach($transactions as $transaction)
             @if($car['CARNO'] == $transaction['CARNO'])
@@ -59,7 +61,9 @@
 
       <h3 class="title"><img src="{{ asset('img/cars/title-car.png') }}" width="32px" class="title-img">お気に入り登録した車両</h3>
       @isset($favorites)
-        @if(!$favorites->isEmpty())
+        @if($favorites->isEmpty())
+          <p>お気に入りに登録されている車両はありません。</p>
+        @else
           @foreach($favorites as $favorite)
             <div class="cars">
               <div class="d-flex detail">
@@ -98,6 +102,9 @@
                         <p>{{ $favorite['MISYN'] }}</p>
                     </div>
                   </div>
+                  @if($favorite['STATS'] == 2)
+                  <p class="car-end">終了</p>
+                  @else
                   <a href="/user/cars/{{ $favorite['CARNO'] }}" class="btn fav-button fav" style="width: 13rem;">車両詳細</a>
                 </div>
               </div>
