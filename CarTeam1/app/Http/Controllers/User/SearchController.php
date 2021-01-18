@@ -19,8 +19,8 @@ class SearchController extends Controller
     public function car_home(Request $req)
     {
       $car_name = $req->car_name;
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->get();
-
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->orderBy('STRPR', 'asc')->get();
+      
       foreach($cars as $car){
         if(!($car['STRDT'] == NULL)){
           $car['STRDT'] = date('Y/m/d H:i', strtotime($car['STRDT']));
@@ -39,7 +39,7 @@ class SearchController extends Controller
     // 車両名で検索
     public function car_name($car_name)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->get();
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('CARNM', 'LIKE', "%$car_name%")->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get();
 
       foreach($cars as $car){
         if(!($car['STRDT'] == NULL)){
@@ -59,7 +59,7 @@ class SearchController extends Controller
     // メーカー名で検索
     public function maker_name($maker_name)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofMaker($maker_name)->get();
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofMaker($maker_name)->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get();
 
       $user = User::find(Auth::id());
       $favorites = null;
@@ -73,7 +73,7 @@ class SearchController extends Controller
     // ボディータイプで検索
     public function body_type($body_type)
     {
-      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofBodyType($body_type)->get();
+      $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->ofBodyType($body_type)->whereIn('URIST', [0,1])->get();
 
       $user = User::find(Auth::id());
       $favorites = null;
@@ -90,15 +90,22 @@ class SearchController extends Controller
       $car_name = $req->car_name;
       $sort = $req->sort;
       $price = [
-          'min' => $req->min_price,
-          'max' => $req->max_price,
+          'min' => $req->min_price / 1000,
+          'max' => $req->max_price / 1000,
       ];
       $min_price = $req->min_price;
       $max_price = $req->max_price;
-      $nensk = [
-        'min' => $req->min_nensk,
-        'max' => $req->max_nensk,
-      ];
+      if(empty($req->min_nensk) || empty($req->max_nensk)){
+        $nensk = [
+          'min' => $req->min_nensk,
+          'max' => $req->max_nensk
+        ];
+      }else{
+        $nensk = [
+          'min' => substr($req->min_nensk, 2, 2) . '01',
+          'max' => substr($req->max_nensk, 2, 2) . '12'
+        ];
+      }
       $min_nensk = $req->min_nensk;
       $max_nensk = $req->max_nensk;
       $soukm = [
@@ -119,13 +126,20 @@ class SearchController extends Controller
             $query->whereBetween('STRPR', [$price['min'], $price['max']]);
           }
           if(!empty($nensk['min']) && !empty($nensk['max'])){
-            $query->whereBetween('NENSK', [$nensk['min'], $nensk['max']]);
+            if($nensk['min'] < $nensk['max']){
+              $query->whereBetween('NENSK', [$nensk['min'], $nensk['max']]);
+            }else{
+              $query->where(function($query) use($nensk){
+                $query->whereBetween('NENSK', [$nensk['min'], '9912'])
+                      ->orWhereBetween('NENSK', ['0001', $nensk['max']]);
+              });
+            }
           }
           if(!empty($soukm['min']) && !empty($soukm['max'])){
             $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
           }
           
-          $cars = $query->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
+          $cars = $query->whereIn('URIST', [0,1])->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
   
           foreach($cars as $car){
             if(!($car['STRDT'] == NULL)){
@@ -144,13 +158,20 @@ class SearchController extends Controller
               $query->whereBetween('STRPR', [$price['min'], $price['max']]);
             }
             if(!empty($nensk['min']) && !empty($nensk['max'])){
-              $query->whereBetween('NENSK', [$nensk['min'], $nensk['max']]);
+              if($nensk['min'] < $nensk['max']){
+                $query->whereBetween('NENSK', [$nensk['min'], $nensk['max']]);
+              }else{
+                $query->where(function($query) use($nensk){
+                  $query->whereBetween('NENSK', [$nensk['min'], '9912'])
+                        ->orWhereBetween('NENSK', ['0001', $nensk['max']]);
+                });
+              }
             }
             if(!empty($soukm['min']) && !empty($soukm['max'])){
               $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
             }
             
-            $cars = $query->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
+            $cars = $query->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
   
             foreach($cars as $car){
               if(!($car['STRDT'] == NULL)){
@@ -169,13 +190,20 @@ class SearchController extends Controller
             $query->whereBetween('STRPR', [$price['min'], $price['max']]);
           }
           if(!empty($nensk['min']) && !empty($nensk['max'])){
-            $query->whereBetween('NENSK', [$nensk['min'], $nensk['max']]);
+            if($nensk['min'] < $nensk['max']){
+              $query->whereBetween('NENSK', [$nensk['min'], $nensk['max']]);
+            }else{
+              $query->where(function($query) use($nensk){
+                $query->whereBetween('NENSK', [$nensk['min'], '9912'])
+                      ->orWhereBetween('NENSK', ['0001', $nensk['max']]);
+              });
+            }
           }
           if(!empty($soukm['min']) && !empty($soukm['max'])){
             $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
           }
 
-          $cars = $query->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
+          $cars = $query->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
 
           foreach($cars as $car){
             if(!($car['STRDT'] == NULL)){

@@ -44,5 +44,17 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Car', 'favorites','user_id','CARNO');
     }
+    
+    /**
+     * ユーザーの取引情報取得
+     */
+    public function cars()
+    {
+        return $this->belongsToMany('App\Models\Car', 'transactions','user_id','CARNO');
+    }
+    public function transactions()
+    {
+        return $this->hasMany('App\Models\Transaction', 'user_id');
+    }
 
 }
