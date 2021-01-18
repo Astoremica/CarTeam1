@@ -15,7 +15,7 @@
   <h3 class="column-title1"><span class="maker">{{ $car['MKRNM'] }}</span> {{ $car['CARNM'] }}</h3>
   <div class="d-flex">
     <div class="item-left">
-      <?php $filename = 'img/cars/' . $car['CARNO'] . '_6.jpg'; ?>
+      <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
       @if(file_exists($filename))
         <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="565px" class="main-img">
       @else
