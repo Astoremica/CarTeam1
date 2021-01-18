@@ -153,3 +153,10 @@ a.fav-button:hover {
 .fav-img {
     margin-top: 10px;
 }
+
+.car-end {
+    margin-left: 420px;
+    color: #DF7478;
+    font-size: 30px;
+    font-weight: bolder;
+}
