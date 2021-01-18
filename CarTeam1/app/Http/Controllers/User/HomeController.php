@@ -12,6 +12,7 @@ class HomeController extends Controller
   public function index()
   {
       $nextDay = date('Y-m-d', strtotime('next Saturday'));
+      $nowDate = date('Y/m/d H:i', strtotime("-9 minute"));
 
       $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('STRDT', '>=' , $nextDay)->orderBy('STRDT', 'asc')->get();
       foreach($cars as $car){
@@ -19,7 +20,7 @@ class HomeController extends Controller
           $car['STRDT'] = date('Y/m/d H:i', strtotime($car['STRDT']));
         }
       }
-      return view('user.home', compact('nextDay', 'cars'));
+      return view('user.home', compact('nextDay', 'cars', 'nowDate'));
   }
 
 }
