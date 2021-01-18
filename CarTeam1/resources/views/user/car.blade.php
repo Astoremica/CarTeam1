@@ -12,6 +12,7 @@
   <a href="javascript:history.back()" class="btn return-button">〈 前に戻る</a>
 
   @isset($car)
+  <h3 class="column-title1"><span class="maker">{{ $car['MKRNM'] }}</span> {{ $car['CARNM'] }}</h3>
   <div class="d-flex">
     <div class="item-left">
       <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
@@ -38,7 +39,7 @@
       </div>
       <div class="column-auction">
         <h6>オークション会場へ</h6>
-        <a href="/user/auction/{{ $car['CARNO'] }}"><h2>入場</h2></a>
+        <a href="/user/auction/{{ $car['CARNO'] }}" class="btn auction-button"><h4>入場する</h4></a>
       </div>
       @endif
       <div class="d-flex">
