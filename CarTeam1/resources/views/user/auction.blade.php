@@ -75,13 +75,13 @@
       </div>
     </div>
     <div class="item2-right">
-        <div class="column3-right">
-          <h5>入札金額入力</h5>
-          <form action="" method="">
-            <input type="text" name=""><span class="zero">,000</span>
-            <input type="submit" name="" class="button01" value="入札">
-          </form>
-        </div>
+      <div class="column3-right">
+        <h5>入札金額入力</h5>
+        <form action="" method="">
+          <input type="text" name=""><span class="zero">,000</span>
+          <input type="submit" name="" class="button01" value="入札">
+        </form>
+      </div>
     </div>
   </div>
 

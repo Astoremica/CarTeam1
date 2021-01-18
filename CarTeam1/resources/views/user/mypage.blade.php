@@ -27,7 +27,7 @@
       <h3 class="title"><img src="{{ asset('img/cars/title-car.png') }}" width="32px" class="title-img">現在取引中の車両</h3>
       @isset($cars)
         @if($cars->isEmpty())
-          <p>現在取引中の車両はありません。</p>
+          <p class="null">現在取引中の車両はありません。</p>
         @else
           @foreach($cars as $car)
             @foreach($transactions as $transaction)
@@ -40,7 +40,12 @@
               </div>
               <div class="d-flex detail">
                 <div class="car-item1">
-                  <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="180px">
+                  <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
+                  @if(file_exists($filename))
+                      <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" alt="メーカー名:車種名" width="180px" class="fav-img"/>
+                  @else
+                      <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" width="155px" class="null-img"/>
+                  @endif
                 </div>
                 <div class="car-item2">
                   <h3>{{ $car['CARNM'] }}</h3>
@@ -51,18 +56,16 @@
                 </div>
               </div>
             </div>
-            @else
             @endif
             @endforeach
           @endforeach
-        @else
         @endif
       @endif
 
       <h3 class="title"><img src="{{ asset('img/cars/title-car.png') }}" width="32px" class="title-img">お気に入り登録した車両</h3>
       @isset($favorites)
         @if($favorites->isEmpty())
-          <p>お気に入りに登録されている車両はありません。</p>
+          <p class="null">お気に入りに登録されている車両はありません。</p>
         @else
           @foreach($favorites as $favorite)
             <div class="cars">
@@ -74,8 +77,8 @@
                   <h4>{{ $favorite['CARNM'] }}</h4>
                   <div class="d-flex">
                     <div class="column">
-                        <p class="p-title">販売価格</p>
-                        <p class="price">{{ number_format($favorite['STRPR'] * 1000) }}</p>
+                        <p class="p-title">オークション開始価格</p>
+                        <p class="price">{{ isset($favorite['STRPR']) ? number_format($favorite['STRPR'] * 1000):'未登録' }}</p>
                     </div>
                     <div class="column">
                         <p class="fav-title">年式</p>
@@ -106,12 +109,13 @@
                   <p class="car-end">終了</p>
                   @else
                   <a href="/user/cars/{{ $favorite['CARNO'] }}" class="btn fav-button fav" style="width: 13rem;">車両詳細</a>
+                  @endif
                 </div>
               </div>
             </div>
           @endforeach
-        @else
         @endif
+      @else
       @endif
     </div>
   </div>

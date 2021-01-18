@@ -95,6 +95,7 @@ a.detail-button {
 .detail-button:hover,
 a.detail-button:hover {
     color: #fff;
+    background-color: #f08186 !important;
 }
 
 .column {
@@ -148,8 +149,34 @@ a.fav-button {
 .fav-button:hover,
 a.fav-button:hover {
     color: #fff;
+    background-color: #f08186 !important;
 }
 
 .fav-img {
-    margin-top: 10px;
+    margin-top: 18px;
+}
+
+.car-end {
+    background-color: #BDBDBD !important;
+    opacity: 0.8;
+    width: 160px !important;
+    height: 55px;
+    padding-right: 17px;
+    border: none;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin-top: 5px;
+    color: #DF7478;
+    padding: 16px 0 0 0;
+    margin-left: 390px;
+    text-align: center;
+}
+
+.null-img {
+    margin: 0 12px;
+}
+
+.null {
+    margin: 10px 30px;
+    font-size: 18px;
 }

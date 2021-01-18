@@ -318,9 +318,9 @@ class CarsTableSeeder extends Seeder
                 'COMNT' => '非常にきれいな状態ですが、燃焼機関にトラブルあり',
                 'KTRKN' => '500',
                 'IMGSU' => 6,
-                'AUCID' => null,
-                'STRDT' => null,
-                'STRPR' => null,
+                'AUCID' => 1,
+                'STRDT' => '2021-01-23 10:00:00',
+                'STRPR' => '550',
                 'created_at' => new DateTime(),
             ],
         ]);
