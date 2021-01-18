@@ -139,7 +139,7 @@ class SearchController extends Controller
             $query->whereBetween('SOUKM', [$soukm['min'], $soukm['max']]);
           }
           
-          $cars = $query->whereIn('URIST', [0,1])->orderBy('STRPR', 'asc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
+          $cars = $query->whereIn('URIST', [0,1])->orderBy('STRPR', 'desc')->get(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR']);
   
           foreach($cars as $car){
             if(!($car['STRDT'] == NULL)){
