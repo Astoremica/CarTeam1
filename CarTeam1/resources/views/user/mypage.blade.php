@@ -26,7 +26,9 @@
     <div class="item-right">
       <h3 class="title"><img src="{{ asset('img/cars/title-car.png') }}" width="32px" class="title-img">現在取引中の車両</h3>
       @isset($cars)
-        @if(!$cars->isEmpty())
+        @if($cars->isEmpty())
+          <p class="null">現在取引中の車両はありません。</p>
+        @else
           @foreach($cars as $car)
             @foreach($transactions as $transaction)
             @if($car['CARNO'] == $transaction['CARNO'])
@@ -38,7 +40,12 @@
               </div>
               <div class="d-flex detail">
                 <div class="car-item1">
-                  <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" width="180px">
+                  <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
+                  @if(file_exists($filename))
+                      <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" alt="メーカー名:車種名" width="180px" class="fav-img"/>
+                  @else
+                      <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" width="155px" class="null-img"/>
+                  @endif
                 </div>
                 <div class="car-item2">
                   <h3>{{ $car['CARNM'] }}</h3>
@@ -49,17 +56,17 @@
                 </div>
               </div>
             </div>
-            @else
             @endif
             @endforeach
           @endforeach
-        @else
         @endif
       @endif
 
       <h3 class="title"><img src="{{ asset('img/cars/title-car.png') }}" width="32px" class="title-img">お気に入り登録した車両</h3>
       @isset($favorites)
-        @if(!$favorites->isEmpty())
+        @if($favorites->isEmpty())
+          <p class="null">お気に入りに登録されている車両はありません。</p>
+        @else
           @foreach($favorites as $favorite)
             <div class="cars">
               <div class="d-flex detail">
@@ -98,7 +105,7 @@
                         <p>{{ $favorite['MISYN'] }}</p>
                     </div>
                   </div>
-                  @if($car['URIST'] == 2)
+                  @if($favorite['STATS'] == 2)
                   <p class="car-end">終了</p>
                   @else
                   <a href="/user/cars/{{ $favorite['CARNO'] }}" class="btn fav-button fav" style="width: 13rem;">車両詳細</a>
@@ -107,8 +114,8 @@
               </div>
             </div>
           @endforeach
-        @else
         @endif
+      @else
       @endif
     </div>
   </div>
