@@ -22,9 +22,13 @@
 
                 @foreach($cars as $car)
 
+                @if($car['STRDT'] < $nowDate)
+                <li class="container__plans__msContainer__msItemWrapper__car end">
+                @else
                 <li class="container__plans__msContainer__msItemWrapper__car">
-                    <!-- display:block -->
                     <a href="/user/cars/{{ $car['CARNO'] }}">
+                @endif
+                    <!-- display:block -->
                         <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
                         @if(file_exists($filename))
                             <img src="{{ asset('img/cars/' . $car['CARNO'] . '_1.jpg') }}" alt="メーカー名:車種名" />
@@ -34,7 +38,10 @@
                         <p class="brandName">{{ $car['MARNM'] }}</p>
                         <p class="carName">{{ $car['CARNM'] }}</p>
                         <p class="startTime">開始：{{ $car['STRDT'] }}</p>
+                @if($car['STRDT'] > $nowDate)
                     </a>
+                @else
+                @endif
                 </li>
 
                 @endforeach
