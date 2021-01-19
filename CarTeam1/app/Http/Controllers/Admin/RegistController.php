@@ -127,7 +127,7 @@ class RegistController extends Controller
                 foreach($req['status' . $i] as $status){
                     CarStatus::create([
                         'CARNO' => $req['CARNO'],
-                        'NO'    => $i,
+                        'no'    => $i,
                         'stats' => $status,
                     ]);
                 }
