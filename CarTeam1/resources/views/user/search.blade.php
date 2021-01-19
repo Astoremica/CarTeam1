@@ -81,12 +81,16 @@
         <div class="car_contents">
             <p class="car_maker">{{ $car['MKRNM'] }}</p>
             <p class="car_name">{{ $car['CARNM'] }}</p>
+            @if(strtotime($car['STRDT']) > strtotime('2000/1/1'))
             <p class="start_time">開始時間：<span>{{ $car['STRDT'] }}</span></p>
+            @else
+            <p class="start_time">開始時間：未定</p>
+            @endif
             <div class="car_detail">
 
                 <div class="price">
-                    <p class="price_title">販売価格</p>
-                    <p class="price_price">{{ number_format($car['STRPR'] * 1000) }}</p>
+                    <p class="price_title">開始価格</p>
+                    <p class="price_price">{{ isset($car['STRPR']) ? number_format($car['STRPR'] * 1000):'未登録' }}</p>
                 </div>
                 <div class="year">
                     <p>年式</p>
