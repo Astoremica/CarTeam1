@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             EmployeesTableSeeder::class,
             AdminsTableSeeder::class,
             FavoritesTableSeeder::class,
+            TransactionSeeder::class,
         ]);
     }
 }
