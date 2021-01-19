@@ -19,7 +19,7 @@ class AuctionController extends Controller
   // 開催予定一覧
   public function list()
   {
-      $nextDay = date('Y-m-d', strtotime('next Saturday'));
+      $nextDay = date('Y-m-d');
 
       $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR','STATS'])->where('STRDT', '>=' , $nextDay)->orderBy('STRDT', 'asc')->get();
       foreach($cars as $car){
