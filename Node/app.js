@@ -76,7 +76,9 @@ app.post('/enter', function (req, res) {
 app.post('/endauction', function (req, res) {
     console.log('post');
     console.log(req.body);
-    res.send('POST is sended.');
+    message = "Success!!";
+    res.json({ 'massage': message });
+    res.end();
 })
 http_socket.listen(9000);
 

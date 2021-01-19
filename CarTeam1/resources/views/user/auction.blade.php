@@ -262,9 +262,30 @@
                 }
                 // 終了した時の処理を入れようかな
                 // エラー出てたで多分fl"a"gやからやけど
-                // if (flag == false) {
+                if (flg == false) {
 
-                // }
+                    // Nodeに終了したことを知らせて終わりの処理スタート
+                    var jsonData = {
+                        carno: '{{ $car->CARNO }}'
+                    }
+                    var xhr = new XMLHttpRequest();
+                    var jsonText = JSON.stringify(jsonData); // ここで、dataをJSON文字列に変換
+                    xhr.open("POST", "http://localhost:9000/endauction", true);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    // xhr.onload = function(e) {
+                    //     if (xhr.readyState === 4) {
+                    //         if (xhr.status === 200) {
+                    //             console.log(xhr.responseText);
+                    //         } else {
+                    //             console.error(xhr.statusText);
+                    //         }
+                    //     }
+                    // };
+                    xhr.onerror = function(e) {
+                        console.error(xhr.statusText);
+                    };
+                    xhr.send(jsonText);
+                }
 
                 // 作成した文字列を表示
                 document.getElementById("RealtimeCountdownArea").innerHTML = msg;
