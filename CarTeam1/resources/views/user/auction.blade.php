@@ -80,8 +80,12 @@
         <div class="item2-right">
             <div class="column3-right">
                 <h5>入札金額入力</h5>
-                <form action="" method="">
-                    <input type="text" name="" id="inputPrice"><span class="zero">,000</span>
+                <form action="http://localhost:9000/enter" method="post">
+
+                    <input type="hidden" name="user" value="{{Auth::id()}}">
+                    <input type="hidden" name="now" value="" id="nowprice">
+                    <input type="hidden" name="carno" value="{{ $car->CARNO }}">
+                    <input type="text" name="price" id="inputPrice"><span class="zero">,000</span>
                     <input type="submit" name="" class="button01" value="入札" id="enterButton">
                 </form>
             </div>
@@ -99,8 +103,6 @@
 
     <a href="javascript:history.back()" class="btn return-button">〈 前に戻る</a>
 
-
-    {{ $car->STRDT }}
 </div>
 
 
@@ -120,6 +122,7 @@
                 axios.get('/user/auctionajax/{{ $car->CARNO }}').then((response) => {
                     this.$data.price = response.data.price;
                     document.getElementById("price").innerHTML = response.data.price + ",000";
+                    document.getElementById("nowprice").value = response.data.price + ",000";
                 }).catch(error => {
                     console.log(error);
                 });
@@ -130,6 +133,7 @@
             axios.get('/user/auctionajax/{{ $car->CARNO }}').then((response) => {
                 app.$data.price = response.data.price;
                 document.getElementById("price").innerHTML = response.data.price + ",000";
+                document.getElementById("nowprice").value = response.data.price;
                 console.log(app.$data.price);
             }).catch(error => {
                 console.log(error);
@@ -211,8 +215,10 @@
 
                     inputMin++;
                 }
-                inputHour = String(inputHour);
-                inputMin = String(inputMin);
+                // inputHour = String(inputHour);
+                // inputMin = String(inputMin);
+                inputHour = 14;
+                inputMin = 50;
                 // console.log(inputSec);
                 // var inputYear = document.getElementById("userYear").value
                 var targetDate = new Date(isNumOrZero(inputYear), isNumOrZero(inputMonth), isNumOrZero(inputDate), isNumOrZero(inputHour), isNumOrZero(inputMin), isNumOrZero(inputSec));
@@ -253,6 +259,55 @@
                     $('#inputPrice').addClass("endinputprice");
                     $('#enterButton').prop('disabled', true);
                     $('#enterButton').addClass("endbutton");
+
+                    if (flag = true) {
+
+                        var json_asocc = [{
+                            'carno': '{{ $car->CARNO }}'
+                        }];
+
+                        //JSONにエンコード
+                        var json_text = JSON.stringify(json_asocc);
+
+                        //データを送信
+                        xhr = new XMLHttpRequest; //インスタンス作成
+                        xhr.onload = function() { //レスポンスを受け取った時の処理（非同期）
+                            var res = xhr.responseText;
+                            if (res.length > 0) alert(res);
+                        };
+                        xhr.onerror = function() { //エラーが起きた時の処理（非同期）
+                            alert("error!");
+                        }
+                        xhr.open('post', "http://localhost:9000/endauction", true); //(1)
+                        xhr.setRequestHeader('Content-Type', 'application/json');
+                        xhr.send(json_text); //送信実行
+
+
+                        // var data = {
+                        //     carno: '{{ $car->CARNO }}'
+                        // };
+                        // // 通信実行
+                        // $.ajax({
+                        //     type: "post", // method = "POST"
+                        //     url: "http://localhost:9000/endauction", // POST送信先のURL
+                        //     data: JSON.stringify(data), // JSONデータ本体
+                        //     contentType: 'application/json', // リクエストの Content-Type
+                        //     dataType: "json", // レスポンスをJSONとしてパースする
+                        //     success: function(json_data) { // 200 OK時
+                        //         // JSON Arrayの先頭が成功フラグ、失敗の場合2番目がエラーメッセージ
+                        //         if (!json_data[0]) { // サーバが失敗を返した場合
+                        //             alert("Transaction error. " + json_data[1]);
+                        //             return;
+                        //         }
+                        //     },
+                        //     error: function() { // HTTPエラー時
+                        //         alert("Server Error. Pleasy try again later.");
+                        //     },
+                        //     complete: function() { // 成功・失敗に関わらず通信が終了した際の処理
+                        //         button.attr("disabled", false); // ボタンを再び enableにする
+                        //     }
+                        // });
+                    }
                     flg = false;
                 } else {
                     msg = msg2;
