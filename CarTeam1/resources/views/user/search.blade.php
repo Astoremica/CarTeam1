@@ -140,20 +140,18 @@
             <div class="modal fade" id="{{ $car['CARNO'] }}" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title"></h5>
+                        <div class="modal-body">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                        </div>
-                        <div class="modal-body">
+                            <h5 class="modal-title column-title"></h5>
                             <p class="carno"></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                            <form method="POST" action="/user/favorites/{{ $car['CARNO'] }}">
-                                @csrf
+                            <div class="d-flex flex-row-reverse">
+                                <form method="POST" action="/user/favorites/{{ $car['CARNO'] }}">
+                                    @csrf
                                 <input type="submit" class="btn btn-primary fav">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                            </div>
                         </div>
                         @csrf
                         @if(isset( $car_name ))
@@ -189,12 +187,12 @@
                         var fav = button.data('fav')
                         var modal = $(this)
                         if (fav === 0) {
-                            modal.find('.modal-title').text('お気に入り登録')
-                            modal.find('.modal-footer input').val('登録')
+                            modal.find('.column-title').text('お気に入り登録')
+                            modal.find('.modal-body input').val('登録')
                             modal.find('.carno').text(carno + 'をお気に入り登録しますか？')
                         } else {
                             modal.find('.modal-title').text('お気に入り解除')
-                            modal.find('.modal-footer input').val('解除')
+                            modal.find('.modal-body input').val('解除')
                             modal.find('.carno').text(carno + 'をお気に入り解除しますか？')
                         }
                     })

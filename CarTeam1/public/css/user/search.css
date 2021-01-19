@@ -277,3 +277,36 @@ footer {
     width: 300px !important;
     margin: 0 50px;
 }
+
+.column-title {
+    border-left: 6px #DF7478 solid;
+    border-bottom: solid 1px #DF7478;
+    padding: 10px 0 10px 10px;
+}
+
+.carno {
+    padding: 20px 0;
+}
+
+.close {
+    margin-right: 15px;
+}
+
+.fav {
+    background-color: #DF7478 !important;
+    opacity: 0.8;
+    width: 70px;
+    height: 37px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+    color: #ffffff;
+    margin-left: 5px;
+}
+
+.fav:hover {
+    color: #fff;
+    background-color: #f08186 !important;
+}
