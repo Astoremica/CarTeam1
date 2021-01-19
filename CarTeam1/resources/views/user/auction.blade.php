@@ -201,18 +201,20 @@
                 // console.log(inputMonth);
                 var inputDate = oprnDate.substring(8, 10);
                 // console.log(inputDate);
-                var inputHour = oprnDate.substring(10, 12);
-                // console.log(inputHour);
-                var inputMin = oprnDate.substring(13, 15);
-                // console.log(inputMin);
+                var inputHour = parseInt(oprnDate.substring(10, 12), 10);
+                var inputMin = parseInt(oprnDate.substring(13, 15), 10);
                 var inputSec = oprnDate.substring(16, 18);
+                if (inputMin == 59) {
+                    inputMin = 0;
+                    inputHour++;
+                } else {
+
+                    inputMin++;
+                }
+                inputHour = String(inputHour);
+                inputMin = String(inputMin);
                 // console.log(inputSec);
-                // var inputYear = document.getElementById("userYear").value;
-                // var inputMonth = document.getElementById("userMonth").value - 1;
-                // var inputDate = document.getElementById("userDate").value;
-                // var inputHour = document.getElementById("userHour").value;
-                // var inputMin = document.getElementById("userMin").value;
-                // var inputSec = document.getElementById("userSec").value;
+                // var inputYear = document.getElementById("userYear").value
                 var targetDate = new Date(isNumOrZero(inputYear), isNumOrZero(inputMonth), isNumOrZero(inputDate), isNumOrZero(inputHour), isNumOrZero(inputMin), isNumOrZero(inputSec));
                 var dnumTarget = targetDate.getTime();
 
