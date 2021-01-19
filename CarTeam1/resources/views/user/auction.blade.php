@@ -29,7 +29,7 @@
                 </div>
                 <div class="column1-right">
                     <h4>残り時間</h4>
-                    <h2>7分23秒</h2>
+                    <h2 id="RealtimeCountdownArea">7分23秒</h2>
                 </div>
             </div>
 
@@ -81,15 +81,26 @@
             <div class="column3-right">
                 <h5>入札金額入力</h5>
                 <form action="" method="">
-                    <input type="text" name=""><span class="zero">,000</span>
-                    <input type="submit" name="" class="button01" value="入札">
+                    <input type="text" name="" id="inputPrice"><span class="zero">,000</span>
+                    <input type="submit" name="" class="button01" value="入札" id="enterButton">
                 </form>
             </div>
         </div>
     </div>
+    <!-- <p>
+        <input type="text" id="userYear" maxlength="4" value="2021">年
+        <input type="text" id="userMonth" maxlength="2" value="1">月
+        <input type="text" id="userDate" maxlength="2" value="19">日
+        <input type="text" id="userHour" maxlength="2" value="11">時
+        <input type="text" id="userMin" maxlength="2" value="22">分
+        <input type="text" id="userSec" maxlength="2" value="0">秒<br>
+
+    </p> -->
 
     <a href="javascript:history.back()" class="btn return-button">〈 前に戻る</a>
 
+
+    {{ $car->STRDT }}
 </div>
 
 
@@ -106,7 +117,7 @@
                 price: ""
             },
             mounted() {
-                axios.get('/user/auctionajax/EEQs-212k22').then((response) => {
+                axios.get('/user/auctionajax/{{ $car->CARNO }}').then((response) => {
                     this.$data.price = response.data.price;
                     document.getElementById("price").innerHTML = response.data.price + ",000";
                 }).catch(error => {
@@ -116,7 +127,7 @@
         });
 
         setInterval(function() {
-            axios.get('/user/auctionajax/EEQs-212k22').then((response) => {
+            axios.get('/user/auctionajax/{{ $car->CARNO }}').then((response) => {
                 app.$data.price = response.data.price;
                 document.getElementById("price").innerHTML = response.data.price + ",000";
                 console.log(app.$data.price);
@@ -124,8 +135,138 @@
                 console.log(error);
             });
         }, 1000);
+
+        // 終了タイマー
+        function set2fig(num) {
+            // 数値が1桁だったら2桁の文字列にして返す
+            var ret;
+            if (num < 10) {
+                ret = "0" + num;
+            } else {
+                ret = num;
+            }
+            return ret;
+        }
+
+        function isNumOrZero(num) {
+            // 数値でなかったら0にして返す
+            if (isNaN(num)) {
+                return 0;
+            }
+            return num;
+        }
+
+        function set2fig(num) {
+            // 数値が1桁だったら2桁の文字列にして返す
+            var ret;
+            if (num < 10) {
+                ret = "0" + num;
+            } else {
+                ret = num;
+            }
+            return ret;
+        }
+
+        function isNumOrZero(num) {
+            // 数値でなかったら0にして返す
+            if (isNaN(num)) {
+                return 0;
+            }
+            return num;
+        }
+
+        // $('#timer').click(function() {
+        //     showCountdown();
+        // });
+
+        var flg = true;
+
+        setInterval(function() {
+
+            if (flg) {
+
+                // 現在日時を数値(1970-01-01 00:00:00からのミリ秒)に変換
+                var nowDate = new Date();
+                var dnumNow = nowDate.getTime();
+
+                var oprnDate = '{{ $car->STRDT }}';
+                oprnDate = oprnDate.replace(/\s+/g, "");
+                // console.log(oprnDate);
+
+                // 指定日時を数値(1970-01-01 00:00:00からのミリ秒)に変換
+
+                var inputYear = oprnDate.substring(0, 4);
+                // console.log(inputYear);
+                var inputMonth = oprnDate.substring(5, 7);
+                // console.log(inputMonth);
+                var inputDate = oprnDate.substring(8, 10);
+                // console.log(inputDate);
+                var inputHour = oprnDate.substring(10, 12);
+                // console.log(inputHour);
+                var inputMin = oprnDate.substring(13, 15);
+                // console.log(inputMin);
+                var inputSec = oprnDate.substring(16, 18);
+                // console.log(inputSec);
+                // var inputYear = document.getElementById("userYear").value;
+                // var inputMonth = document.getElementById("userMonth").value - 1;
+                // var inputDate = document.getElementById("userDate").value;
+                // var inputHour = document.getElementById("userHour").value;
+                // var inputMin = document.getElementById("userMin").value;
+                // var inputSec = document.getElementById("userSec").value;
+                var targetDate = new Date(isNumOrZero(inputYear), isNumOrZero(inputMonth), isNumOrZero(inputDate), isNumOrZero(inputHour), isNumOrZero(inputMin), isNumOrZero(inputSec));
+                var dnumTarget = targetDate.getTime();
+
+                // 表示を準備
+                var dlYear = targetDate.getFullYear();
+                var dlMonth = targetDate.getMonth() + 1;
+                var dlDate = targetDate.getDate();
+                var dlHour = targetDate.getHours();
+                var dlMin = targetDate.getMinutes();
+                var dlSec = targetDate.getSeconds();
+
+                // 引き算して日数(ミリ秒)の差を計算
+                var diff2Dates = dnumTarget - dnumNow;
+                // 期限が過ぎた場合は -1 を掛けて正の値に変換
+
+                if (dnumTarget <= dnumNow) {
+                    diff2Dates *= -1;
+
+                }
+                // 差のミリ秒を、日数・時間・分・秒に分割
+                var dDays = diff2Dates / (1000 * 60 * 60 * 24); // 日数
+                diff2Dates = diff2Dates % (1000 * 60 * 60 * 24);
+                var dHour = diff2Dates / (1000 * 60 * 60); // 時間
+                diff2Dates = diff2Dates % (1000 * 60 * 60);
+                var dMin = diff2Dates / (1000 * 60); // 分
+                diff2Dates = diff2Dates % (1000 * 60);
+                var dSec = diff2Dates / 1000; // 秒
+                var msg2 = Math.floor(dMin) + "分" +
+                    Math.floor(dSec) + "秒";
+
+                // 表示文字列の作成
+                var msg;
+                if (msg2 == '0分0秒') {
+                    msg = "終了";
+                    $('#inputPrice').prop('disabled', true)
+                    $('#inputPrice').addClass("endinputprice");
+                    $('#enterButton').prop('disabled', true);
+                    $('#enterButton').addClass("endbutton");
+                    flg = false;
+                } else {
+                    msg = msg2;
+
+                }
+
+                // 作成した文字列を表示
+                document.getElementById("RealtimeCountdownArea").innerHTML = msg;
+
+            }
+
+
+        }, 200);
+        // 1秒ごとに実行
+        // setInterval(showCountdown(), 1000);
     });
 </script>
-
 <!-- header -->
 @include('common.footer')
