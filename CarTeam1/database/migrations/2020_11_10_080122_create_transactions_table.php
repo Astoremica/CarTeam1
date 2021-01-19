@@ -20,7 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('k_status')->default(0)->comment('決済状況');
             $table->integer('n_status')->default(0)->comment('納車状況');
             $table->date('pay_date')->nullable()->comment('入金日');
-            $table->string('name')->comment('入金者氏名');
+            $table->string('name')->nullable()->comment('入金者氏名');
             $table->timestamps();
 
             $table->foreign('CARNO')
