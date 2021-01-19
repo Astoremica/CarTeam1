@@ -10,6 +10,7 @@ use App\Models\Controllers;
 use App\Models\CarComment;
 use App\Models\CarStatus;
 use App\Models\Auction;
+use App\Models\AuctionLog;
 use Illuminate\Support\Facades\Validator;
 
 class RegistController extends Controller
@@ -181,6 +182,11 @@ class RegistController extends Controller
                     'STRDT' => date('Y-m-d H:i:s', strtotime( $time . ' minutes' , strtotime(date("Y/m/d H:i:s")))),
                     'STRPR' => $car->KTRKN * 1.1,
                 ]);
+                AuctionLog::create([
+                    'CARNO' => $CARNO,
+                    'price' => $car->KTRKN * 1.1,
+                    'user_id' => 0,
+                ]);
                 $time++;
             }
         } else{
@@ -203,6 +209,11 @@ class RegistController extends Controller
                     'STATS' => 1,
                     'STRDT' => date('Y-m-d H:i:s', strtotime( $time . ' hour' , strtotime($req['date']))),
                     'STRPR' => $car->KTRKN * 1.1,
+                ]);
+                AuctionLog::create([
+                    'CARNO' => $CARNO,
+                    'price' => $car->KTRKN * 1.1,
+                    'user_id' => 0,
                 ]);
                 $time++;
             }

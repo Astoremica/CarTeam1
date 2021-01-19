@@ -325,7 +325,7 @@ class CarsTableSeeder extends Seeder
             ],
             [
                 'CARNO' => '1N6-1FeQCK',
-                'STATS' => 0,
+                'STATS' => 2,
                 'KOKSN' => true,
                 'ONEON' => true,
                 'USRBY' => false,
@@ -387,7 +387,7 @@ class CarsTableSeeder extends Seeder
             ],
             [
                 'CARNO' => '7LDCI-cTzSvo',
-                'STATS' => 0,
+                'STATS' => 2,
                 'KOKSN' => true,
                 'ONEON' => true,
                 'USRBY' => false,
@@ -449,7 +449,7 @@ class CarsTableSeeder extends Seeder
             ],
             [
                 'CARNO' => 'MV-QcYrm',
-                'STATS' => 0,
+                'STATS' => 2,
                 'KOKSN' => true,
                 'ONEON' => true,
                 'USRBY' => false,
@@ -511,7 +511,7 @@ class CarsTableSeeder extends Seeder
             ],
             [
                 'CARNO' => '5-zmgbJ',
-                'STATS' => 0,
+                'STATS' => 2,
                 'KOKSN' => true,
                 'ONEON' => true,
                 'USRBY' => false,
@@ -573,7 +573,7 @@ class CarsTableSeeder extends Seeder
             ],
             [
                 'CARNO' => '85O4-oSz90',
-                'STATS' => 0,
+                'STATS' => 2,
                 'KOKSN' => true,
                 'ONEON' => true,
                 'USRBY' => false,
