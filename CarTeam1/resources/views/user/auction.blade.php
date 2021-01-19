@@ -29,7 +29,7 @@
                 </div>
                 <div class="column1-right">
                     <h4>残り時間</h4>
-                    <h2 id="RealtimeCountdownArea">7分23秒</h2>
+                    <h2 id="RealtimeCountdownArea">loading</h2>
                 </div>
             </div>
 
@@ -39,10 +39,6 @@
                     <div id="app">
                         <h1 id="price"></h1>
                     </div>
-                </div>
-                <div class="column2-right">
-                    <h5>入札数</h5>
-                    <h1>10</h1>
                 </div>
             </div>
         </div>

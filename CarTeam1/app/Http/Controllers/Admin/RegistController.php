@@ -138,6 +138,7 @@ class RegistController extends Controller
 
     public function auctionDate(Request $req)
     {
+        $auction_cars = [];
         if($req->button === 'submit'){
             $date = $req->date;
             $auction_cars = [];
