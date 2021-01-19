@@ -179,7 +179,7 @@ class RegistController extends Controller
                 Car::find($CARNO)->update([
                     'AUCID' => $req['id'],
                     'STATS' => 1,
-                    'STRDT' => date('Y-m-d H:i:s', strtotime( $time . ' minutes' , strtotime(date("Y/m/d H:i:s")))),
+                    'STRDT' => date('Y-m-d H:i', strtotime( $time . ' minutes' , strtotime(date("Y/m/d H:i:s")))),
                     'STRPR' => $car->KTRKN * 1.1,
                 ]);
                 AuctionLog::create([

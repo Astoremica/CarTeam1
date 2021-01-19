@@ -261,9 +261,10 @@
 
                 }
                 // 終了した時の処理を入れようかな
-                if (flag == false) {
+                // エラー出てたで多分fl"a"gやからやけど
+                // if (flag == false) {
 
-                }
+                // }
 
                 // 作成した文字列を表示
                 document.getElementById("RealtimeCountdownArea").innerHTML = msg;
