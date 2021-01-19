@@ -190,7 +190,7 @@
                         <input type="text" class="form-control" name="KTRKN" id="KTRKN" placeholder="買取金額(千円)" autocomplete="off">
                       </div>
                       <button type="button" class="btn btn-danger" onclick="addText()">テストデータ入力（自動生成）</button>
-                      <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.next()">次へ</button>
                     </div>
                     {{-- 車両情報（選択） --}}
                     <div id="car-part2" class="content" role="tabpanel" aria-labelledby="car-part2-trigger">
@@ -545,8 +545,8 @@
                           <label for="KOUGU2">×</label>
                         </div>
                       </div>
-                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                      <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">戻る</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.next()">次へ</button>
                     </div>
                     {{-- 検査員コメント --}}
                     <div id="comment-part" class="content" role="tabpanel" aria-labelledby="comment-part-trigger">
@@ -620,8 +620,8 @@
                         <label for="CMNT">検査員コメント</label>
                         <input type="text" class="form-control" name="CMNT" id="CMNT" placeholder="コメント">
                       </div>
-                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                      <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">戻る</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.next()">次へ</button>
                     </div>
                     {{-- 車両ステータス（図） --}}
                     <div id="status-part" class="content" role="tabpanel" aria-labelledby="status-part-trigger">
@@ -666,8 +666,8 @@
                           </div>
                         </div>
                       @endfor
-                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                      <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">戻る</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.next()">次へ</button>
                     </div>
                     {{-- 車両画像 --}}
                     <div id="img-part" class="content" role="tabpanel" aria-labelledby="img-part-trigger">
@@ -676,15 +676,15 @@
                         <div class="input-group">
                           <div class="custom-file">
                             <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            <label class="custom-file-label" for="exampleInputFile">ファイル選択</label>
                           </div>
                           <div class="input-group-append">
-                            <span class="input-group-text">Upload</span>
+                            <span class="input-group-text">アップロード</span>
                           </div>
                         </div>
                       </div>
-                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                      <button type="button" class="btn btn-primary" onclick="submit();">Submit</button>
+                      <button type="button" class="btn btn-primary" onclick="stepper.previous()">戻る</button>
+                      <button type="button" class="btn btn-primary" onclick="submit();">送信</button>
                     </div>
                   </div>
                 </form>
@@ -801,7 +801,7 @@
     var su        = "0123456789"
     var lenght1 = randomNum(3, 6)
     var lenght2 = randomNum(1, 5)
-    var lenght3 = randomNum(1, 5)
+    var lenght3 = randomNum(1, 3)
     var ans = ""
 
     switch (Math.floor( Math.random() * 6 )) {

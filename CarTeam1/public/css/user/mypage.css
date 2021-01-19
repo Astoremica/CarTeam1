@@ -28,6 +28,26 @@
     line-height: 35px !important;
 }
 
+.button01 {
+    width: 150px;
+    line-height: 50px;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    background-color: #58ACFA !important;
+    /*ボタン色*/
+    border-radius: 10px;
+    /*角丸*/
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    border: none !important;
+}
+
+.button01:hover {
+    background-color: #81BEF7 !important;
+    /*ボタン色*/
+}
+
 .title {
     margin: 20px 0 10px 30px;
     border-left: 8px #DF7478 solid;
@@ -179,4 +199,30 @@ a.fav-button:hover {
 .null {
     margin: 10px 30px;
     font-size: 18px;
+}
+
+.car-item2 {
+    width: 340px;
+}
+
+.return-button,
+a.return-button {
+    background-color: #DF7478 !important;
+    opacity: 0.8;
+    width: 160px;
+    height: 60px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin: 10px 0 30px 30px;
+    color: #ffffff;
+    padding: 19px 12px 0 0;
+}
+
+.return-button:hover,
+a.return-button:hover {
+    color: #fff;
+    background-color: #f08186 !important;
 }

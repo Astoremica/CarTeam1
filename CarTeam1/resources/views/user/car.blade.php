@@ -43,6 +43,15 @@
         <h6>オークション会場へ</h6>
         <a href="/user/auction/{{ $car['CARNO'] }}" class="btn auction-button"><h4>入場する</h4></a>
       </div>
+      @else
+      <div class="column-date">
+        <h6>開催日時</h6>
+        <h2>未定</h2>
+      </div>
+      <div class="column-price">
+        <h6>オークション開始価格</h6>
+        <h2>未登録</h2>
+      </div>
       @endif
       <div class="d-flex">
         <div class="column-some">

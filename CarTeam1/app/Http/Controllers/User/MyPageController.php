@@ -29,5 +29,30 @@ class MyPageController extends Controller
         }
         return view('user.mypage', compact('user','favorites','transactions','cars'));
     }
+
+    public function transaction()
+    {
+        $user = User::find(Auth::id());
+        $transactions = $user->transactions;
+        $cars = $user->cars()->get();
+        foreach($cars as $car){
+            if(!($car['STRDT'] == NULL)){
+              $car['STRDT'] = date('Y/m/d', strtotime($car['STRDT']));
+            }
+        }
+        return view('user.mypage_transaction_list', compact('user','transactions','cars'));
+    }
+
+    public function favorite()
+    {
+        $user = User::find(Auth::id());
+        $favorites = $user->favorites()->get();
+        foreach($favorites as $favorite){
+            if(!($favorite['STRDT'] == NULL)){
+              $favorite['STRDT'] = date('Y/m/d', strtotime($favorite['STRDT']));
+            }
+        }
+        return view('user.mypage_favorite_list', compact('user','favorites'));
+    }
     
 }

@@ -25,11 +25,21 @@
               <div class="form-group">
                 <form method="POST" action="/admin/regist/auction" autocomplete="off" name="carPost">
                   @csrf
-                  <p>オークション名</p><input type="text" name="name" id="name" value="{{ $auction['name'] }}"><br>
+                  <p>オークション名</p><input type="text" name="name" id="name" value="{{ $auction['name'] }}" {{ strpos($auction['name'],'実演用のテスト') !== false ? 'readonly':'' }}><br>
                   <p>※10時~17時 1時間につき1台(最大8件)</p>
                   <input type="hidden" name="date" value="{{ $date }}">
                   <input type="hidden" name="id" value="{{ isset($auction['id']) ? $auction['id']:'' }}">
                   <div id="input_pluralBox">
+                    @if (!empty($auction_cars))
+                      <h5>※登録済み車両が{{ count($auction_cars) }}台あります</h5 class="red">
+                      @foreach($auction_cars as $car)
+                      <div id="input_plural">
+                        <select name="CARNO[]" class="opacity">
+                          <option value="{{ $car->CARNO }}">{{ $car->CARNO . ' / ' . $car->MKRNM . ' / ' . $car->CARNM }}</option>
+                        </select>
+                      </div>
+                      @endforeach
+                    @endif
                     <div id="input_plural">
                       <select name="CARNO[]">
                         @foreach($cars as $car)
@@ -40,6 +50,9 @@
                       <input type="button" value="－" class="del pluralBtn">
                     </div>
                   </div>
+                  @if ($errors->first('CARNO.*'))
+                    <h5 class="validation red">※{{$errors->first('CARNO.*')}}</h5>
+                  @endif
                   <button type="button" class="btn btn-primary" onclick="submit();">Submit</button>
                 </form>
               </div>
@@ -64,7 +77,6 @@
   #input_plural {
     margin: 10px 0;
   }
-
   #input_plural input.form-control {
     display: inline-block;
     width: 75%;
@@ -73,7 +85,12 @@
     font-size: 14px;
     color: #555;
   }
-
+  .opacity{
+    opacity: 0.6;
+  }
+  .red{
+    color: red;
+  }
   #input_plural input.pluralBtn {
     width: 30px;
     height: 30px;

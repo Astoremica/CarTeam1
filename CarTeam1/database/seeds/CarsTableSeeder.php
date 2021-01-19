@@ -263,7 +263,7 @@ class CarsTableSeeder extends Seeder
             ],
             [
                 'CARNO' => 'EEQs-212k22',
-                'STATS' => 0,
+                'STATS' => 1,
                 'KOKSN' => true,
                 'ONEON' => true,
                 'USRBY' => false,
