@@ -33,20 +33,29 @@
       @if(strtotime($car['STRDT']) > strtotime('2000/1/1'))
       <div class="column-date">
         <h6>開催日時</h6>
+        @if((date('Y/m/d H:i') > $car['STRDT']))
+        <h2>終了</h2>
+        @else
         <h2>{{ $car['STRDT'] }} 〜</h2>
+        @endif
       </div>
       <div class="column-price">
         <h6>オークション開始価格</h6>
         <h2>{{ number_format($car['STRPR'] * 1000) }}<span class="price">円</span></h2>
       </div>
+      @if((date('Y/m/d H:i') == $car['STRDT']))
+      <div class="column-auction">
+
+        <h6>オークション会場へ</h6>
+        <a href="/user/auction/{{ $car['CARNO'] }}" class="btn auction-button"><h4>入場する</h4></a>
+      </div>
+      @elseif(date('Y/m/d H:i') < $car['STRDT'])
       <div class="column-auction">
         <h6>オークション会場へ</h6>
-        @if(date('Y/m/d H:i') <= $car['STRDT'] && $car['STRDT'] <= date('Y/m/d H:i', strtotime("+1 minute")))
-          <a href="/user/auction/{{ $car['CARNO'] }}" class="btn auction-button"><h4>入場する</h4></a>
-        @else
-          <p>入場不可</p>
-        @endif
+        <p class="car-end">まだ入場できません</p>
       </div>
+      @else
+      @endif
       @else
       <div class="column-date">
         <h6>開催日時</h6>

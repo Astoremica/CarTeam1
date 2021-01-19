@@ -12,7 +12,7 @@ class HomeController extends Controller
   public function index()
   {
       $nextDay = date('Y-m-d');
-      $nowDate = date('Y/m/d H:i', strtotime("-9 minute"));
+      $nowDate = date('Y/m/d H:i', strtotime("-1 minute"));
 
       $cars = Car::select(['CARNO','MKRNM','CARNM','NENSK','SOUKM','STRDT','SYURK','MISYN','HIKRY','STRPR'])->where('STRDT', '>=' , $nextDay)->orderBy('STRDT', 'asc')->get();
       foreach($cars as $car){

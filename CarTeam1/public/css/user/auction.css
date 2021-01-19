@@ -1,19 +1,18 @@
 @charset "UTF-8";
-
 .item-right {
     margin-left: 20px;
-    margin-top : 20px;
-    width      : 500px;
+    margin-top: 20px;
+    width: 500px;
 }
 
 .column1-right h2 {
-    color    : red;
+    color: red;
     font-size: 35px;
 }
 
 .column2 {
     margin-top: 40px;
-    width     : 500px;
+    width: 500px;
 }
 
 .column2-left h1 {
@@ -33,10 +32,10 @@
 }
 
 .column-some {
-    padding     : 10px 30px 0 30px;
-    text-align  : center;
+    padding: 10px 30px 0 30px;
+    text-align: center;
     border-right: 1px solid #c4c4c4;
-    margin-top  : 10px;
+    margin-top: 10px;
 }
 
 .column-some:nth-of-type(4) {
@@ -49,7 +48,7 @@
 
 input[type="text"] {
     height: 60px;
-    width : 200px;
+    width: 200px;
 }
 
 .zero {
@@ -57,20 +56,20 @@ input[type="text"] {
 }
 
 .button01 {
-    width             : 150px;
-    height            : 50px;
-    line-height       : 50px;
-    color             : #FFF;
-    text-decoration   : none;
-    text-align        : center;
-    background-color  : #58ACFA;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    background-color: #58ACFA;
     /*ボタン色*/
-    border-radius     : 10px;
+    border-radius: 10px;
     /*角丸*/
     -webkit-transition: all 0.5s;
-    transition        : all 0.5s;
-    border            : none;
-    margin-left       : 40px;
+    transition: all 0.5s;
+    border: none;
+    margin-left: 40px;
 }
 
 .button01:hover {
@@ -81,17 +80,17 @@ input[type="text"] {
 .return-button,
 a.return-button {
     background-color: #DF7478 !important;
-    opacity         : 0.8;
-    width           : 160px;
-    height          : 60px;
-    padding-right   : 17px;
-    border          : none;
-    cursor          : pointer;
-    font-weight     : bolder;
-    border-radius   : 10px;
-    margin          : 30px 0;
-    color           : #ffffff;
-    padding         : 19px 12px 0 0;
+    opacity: 0.8;
+    width: 160px;
+    height: 60px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin: 30px 0;
+    color: #ffffff;
+    padding: 19px 12px 0 0;
 }
 
 .return-button:hover,
@@ -101,12 +100,12 @@ a.return-button:hover {
 
 .cars {
     background-color: #ffffff;
-    margin-left     : 30px;
-    padding         : 15px;
-    border          : solid 1px #E6E6E6;
-    border-radius   : 10px;
-    margin-bottom   : 15px;
-    width           : 1050px;
+    margin-left: 30px;
+    padding: 15px;
+    border: solid 1px #E6E6E6;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    width: 1050px;
 }
 
 .car-title1 {
@@ -130,9 +129,9 @@ a.return-button:hover {
 }
 
 .title {
-    margin       : 50px 0 10px 30px;
-    border-left  : 8px #DF7478 solid;
-    padding      : 10px 0 10px 10px;
+    margin: 50px 0 10px 30px;
+    border-left: 8px #DF7478 solid;
+    padding: 10px 0 10px 10px;
     border-bottom: 1px solid #DF7478;
 }
 
@@ -141,82 +140,82 @@ a.return-button:hover {
 }
 
 .column {
-    padding     : 5px 0 0 0;
-    text-align  : center;
-    height      : 70px;
+    padding: 5px 0 0 0;
+    text-align: center;
+    height: 70px;
     margin-right: 20px;
 }
 
 .column:nth-of-type(1) {
-    border-right : 1px solid #c4c4c4;
-    margin-right : 15px;
+    border-right: 1px solid #c4c4c4;
+    margin-right: 15px;
     padding-right: 15px;
 }
 
 .price {
-    font-size  : 30px;
-    margin-top : -20px;
+    font-size: 30px;
+    margin-top: -20px;
     font-weight: bolder;
 }
 
 .detail-button,
 a.detail-button {
     background-color: #DF7478 !important;
-    opacity         : 0.8;
-    width           : 160px !important;
-    height          : 55px;
-    padding-right   : 17px;
-    border          : none;
-    cursor          : pointer;
-    font-weight     : bolder;
-    border-radius   : 10px;
-    margin-top      : 15px;
-    color           : #ffffff;
-    padding         : 16px 0 0 0;
-    margin-left     : 500px;
+    opacity: 0.8;
+    width: 160px !important;
+    height: 55px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin-top: 15px;
+    color: #ffffff;
+    padding: 16px 0 0 0;
+    margin-left: 500px;
 }
 
 .detail-button:hover,
 a.detail-button:hover {
-    color           : #fff;
+    color: #fff;
     background-color: #f08186 !important;
 }
 
 .car-end {
     background-color: #BDBDBD !important;
-    opacity         : 0.8;
-    width           : 160px !important;
-    height          : 55px;
-    padding-right   : 17px;
-    border          : none;
-    font-weight     : bolder;
-    border-radius   : 10px;
-    margin-top      : 15px;
-    color           : #DF7478;
-    padding         : 16px 0 0 0;
-    margin-left     : 500px;
-    text-align      : center;
+    opacity: 0.8;
+    width: 160px !important;
+    height: 55px;
+    padding-right: 17px;
+    border: none;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin-top: 15px;
+    color: #DF7478;
+    padding: 16px 0 0 0;
+    margin-left: 500px;
+    text-align: center;
 }
 
 .return-button,
 a.return-button {
     background-color: #DF7478 !important;
-    opacity         : 0.8;
-    width           : 160px;
-    height          : 60px;
-    padding-right   : 17px;
-    border          : none;
-    cursor          : pointer;
-    font-weight     : bolder;
-    border-radius   : 10px;
-    margin          : 30px 0;
-    color           : #ffffff;
-    padding         : 19px 12px 0 0;
+    opacity: 0.8;
+    width: 160px;
+    height: 60px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin: 30px 0;
+    color: #ffffff;
+    padding: 19px 12px 0 0;
 }
 
 .return-button:hover,
 a.return-button:hover {
-    color           : #fff;
+    color: #fff;
     background-color: #f08186 !important;
 }
 
@@ -224,7 +223,9 @@ a.return-button:hover {
     margin: 0 40px;
 }
 
+
 /* 終了した時の */
+
 .endinputprice {
     background: rgb(129, 129, 129);
 }
