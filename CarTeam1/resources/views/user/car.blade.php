@@ -41,7 +41,11 @@
       </div>
       <div class="column-auction">
         <h6>オークション会場へ</h6>
-        <a href="/user/auction/{{ $car['CARNO'] }}" class="btn auction-button"><h4>入場する</h4></a>
+        @if(date('Y/m/d H:i') <= $car['STRDT'] && $car['STRDT'] <= date('Y/m/d H:i', strtotime("+1 minute")))
+          <a href="/user/auction/{{ $car['CARNO'] }}" class="btn auction-button"><h4>入場する</h4></a>
+        @else
+          <p>入場不可</p>
+        @endif
       </div>
       @else
       <div class="column-date">
