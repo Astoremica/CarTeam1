@@ -213,10 +213,7 @@
                 }
                 inputHour = String(inputHour);
                 inputMin = String(inputMin);
-                // inputHour = 14;
-                // inputMin = 50;
                 // console.log(inputSec);
-                // var inputYear = document.getElementById("userYear").value
                 var targetDate = new Date(isNumOrZero(inputYear), isNumOrZero(inputMonth), isNumOrZero(inputDate), isNumOrZero(inputHour), isNumOrZero(inputMin), isNumOrZero(inputSec));
                 var dnumTarget = targetDate.getTime();
 
@@ -260,11 +257,24 @@
                     msg = msg2;
 
                 }
-                // 終了した時の処理を入れようかな
-                // エラー出てたで多分fl"a"gやからやけど
-                // if (flag == false) {
+                if (flg == false) {
 
-                // }
+                    // Nodeに終了したことを知らせて終わりの処理スタート
+                    $.post(
+                            'http://localhost:9000/endauction', {
+                                carno: '{{ $car->CARNO }}'
+                            })
+                        // 2検索成功時にはページに結果を反映
+                        .done(function(data) {
+                            // 結果リストをクリア
+                            console.log('endsuccess');
+                        })
+                        // 3検索失敗時には、その旨をダイアログ表示
+                        .fail(function() {
+                            console.log('endfail');
+                        });
+
+                }
 
                 // 作成した文字列を表示
                 document.getElementById("RealtimeCountdownArea").innerHTML = msg;
