@@ -783,7 +783,7 @@
     document.carPost.KTSNO.value = randomText(number, 5);
     document.carPost.RKBNO.value = randomText(number, 3);
     document.carPost.COMNT.value = '特記事項無し';
-    document.carPost.KTRKN.value = randomNum(100,10000);
+    document.carPost.KTRKN.value = randomNum(100,1000);
   }
 
   function randomNum(min, max){
