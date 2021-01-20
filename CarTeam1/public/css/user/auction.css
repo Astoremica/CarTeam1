@@ -182,7 +182,7 @@ a.detail-button:hover {
 }
 
 .car-end {
-    background-color: #BDBDBD !important;
+    background-color: #848484 !important;
     opacity: 0.8;
     width: 160px !important;
     height: 55px;
@@ -191,7 +191,7 @@ a.detail-button:hover {
     font-weight: bolder;
     border-radius: 10px;
     margin-top: 15px;
-    color: #DF7478;
+    color: #ffffff;
     padding: 16px 0 0 0;
     margin-left: 500px;
     text-align: center;
@@ -232,4 +232,11 @@ a.return-button:hover {
 
 .endbutton {
     background: rgb(129, 129, 129);
+}
+
+.end {
+    position: relative;
+    background: #C4C4C4;
+    opacity: 0.7;
+    z-index: 100;
 }
