@@ -18,7 +18,11 @@
           <?php $nextDay = substr($car['STRDT'],0,10); ?>
         @else
         @endif
+        @if($car['STRDT'] <= $nowDate)
+        <div class="cars end">
+        @else
         <div class="cars">
+        @endif
           <div class="d-flex detail">
             <div class="car-item1">
             <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
@@ -66,7 +70,7 @@
                     <p>{{ $car['MISYN'] }}</p>
                 </div>
               </div>
-              @if($car['STATS'] == 2)
+              @if($car['STATS'] == 2 || $car['STRDT'] <= $nowDate)
               <p class="car-end">終了</p>
               @else
               <a href="/user/cars/{{ $car['CARNO'] }}" class="btn detail-button car" style="width: 13rem;">車両詳細</a>

@@ -37,7 +37,7 @@
                 <div class="column2-left">
                     <h5>現在入札金額</h5>
                     <div id="app">
-                        <h1 id="price"></h1>
+                        <h1 id="price">¥</h1>
                     </div>
                 </div>
             </div>
@@ -117,8 +117,8 @@
             mounted() {
                 axios.get('/user/auctionajax/{{ $car->CARNO }}').then((response) => {
                     this.$data.price = response.data.price;
-                    document.getElementById("price").innerHTML = response.data.price + ",000";
-                    document.getElementById("nowprice").value = response.data.price + ",000";
+                    document.getElementById("price").innerHTML = Number(response.data.price + "000").toLocaleString();
+                    document.getElementById("nowprice").value = Number(response.data.price + "000").toLocaleString();
                 }).catch(error => {
                     console.log(error);
                 });
@@ -128,8 +128,8 @@
         setInterval(function() {
             axios.get('/user/auctionajax/{{ $car->CARNO }}').then((response) => {
                 app.$data.price = response.data.price;
-                document.getElementById("price").innerHTML = response.data.price + ",000";
-                document.getElementById("nowprice").value = response.data.price;
+                document.getElementById("price").innerHTML = Number(response.data.price + "000").toLocaleString();
+                document.getElementById("nowprice").value = Number(response.data.price + "000").toLocaleString();
                 console.log(app.$data.price);
             }).catch(error => {
                 console.log(error);
@@ -213,9 +213,6 @@
                 }
                 inputHour = String(inputHour);
                 inputMin = String(inputMin);
-                // inputDate = 19;
-                // inputHour = 10;
-                // inputMin = 15;
                 // console.log(inputSec);
                 var targetDate = new Date(isNumOrZero(inputYear), isNumOrZero(inputMonth), isNumOrZero(inputDate), isNumOrZero(inputHour), isNumOrZero(inputMin), isNumOrZero(inputSec));
                 var dnumTarget = targetDate.getTime();
