@@ -7,6 +7,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.bodyParser());
 var request = require('request');
 
+var config = require('./config');
+
 // /////////////////////////////////////////////////////////////////////////////
 var startHour = 10;  //オークション開催時刻　時(13時)
 var buffMinutues = 17;  //オークションの開催時刻　分（0）　デバック用
@@ -23,8 +25,7 @@ const { url } = require('inspector');
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
-    // password: '',
+    password: config.PASSWORD,
     database: 'car_team1'
 })
 /**
@@ -56,14 +57,10 @@ app.post('/enter', function (req, res) {
     console.log(req.body);
     var price = parseInt(req.body.price, 10);
     price += parseInt(req.body.now, 10);
-    console.log(carno);
-    console.log(price);
     var sql = "UPDATE auction_logs SET price = " + price + "," + "user_id = " + user;
     sql += " WHERE CARNO = '" + carno + "'";
-    console.log(sql);
     connection.query(
         sql, (error, results) => {
-            console.log(results);
             if (error) {
                 console.log('error connectiong' + error.stack);
                 return;
@@ -74,11 +71,45 @@ app.post('/enter', function (req, res) {
 });
 
 app.post('/endauction', function (req, res) {
-    console.log('post');
-    console.log(req.body);
-    message = "Success!!";
-    res.json({ 'massage': message });
-    res.end();
+    var carno = req.body.carno;
+    // carsテーブルのSTATS変更
+    var sql = "UPDATE cars SET STATS = " + carno;
+    connection.query(
+        sql, (error, results) => {
+            if (error) {
+                console.log('error connectiong' + error.stack);
+                return;
+            }
+        }
+    );
+    // logsから最終入札価格とってくる
+    sql = "SELECT price,user_id FROM auction_logs WHERE CARNO = '" + carno + "'";
+    connection.query(
+        sql, (error, results) => {
+            lastprice = results[0].price;
+            lastuser_id = results[0].user_id;
+            // transactionsテーブルに挿入
+            var sql = "INSERT INTO transactions (CARNO, price, user_id, pay_date, name, created_at, updated_at) VALUES ('" + carno + "'," + lastprice + "," + lastuser_id + ",null,null,null,null)";
+            console.log(sql);
+            // connection.query(
+            //     sql, (error, results) => {
+
+            //         if (error) {
+            //             console.log('error connectiong' + error.stack);
+            //             return;
+            //         }
+            //     }
+            // );
+            if (error) {
+                console.log('error connectiong' + error.stack);
+                return;
+            }
+        }
+    );
+
+    // message = "Success!!";
+    // res.json({ 'massage': message });
+    // res.end();
 })
 http_socket.listen(9000);
 
