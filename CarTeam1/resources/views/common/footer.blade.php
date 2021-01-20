@@ -2,7 +2,7 @@
 <footer>
 <div class="d-flex justify-content-between mb-2">
   <div class="left-panel">
-    <p class="roboto">HALMOTER</p>
+    <p class="roboto">HALMOTOR</p>
     <a href="" class="logo-l"><img src="{{ asset('img/layout/twitter.png') }}" width="40px"></a>
     <a href="" class="logo-l"><img src="{{ asset('img/layout/facebook.png') }}" width="40px"></a>
     <a href=""><img src="{{ asset('img/layout/instagram.png') }}" width="40px"></a>
