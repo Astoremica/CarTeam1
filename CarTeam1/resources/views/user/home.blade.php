@@ -22,7 +22,7 @@
 
                 @foreach($cars as $car)
 
-                @if($car['STRDT'] < $nowDate)
+                @if($car['STRDT'] <= $nowDate)
                 <li class="container__plans__msContainer__msItemWrapper__car end">
                 @else
                 <li class="container__plans__msContainer__msItemWrapper__car">
