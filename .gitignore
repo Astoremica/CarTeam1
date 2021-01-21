@@ -1,3 +1,4 @@
+Node/node_modules
 /node_modules
 /public/hot
 /public/storage
@@ -56,3 +57,5 @@ $RECYCLE.BIN/
 *.msp
 
 *.lnk
+Node/package-lock.json
+Node/package.json
