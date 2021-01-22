@@ -43,6 +43,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
         Route::get('mypage/', 'MyPageController@index')->name('mypage');
         Route::get('mypage/transaction_list', 'MyPageController@transaction')->name('mypage.transaction');
         Route::get('mypage/favorite_list', 'MyPageController@favorite')->name('mypage.favorite');
+        Route::get('mypage/notification_list', 'MyPageController@notification')->name('mypage.notification');
     });
 });
 

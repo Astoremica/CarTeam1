@@ -54,5 +54,11 @@ class MyPageController extends Controller
         }
         return view('user.mypage_favorite_list', compact('user','favorites'));
     }
+
+    public function notification()
+    {
+        $user = User::find(Auth::id());
+        return view('user.mypage_notification_list', compact('user'));
+    }
     
 }
