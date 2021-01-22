@@ -19,6 +19,7 @@
         </div>
       </div>
       <a href="/user/mypage" class="btn button" style="width: 18rem;">マイページTOP</a>
+      <a href="/user/mypage/notification_list" class="btn button" style="width: 18rem;">通知一覧</a>
       <a href="/user/mypage/favorite_list" class="btn button" style="width: 18rem;">お気に入り一覧</a>
       <a href="/user/mypage/transaction_list" class="btn button" style="width: 18rem;">取引一覧</a>
       <a href="#" class="btn button" style="width: 18rem;">個人情報変更</a>
