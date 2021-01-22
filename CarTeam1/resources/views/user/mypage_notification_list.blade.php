@@ -15,7 +15,7 @@
         <div class="card-body">
           <h5 class="card-title">名前：{{ $user['name1'] }} {{$user['name2'] }}</h5>
           <h5 class="card-subtitle text-muted nickname">ニックネーム：{{ $user['name3'] }}</h5>
-          <a href="#" class="btn btn-primary">プロフィール編集</a>
+          <a href="#" class="btn btn-primary button01">プロフィール編集</a>
         </div>
       </div>
       <a href="/user/mypage" class="btn button" style="width: 18rem;">マイページTOP</a>
@@ -34,7 +34,7 @@
             <p class="n-title">あなたが落札されたアイシスの入金期限が迫っています。</p>
             <div class="d-flex n-contents">
               <div class="n-img">
-                <img src="{{ asset('img/cars/Z12-123456_1.jpg') }}" alt="メーカー名:車種名" width="100px"/>
+                <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" width="100px" class="n-nullimg"/>
               </div>
               <div class="n-content">
                 <p>あなたが2021/01/23に落札されたアイシスの入金期限が迫っています。</p>

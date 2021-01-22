@@ -15,7 +15,7 @@
         <div class="card-body">
           <h5 class="card-title">名前：{{ $user['name1'] }} {{$user['name2'] }}</h5>
           <h5 class="card-subtitle text-muted nickname">ニックネーム：{{ $user['name3'] }}</h5>
-          <a href="#" class="btn btn-primary">プロフィール編集</a>
+          <a href="#" class="btn btn-primary button01">プロフィール編集</a>
         </div>
       </div>
       <a href="/user/mypage" class="btn button" style="width: 18rem;">マイページTOP</a>
