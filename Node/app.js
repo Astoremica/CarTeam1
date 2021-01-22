@@ -91,7 +91,7 @@ app.post('/endauction', function (req, res) {
             lastprice = results[0].price;
             lastuser_id = results[0].user_id;
             // transactionsテーブルに挿入
-            var sql = "INSERT INTO transactions (CARNO, price, user_id, pay_date, name, created_at, updated_at) VALUES ('" + carno + "'," + lastprice + "," + lastuser_id + ",null,'name',null,null)";
+            var sql = "INSERT INTO transactions (CARNO, price, user_id, pay_date, name, created_at, updated_at) VALUES ('" + carno + "'," + lastprice + "," + lastuser_id + ",null,null,null,null)";
             console.log(sql);
             connection.query(
                 sql, (error, results) => {
