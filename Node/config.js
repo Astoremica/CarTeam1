@@ -1,1 +1,1 @@
-exports.PASSWORD = 'NKMmisa4zy';
+exports.PASSWORD = '';
