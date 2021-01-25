@@ -29,40 +29,64 @@
                 <h3>価格</h3>
                 <p>
                     @if(isset( $min_price ) && isset( $max_price ))
-                    <input type="number" name="min_price" placeholder="Min" class="price-input" value="{{ $min_price }}"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input" value="{{ $max_price }}">&nbsp;円
+                    <input type="number" name="min_price" placeholder="Min" id="price-min" value="{{ $min_price }}"> 〜 <input type="number" name="max_price" placeholder="Max" id="price-max" value="{{ $max_price }}">&nbsp;円
                     @else
-                    <input type="number" name="min_price" placeholder="Min" class="price-input" value=""> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input" value="">&nbsp;円
+                    <input type="number" name="min_price" placeholder="Min" id="price-min" value=""> 〜 <input type="number" name="max_price" placeholder="Max" id="price-max" value="">&nbsp;円
                     @endif
                 </p>
                 <h3>年式</h3>
                 <p>
                     @if(isset( $min_nensk ) && isset( $max_nensk ))
-                    <input type="number" name="min_nensk" placeholder="Min" class="price-input" value="{{ $min_nensk }}"> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input" value="{{ $max_nensk }}">&nbsp;年
+                    <input type="number" name="min_nensk" placeholder="Min" id="nensk-min" value="{{ $min_nensk }}"> 〜 <input type="number" name="max_nensk" placeholder="Max" id="nensk-max" value="{{ $max_nensk }}">&nbsp;年
                     @else
-                    <input type="number" name="min_nensk" placeholder="Min" class="price-input" value=""> 〜 <input type="number" name="max_nensk" placeholder="Max" class="price-input" value="">&nbsp;年
+                    <input type="number" name="min_nensk" placeholder="Min" id="nensk-min" value=""> 〜 <input type="number" name="max_nensk" placeholder="Max" id="nensk-max" value="">&nbsp;年
                     @endif
                 </p>
                 <h3>走行距離</h3>
                 <p>
                     @if(isset( $min_soukm ) && isset( $max_soukm ))
-                    <input type="number" name="min_soukm" placeholder="Min" class="price-input" value="{{ $min_soukm }}"> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input" value="{{ $max_soukm }}">&nbsp;km
+                    <input type="number" name="min_soukm" placeholder="Min" id="soukm-min" value="{{ $min_soukm }}"> 〜 <input type="number" name="max_soukm" placeholder="Max" id="soukm-max" value="{{ $max_soukm }}">&nbsp;km
                     @else
-                    <input type="number" name="min_soukm" placeholder="Min" class="price-input" value=""> 〜 <input type="number" name="max_soukm" placeholder="Max" class="price-input" value="">&nbsp;km
+                    <input type="number" name="min_soukm" placeholder="Min" id="soukm-min" value=""> 〜 <input type="number" name="max_soukm" placeholder="Max" id="soukm-max" value="">&nbsp;km
                     @endif
                 </p>
 
                 <h3>並び替え</h3>
                 <div class="sort">
+                    @if(isset($sort))
+                        @if($sort == "price-asc")
+                        <input id="sorthigh" type="radio" name="sort" value="price-asc" checked><label for="sorthigh" id="sorthighlabel">価格の高い順</label>
+                        <input id="sortlower" type="radio" name="sort" value="price-desc"><label for="sortlower">価格の低い順</label>
+                        @else
+                        <input id="sorthigh" type="radio" name="sort" value="price-asc"><label for="sorthigh" id="sorthighlabel">価格の高い順</label>
+                        <input id="sortlower" type="radio" name="sort" value="price-desc" checked><label for="sortlower">価格の低い順</label>
+                        @endif
+                    @else
                     <input id="sorthigh" type="radio" name="sort" value="price-asc"><label for="sorthigh" id="sorthighlabel">価格の高い順</label>
                     <input id="sortlower" type="radio" name="sort" value="price-desc"><label for="sortlower">価格の低い順</label>
+                    @endif
                 </div>
                 <div class="container_searchDetail_button">
-                    <button type="reset" name="send" class="container_searchDetail_button_reset">リセット</button>
+                    <button type="button" name="send" class="container_searchDetail_button_reset" onclick="OnButtonClick();">リセット</button>
                     <button type="submit" name="send" class="container_searchDetail_button_submit" value="検索">検索</button>
                 </div>
             </div>
         </form>
     </div>
+
+    <script language="javascript" type="text/javascript">
+        function OnButtonClick() {
+            document.getElementById("add-input").value = "";
+            document.getElementById("price-min").value = "";
+            document.getElementById("price-max").value = "";
+            document.getElementById("nensk-min").value = "";
+            document.getElementById("nensk-max").value = "";
+            document.getElementById("soukm-min").value = "";
+            document.getElementById("soukm-max").value = "";
+            document.getElementById("sorthigh").checked = false;
+            document.getElementById("sortlower").checked = false;
+        }
+    </script>
 
     @isset($cars)
     @if($cars->isEmpty())
