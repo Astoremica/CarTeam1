@@ -79,27 +79,18 @@
         <div class="item2-right">
             <div class="column3-right">
                 <h5>入札金額入力</h5>
-                <form action="http://localhost:9000/enter" method="post">
+                <!-- <form action="http://localhost:9000/enter" method="post"> -->
+                <form action="javascript:void(0);" method="POST" id="priceform">
 
                     <input type="hidden" name="user" value="{{Auth::id()}}">
                     <input type="hidden" name="now" value="" id="nowprice">
                     <input type="hidden" name="carno" value="{{ $car->CARNO }}">
                     <input type="text" name="price" id="inputPrice" pattern="\d*" oncopy="return false" onpaste="return false" style="ime-mode:disabled">
-                    <!-- <input type="text" name="price" id="inputPrice"><span class="zero">,000</span> -->
                     <input type="submit" name="" class="button01" value="入札" id="enterButton">
                 </form>
             </div>
         </div>
     </div>
-    <!-- <p>
-        <input type="text" id="userYear" maxlength="4" value="2021">年
-        <input type="text" id="userMonth" maxlength="2" value="1">月
-        <input type="text" id="userDate" maxlength="2" value="19">日
-        <input type="text" id="userHour" maxlength="2" value="11">時
-        <input type="text" id="userMin" maxlength="2" value="22">分
-        <input type="text" id="userSec" maxlength="2" value="0">秒<br>
-
-    </p> -->
 
     <a href="javascript:history.back()" class="btn return-button">〈 前に戻る</a>
 
@@ -115,6 +106,40 @@
         $('#inputPrice').on('input', function() {
             check_numtype($(this));
         });
+        $('#enterButton').on('click', function() {
+            var pricedata = $('#priceform').serialize();
+            // 'http://localhost:9000/enter'
+            console.log(pricedata);
+            $.ajax({
+                url: 'http://localhost:9000/enter',
+                type: "POST",
+                data: pricedata //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
+            });
+            // （１）押せなくする
+            function SubmitBtnDisable() {
+                $('#inputPrice').prop("disabled", true);
+                $('#inputPrice').addClass("endinputprice");
+                $('#enterButton').prop('disabled', true);
+                $('#enterButton').addClass("endbutton");
+                clearInterval(statusDis);
+            }
+            //（２）押せるようにする
+            function SubmitBtnAble() {
+                $('#inputPrice').prop("disabled", false);
+                $('#inputPrice').val("");
+                $('#inputPrice').removeClass("endinputprice");
+                $('#enterButton').prop('disabled', false);
+                $('#enterButton').removeClass("endbutton");
+                clearInterval(statusAble);
+            }
+
+            function SubmitBtnClicked() {
+                statusDis = setInterval(SubmitBtnDisable, 1); //ボタンを押した直後に（１）を呼び出し
+                statusAble = setInterval(SubmitBtnAble, 3000); //ボタンを押して３秒後に（２）を呼び出し
+            }
+            SubmitBtnClicked();
+        });
+
 
         Vue.config.devtools = true;
         var app = new Vue({
@@ -126,7 +151,7 @@
                 axios.get('/user/auctionajax/{{ $car->CARNO }}').then((response) => {
                     this.$data.price = response.data.price;
                     document.getElementById("price").innerHTML = Number(response.data.price + "000").toLocaleString();
-                    document.getElementById("nowprice").value = Number(response.data.price + "000").toLocaleString();
+                    document.getElementById("nowprice").value = Number(response.data.price).toLocaleString();
                 }).catch(error => {
                     console.log(error);
                 });
@@ -137,17 +162,25 @@
             axios.get('/user/auctionajax/{{ $car->CARNO }}').then((response) => {
                 app.$data.price = response.data.price;
                 document.getElementById("price").innerHTML = Number(response.data.price + "000").toLocaleString();
-                document.getElementById("nowprice").value = Number(response.data.price + "000").toLocaleString();
+                document.getElementById("nowprice").value = Number(response.data.price).toLocaleString();
                 var nowprice = parseInt($('#price').html(), 10);
                 var inputprice = parseInt($('#inputPrice').val(), 10);
                 if (inputprice >= 0) {
                     var score = nowprice + inputprice;
                     var strscore = String(score) + "000";
                     score = parseInt(strscore, 10).toLocaleString();
-                    $('#afterprice').html("¥" + score);
-                    console.log(score);
+                    var result = $('#RealtimeCountdownArea').html();
+                    // 終了しました表示
+                    if (result == "終了") {
+                        //disabled属性を付与する
+                        $('#afterprice').html("終了しました。");
+                        $("#afterprice").css("color", "#DF7478");
+                    } else {
+                        $('#afterprice').html("¥" + score);
+                    }
                 } else {
                     document.getElementById("afterprice").innerHTML = "¥" + Number(response.data.price + "000").toLocaleString();
+
 
                 }
             }).catch(error => {
@@ -297,6 +330,7 @@
                     $('#inputPrice').addClass("endinputprice");
                     $('#enterButton').prop('disabled', true);
                     $('#enterButton').addClass("endbutton");
+
                     flg = false;
                 } else {
                     msg = msg2;
@@ -319,6 +353,7 @@
                             console.log('endfail');
                         });
 
+                    // 落札した・落札できなかったの表示
                 }
 
                 // 作成した文字列を表示

@@ -63,7 +63,7 @@ app.post('/enter', function (req, res) {
     var date = new Date();;
     var logprice = price * 1000;
 
-    let text = date + "入札者ID:" + user + "入札金額:" + logprice + "\n";
+    let text = date + "入札者ID:" + user + "入札金額:¥" + logprice.toLocaleString() + "\n";
     fs.appendFile("./logs/auctionprice.txt", text, (err) => {
         if (err) throw err;
         console.log('ファイルが正常に出力されました。');
@@ -76,7 +76,6 @@ app.post('/enter', function (req, res) {
             }
         }
     );
-    return res.redirect('http://localhost:8000/user/auction/' + carno);
 });
 
 app.post('/endauction', function (req, res) {
