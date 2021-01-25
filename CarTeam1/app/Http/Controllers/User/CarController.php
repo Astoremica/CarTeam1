@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Car;
+use App\Models\Transaction;
 
 class CarController extends Controller
 {
@@ -23,6 +24,8 @@ class CarController extends Controller
     $statuses = $car->statuses;
     $comments = $car->comment;
     $car['STRDT'] = date('Y/m/d H:i', strtotime($car['STRDT']));
+    $transactions = Transaction::get();
+
 
     $options = [
       'PS' => 'パワーステアリング',
@@ -37,6 +40,6 @@ class CarController extends Controller
       '革シート' => '革シート'
     ];
 
-    return view('user.car', compact('car','options','controllers','statuses','comments','have_options'));
+    return view('user.car', compact('car','options','controllers','statuses','comments','have_options','transactions'));
   }
 }

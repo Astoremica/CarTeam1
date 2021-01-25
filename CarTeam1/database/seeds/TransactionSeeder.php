@@ -47,7 +47,7 @@ class TransactionSeeder extends Seeder
         ],
         [
           'CARNO' => 'MV-QcYrm',
-          'price' => 1120,
+          'price' => 1820,
           'user_id' => 1,
           'k_status' => 1,
           'n_status' => 1,
