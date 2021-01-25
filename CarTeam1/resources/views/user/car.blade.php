@@ -39,10 +39,23 @@
         <h2>{{ $car['STRDT'] }} 〜</h2>
         @endif
       </div>
+      <?php $cnt = 0; ?>
+      @foreach($transactions as $transaction)
+        @if($car['CARNO'] == $transaction['CARNO'])
+        <div class="column-price">
+          <h6>オークション終了価格</h6>
+          <h2>{{ number_format($transaction['price'] * 1000) }}<span class="price">円</span></h2>
+        </div>
+          <?php $cnt++; ?>
+          @break
+        @endif
+      @endforeach
+      @if($cnt == 0)
       <div class="column-price">
         <h6>オークション開始価格</h6>
         <h2>{{ number_format($car['STRPR'] * 1000) }}<span class="price">円</span></h2>
       </div>
+      @endif
       @if((date('Y/m/d H:i') == $car['STRDT']))
       <div class="column-auction">
 
