@@ -25,9 +25,9 @@
               <div class="form-group">
                 <p>オークション日付選択</p><br>
                 <form method="GET" action="{{ route('admin.regist.auction.date') }}">
-                  <input type="date" name="date" id="date" value="2021-01-23" step="7">
+                  <input type="date" name="date" id="date" value="2021-01-30" step="7">
                   <button type="submit" name=button value="submit" class="btn btn-primary">送信</button><br>
-                  <button type="submit" name=button value="test" class="btn btn-danger">テスト用</button><p>※30秒後に1分間のオークション開始</p>
+                  <button type="submit" name=button value="test" class="btn btn-danger">テスト用</button><p>※現在時刻の1分後に1分間のオークション開始</p>
                 </form>
               </div>
               <!-- /.form group -->

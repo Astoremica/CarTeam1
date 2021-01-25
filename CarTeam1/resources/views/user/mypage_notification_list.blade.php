@@ -37,7 +37,7 @@
                 <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" width="100px" class="n-nullimg"/>
               </div>
               <div class="n-content">
-                <p>あなたが2021/01/23に落札されたアイシスの入金期限が迫っています。</p>
+                <p>あなたが2021/01/30に落札されたアイシスの入金期限が迫っています。</p>
                 <p class="n-pad">入金期限は2021/01/25となっております。忘れずご入金ください。</p>
                 <a href="/user/cars/" class="btn n-detail-button" style="width: 1rem;">車両詳細</a>
               </div>

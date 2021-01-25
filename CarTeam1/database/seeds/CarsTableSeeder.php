@@ -319,7 +319,7 @@ class CarsTableSeeder extends Seeder
                 'KTRKN' => '500',
                 'IMGSU' => 6,
                 'AUCID' => 1,
-                'STRDT' => '2021-01-23 10:00:00',
+                'STRDT' => '2021-01-30 10:00:00',
                 'STRPR' => '550',
                 'created_at' => new DateTime(),
             ],
