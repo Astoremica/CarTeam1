@@ -37,8 +37,11 @@
                 <div class="column2-left">
                     <h5>現在入札金額</h5>
                     <div id="app">
-                        <h1 id="price">¥</h1>
+                        <h1>¥</h1>
+                        <h1 id="price"></h1>
                     </div>
+                    <h5>入札後金額</h5>
+                    <h1 id="afterprice">¥</h1>
                 </div>
             </div>
         </div>
@@ -81,7 +84,8 @@
                     <input type="hidden" name="user" value="{{Auth::id()}}">
                     <input type="hidden" name="now" value="" id="nowprice">
                     <input type="hidden" name="carno" value="{{ $car->CARNO }}">
-                    <input type="text" name="price" id="inputPrice"><span class="zero">,000</span>
+                    <input type="text" name="price" id="inputPrice" pattern="\d*" oncopy="return false" onpaste="return false" style="ime-mode:disabled">
+                    <!-- <input type="text" name="price" id="inputPrice"><span class="zero">,000</span> -->
                     <input type="submit" name="" class="button01" value="入札" id="enterButton">
                 </form>
             </div>
@@ -108,6 +112,10 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        $('#inputPrice').on('input', function() {
+            check_numtype($(this));
+        });
+
         Vue.config.devtools = true;
         var app = new Vue({
             el: '#app',
@@ -130,11 +138,48 @@
                 app.$data.price = response.data.price;
                 document.getElementById("price").innerHTML = Number(response.data.price + "000").toLocaleString();
                 document.getElementById("nowprice").value = Number(response.data.price + "000").toLocaleString();
-                console.log(app.$data.price);
+                var nowprice = parseInt($('#price').html(), 10);
+                var inputprice = parseInt($('#inputPrice').val(), 10);
+                if (inputprice >= 0) {
+                    var score = nowprice + inputprice;
+                    var strscore = String(score) + "000";
+                    score = parseInt(strscore, 10).toLocaleString();
+                    $('#afterprice').html("¥" + score);
+                    console.log(score);
+                } else {
+                    document.getElementById("afterprice").innerHTML = "¥" + Number(response.data.price + "000").toLocaleString();
+
+                }
             }).catch(error => {
                 console.log(error);
             });
-        }, 1000);
+        }, 500);
+
+        var _chknum_value = "";
+        // 入力値の半角数字チェック
+        function check_numtype(obj) {
+
+            // ２．変数の定義
+            var txt_obj = $(obj).val();
+            var text_length = txt_obj.length;
+            // ３．入力した文字が半角数字かどうかチェック
+            if (txt_obj.match(/^[0-9]+$/)) {
+                // ３．１．文字数チェック
+                if (text_length > 9) {
+                    $('#inputPrice').val(_chknum_value);
+                } else {
+                    _chknum_value = txt_obj;
+                }
+            } else {
+                // ３．２．入力した文字が半角数字ではないとき
+                if (text_length == 0) {
+                    _chknum_value = "";
+                } else {
+                    $('#inputPrice').val(_chknum_value);
+                }
+            }
+
+        }
 
         // 終了タイマー
         function set2fig(num) {
