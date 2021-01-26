@@ -82,7 +82,7 @@ app.post('/endauction', function (req, res) {
     var carno = req.body.carno;
     // carsテーブルのSTATS変更
     var sql = "UPDATE cars SET STATS = 2 WHERE CARNO = '" + carno + "'";
-    console.log(sql);
+    // console.log(sql);
     connection.query(
         sql, (error, results) => {
             if (error) {
@@ -93,17 +93,38 @@ app.post('/endauction', function (req, res) {
     );
     // logsから最終入札価格とってくる
     sql = "SELECT price,user_id FROM auction_logs WHERE CARNO = '" + carno + "'";
-    console.log(sql);
+    // console.log(sql);
     connection.query(
         sql, (error, results) => {
             lastprice = results[0].price;
             lastuser_id = results[0].user_id;
-            // transactionsテーブルに挿入
-            var sql = "INSERT INTO transactions (CARNO, price, user_id, pay_date, name, created_at, updated_at) VALUES ('" + carno + "'," + lastprice + "," + lastuser_id + ",null,null,null,null)";
+            // 多重保存対策
+            sql = "SELECT COUNT(CARNO) AS count FROM transactions WHERE CARNO = '" + carno + "'";
             console.log(sql);
             connection.query(
                 sql, (error, results) => {
+                    count = results[0].count;
+                    console.log(count);
+                    if (count == 0) {
+                        console.log('no count');
 
+                        // transactionsテーブルに挿入
+                        sql = "INSERT INTO transactions (CARNO, price, user_id, pay_date, name, created_at, updated_at) VALUES ('" + carno + "'," + lastprice + "," + lastuser_id + ",null,null,null,null)";
+                        console.log(sql);
+                        connection.query(
+                            sql, (error, results) => {
+
+                                if (error) {
+                                    console.log('error connectiong' + error.stack);
+                                    return;
+                                }
+                            }
+                        );
+                    } else {
+
+                        console.log('already');
+                    }
+                    // console.log(count);
                     if (error) {
                         console.log('error connectiong' + error.stack);
                         return;
