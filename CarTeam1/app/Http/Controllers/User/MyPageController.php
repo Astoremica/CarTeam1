@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Car;
+use App\Models\Transaction;
 use Auth;
 
 class MyPageController extends Controller
@@ -58,7 +59,13 @@ class MyPageController extends Controller
     public function notification()
     {
         $user = User::find(Auth::id());
-        return view('user.mypage_notification_list', compact('user'));
+        $transactions = Transaction::where('user_id', Auth::id())->where('k_status', 0)->get()->toArray();
+        foreach ($transactions as &$transaction) {
+            $transaction['end_date'] = Car::find($transaction['CARNO'])->STRDT;
+            $transaction['MKRNM'] = Car::find($transaction['CARNO'])->MKRNM;
+            $transaction['CARNM'] = Car::find($transaction['CARNO'])->CARNM;
+        }
+        return view('user.mypage_notification_list', compact('user', 'transactions'));
     }
     
 }

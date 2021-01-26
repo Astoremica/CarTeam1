@@ -26,7 +26,7 @@ class TransactionSeeder extends Seeder
           'price' => 1200,
           'user_id' => 1,
           'k_status' => 1,
-          'n_status' => 1,
+          'n_status' => 0,
           'created_at' => new DateTime(),
         ],
         [
@@ -41,8 +41,8 @@ class TransactionSeeder extends Seeder
           'CARNO' => '85O4-oSz90',
           'price' => 420,
           'user_id' => 1,
-          'k_status' => 0,
-          'n_status' => 0,
+          'k_status' => 1,
+          'n_status' => 1,
           'created_at' => new DateTime(),
         ],
         [
@@ -50,7 +50,7 @@ class TransactionSeeder extends Seeder
           'price' => 1120,
           'user_id' => 1,
           'k_status' => 1,
-          'n_status' => 1,
+          'n_status' => 0,
           'created_at' => new DateTime(),
         ],
       ]);
