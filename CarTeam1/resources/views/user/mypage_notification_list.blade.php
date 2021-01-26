@@ -28,22 +28,29 @@
     <div class="item-right">
       <h3 class="title">通知一覧</h3>
       <div class="notifications">
+        @foreach ($transactions as $transaction)
         <div class="d-flex items">
-          <p>2021.1.25<span class="genre">入金</a></p>
+          <p><span class="genre">入金</a></p>
           <div class="detail">
-            <p class="n-title">あなたが落札されたアイシスの入金期限が迫っています。</p>
+            <p class="n-title">入金待ちの車両：{{ $transaction['MKRNM'] }} {{ $transaction['CARNM'] }}　期限：{{ date('Y年n月j日', strtotime($transaction['end_date'] . '+1 month last day of')) }}</p>
             <div class="d-flex n-contents">
               <div class="n-img">
+                <?php $filename = 'img/cars/' . $transaction['CARNO'] . '_1.jpg'; ?>
+                @if(file_exists($filename))
+                  <img src="{{ asset('img/cars/' . $transaction['CARNO'] . '_1.jpg') }}" alt="メーカー名:車種名" width="100px" class="n-nullimg"/>
+                @else
                 <img src="{{ asset('img/cars/car.png') }}" alt="メーカー名:車種名" width="100px" class="n-nullimg"/>
+                @endif
               </div>
               <div class="n-content">
-                <p>あなたが2021/01/30に落札されたアイシスの入金期限が迫っています。</p>
-                <p class="n-pad">入金期限は2021/01/25となっております。忘れずご入金ください。</p>
-                <a href="/user/cars/" class="btn n-detail-button" style="width: 1rem;">車両詳細</a>
+                <p>あなたが{{ date('Y年n月j日',  strtotime($transaction['end_date'])) }}に落札された{{ $transaction['CARNM'] }}の入金期限が迫っています。</p>
+                <p class="n-pad">入金期限は{{ date('Y年n月j日', strtotime($transaction['end_date'] . '+1 month last day of')) }}となっております。忘れずご入金ください。</p>
+                <a href="/user/cars/{{ $transaction['CARNO'] }}" class="btn n-detail-button" style="width: 1rem;">車両詳細</a>
               </div>
             </div>
           </div>
         </div>
+        @endforeach 
       </div>
       <a href="javascript:history.back()" class="btn return-button">〈 前に戻る</a>
     </div>

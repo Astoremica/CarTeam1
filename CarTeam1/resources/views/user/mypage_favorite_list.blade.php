@@ -41,32 +41,32 @@
                   <h4>{{ $favorite['CARNM'] }}</h4>
                   <div class="d-flex">
                     <div class="column">
-                        <p class="p-title">オークション開始価格</p>
-                        <p class="price">{{ isset($favorite['STRPR']) ? number_format($favorite['STRPR'] * 1000):'未登録' }}</p>
+                      <p class="p-title">オークション開始価格</p>
+                      <p class="price">{{ isset($favorite['STRPR']) ? number_format($favorite['STRPR'] * 1000):'未登録' }}</p>
                     </div>
                     <div class="column">
-                        <p class="fav-title">年式</p>
-                        <p>{{ substr($favorite['NENSK'],0,2) }}年{{ substr($favorite['NENSK'],2,2) }}月</p>
+                      <p class="fav-title">年式</p>
+                      <p>{{ substr($favorite['NENSK'],0,2) }}年{{ substr($favorite['NENSK'],2,2) }}月</p>
                     </div>
                     <div class="column">
-                        <p class="fav-title">走行距離</p>
-                        <p>{{ number_format($favorite['SOUKM']) }}km</p>
+                      <p class="fav-title">走行距離</p>
+                      <p>{{ number_format($favorite['SOUKM']) }}km</p>
                     </div>
                     <div class="column">
-                        <p class="fav-title">排気量</p>
-                        <p>{{ number_format($favorite['HIKRY']) }}cc</p>
+                      <p class="fav-title">排気量</p>
+                      <p>{{ number_format($favorite['HIKRY']) }}cc</p>
                     </div>
                     <div class="column">
-                        <p class="fav-title">修復歴</p>
-                        @if(!$favorite['SYURK'])
-                        <p>なし</p>
-                        @else
+                      <p class="fav-title">修復歴</p>
+                      @if(!$favorite['SYURK'])
+                      <p>なし</p>
+                      @else
                       <p>あり</p>
-                        @endif
+                      @endif
                     </div>
                     <div class="column">
-                        <p class="fav-title">ミッション</p>
-                        <p>{{ $favorite['MISYN'] }}</p>
+                      <p class="fav-title">ミッション</p>
+                      <p>{{ $favorite['MISYN'] }}</p>
                     </div>
                   </div>
                   @if($favorite['STATS'] == 2)
