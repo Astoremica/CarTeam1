@@ -138,8 +138,6 @@
             }
             SubmitBtnClicked();
         });
-
-
         Vue.config.devtools = true;
         var app = new Vue({
             el: '#app',
@@ -186,7 +184,7 @@
             }).catch(error => {
                 console.log(error);
             });
-        }, 500);
+        }, 1000);
 
         var _chknum_value = "";
         // 入力値の半角数字チェック
@@ -353,7 +351,7 @@
                             console.log('endfail');
                         });
 
-                    // 落札した・落札できなかったの表示
+
 
 
                 }
@@ -362,11 +360,36 @@
                 document.getElementById("RealtimeCountdownArea").innerHTML = msg;
 
             }
+            // var result = $('#RealtimeCountdownArea').html();
+            // // 終了しました表示
+            // if (result == "終了") {
+            //     var no = "";
+            //     $.get('http://localhost:9000/who/' + no)
+            //         .done(function(data) {
+            //             console.log(data);
+            //             // console.log(typeof data);
+            //             // console.log(typeof myid);
+            //             // console.log(data == myid);
 
+            //         })
+            // }
 
-        }, 200);
+        }, 1000);
         // 1秒ごとに実行
         // setInterval(showCountdown(), 1000);
+        setInterval(function() {
+            axios.get('http://localhost:9000/who/{{ $car->CARNO }}').then((res) => {
+                var carno = res.data.data;
+                if (carno == parseInt("{{Auth::id()}}", 10)) {
+
+                } else {
+
+                    console.log("no");
+                }
+            }).catch(error => {
+                console.log(error);
+            });
+        }, 1000);
     });
 </script>
 
