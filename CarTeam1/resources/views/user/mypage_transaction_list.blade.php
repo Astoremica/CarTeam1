@@ -40,11 +40,11 @@
                   <?php
                     $str="";
                     for($i=0;$i<8;$i++){
-                        $str.=mt_rand(0,9);
+                      $str.=mt_rand(0,9);
                     }
                   ?>
                   <h4 class="car-title1">取引ID：{{ $str }}</h4>
-                  <h4 class="car-title2">落札日：{{ $car['STRDT'] }}</h4>
+                  <h4 class="car-title2">落札日：{{ date('Y年n月j日',  strtotime($car['STRDT'])) }}</h4>
                   <h4 class="car-title3">落札金額：{{ number_format($transaction['price'] * 1000) }}円</h4>
                 </div>
                 <div class="d-flex detail">
@@ -58,7 +58,11 @@
                   </div>
                   <div class="car-item2">
                     <h3>{{ $car['CARNM'] }}</h3>
-                    <h4>取引ステータス：提出書類確認中</h4>
+                    @if ($transaction['k_status'] == 0)
+                    <h4>取引ステータス：<span style="color: red;font-weight: bold">入金待ち</span></h4>
+                    @else
+                      <h4>取引ステータス：納車待ち</h4>
+                    @endif
                   </div>
                   <div class="car-item3">
                     <a href="/user/cars/{{ $car['CARNO'] }}" class="btn detail-button" style="width: 13rem;">車両詳細</a>
@@ -92,7 +96,7 @@
                   ?>
                   <h4 class="car-title1">取引ID：{{ $str }}</h4>
                   <h4 class="car-title2">落札日：{{ $car['STRDT'] }}</h4>
-                  <h4 class="car-title3">落札金額：{{ number_format($transaction['price']) }}円</h4>
+                  <h4 class="car-title3">落札金額：{{ number_format($transaction['price'] * 1000) }}円</h4>
                 </div>
                 <div class="d-flex detail">
                   <div class="car-item1">

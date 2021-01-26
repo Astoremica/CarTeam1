@@ -43,7 +43,7 @@
                   }
                 ?>
                 <h4 class="car-title1">取引ID：{{ $str }}</h4>
-                <h4 class="car-title2">落札日：{{ $car['STRDT'] }}</h4>
+                <h4 class="car-title2">落札日：{{ date('Y年n月j日',  strtotime($car['STRDT'])) }}</h4>
                 <h4 class="car-title3">落札金額：{{ number_format($transaction['price'] * 1000) }}円</h4>
               </div>
               <div class="d-flex detail">
@@ -59,7 +59,9 @@
                   <h3>{{ $car['CARNM'] }}</h3>
                   @if($transaction['k_status'] == 1 && $transaction['n_status'] == 1)
                     <h4>取引ステータス：取引終了</h4>
-                  @else
+                  @elseif ($transaction['k_status'] == 1)
+                    <h4>取引ステータス：<span style="color: red;font-weight: bold">入金待ち</span></h4>
+                  @else 
                     <h4>取引ステータス：提出書類確認中</h4>
                   @endif
                 </div>
