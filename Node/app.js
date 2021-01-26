@@ -5,6 +5,12 @@ app.set('view engine', 'ejs');
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.bodyParser());
+// CORSを許可する
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 var request = require('request');
 
 var config = require('./config');
@@ -70,6 +76,23 @@ app.post('/enter', function (req, res) {
     });
     connection.query(
         sql, (error, results) => {
+            if (error) {
+                console.log('error connectiong' + error.stack);
+                return;
+            }
+        }
+    );
+});
+
+app.get('/who/:no', function (req, res) {
+    var carno = req.params.no;
+    var sql = "SELECT user_id FROM transactions WHERE CARNO = '" + carno + "'";
+    connection.query(
+        sql, (error, results) => {
+
+            console.log(results);
+            user_id = results[0].user_id;
+            res.status(200).send({ data: user_id });
             if (error) {
                 console.log('error connectiong' + error.stack);
                 return;

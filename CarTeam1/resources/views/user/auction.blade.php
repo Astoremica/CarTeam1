@@ -12,6 +12,7 @@
 
     <a href="javascript:history.back()" class="btn return-button">〈 前に戻る</a>
 
+    <h3 class="column-title1"><span class="maker">{{ $car['MKRNM'] }}</span> {{ $car['CARNM'] }} {{ $car->GRADE }}<span id="who"></span></h3>
     <div class="d-flex">
         <div class="item-left">
             <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
@@ -22,26 +23,24 @@
             @endif
         </div>
         <div class="item-right">
-            <div class="d-flex justify-content-between">
-                <div class="column1-left">
-                    <h5>{{ $car->MKRNM }}</h5>
-                    <h2>{{ $car->CARNM }} {{ $car->GRADE }}</h2>
-                </div>
-                <div class="column1-right">
-                    <h4>残り時間</h4>
-                    <h2 id="RealtimeCountdownArea">loading</h2>
-                </div>
+            <div class="d-flex column1-right">
+                <h5>残り時間</h5>
+                <h1 id="RealtimeCountdownArea">loading</h1>
             </div>
 
             <div class="d-flex column2 justify-content-between">
                 <div class="column2-left">
-                    <h5>現在入札金額</h5>
-                    <div id="app">
-                        <h1>¥</h1>
-                        <h1 id="price"></h1>
+                    <div class="d-flex now-price">
+                        <h5>現在入札金額</h5>
+                        <div id="app">
+                            <h1>¥</h1>
+                            <h1 id="price"></h1>
+                        </div>
                     </div>
-                    <h5>入札後金額</h5>
-                    <h1 id="afterprice">¥</h1>
+                    <div class="d-flex change-price">
+                        <h5>入札後金額</h5>
+                        <h1 id="afterprice">¥</h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,7 +84,7 @@
                     <input type="hidden" name="user" value="{{Auth::id()}}">
                     <input type="hidden" name="now" value="" id="nowprice">
                     <input type="hidden" name="carno" value="{{ $car->CARNO }}">
-                    <input type="text" name="price" id="inputPrice" pattern="\d*" oncopy="return false" onpaste="return false" style="ime-mode:disabled">,000
+                    <input type="text" name="price" id="inputPrice" pattern="\d*" oncopy="return false" onpaste="return false" style="ime-mode:disabled"><span class="n-num">,000</span>
                     <input type="submit" name="" class="button01" value="入札" id="enterButton">
                 </form>
             </div>
@@ -139,8 +138,6 @@
             }
             SubmitBtnClicked();
         });
-
-
         Vue.config.devtools = true;
         var app = new Vue({
             el: '#app',
@@ -187,7 +184,7 @@
             }).catch(error => {
                 console.log(error);
             });
-        }, 500);
+        }, 1000);
 
         var _chknum_value = "";
         // 入力値の半角数字チェック
@@ -354,7 +351,7 @@
                             console.log('endfail');
                         });
 
-                    // 落札した・落札できなかったの表示
+
 
 
                 }
@@ -363,12 +360,44 @@
                 document.getElementById("RealtimeCountdownArea").innerHTML = msg;
 
             }
+            // var result = $('#RealtimeCountdownArea').html();
+            // // 終了しました表示
+            // if (result == "終了") {
+            //     var no = "";
+            //     $.get('http://localhost:9000/who/' + no)
+            //         .done(function(data) {
+            //             console.log(data);
+            //             // console.log(typeof data);
+            //             // console.log(typeof myid);
+            //             // console.log(data == myid);
 
+            //         })
+            // }
 
-        }, 200);
+        }, 1000);
         // 1秒ごとに実行
         // setInterval(showCountdown(), 1000);
+        setInterval(function() {
+            var result = $('#RealtimeCountdownArea').html();
+            // 終了しました表示
+            if (result == "終了") {
+                axios.get('http://localhost:9000/who/{{ $car->CARNO }}').then((res) => {
+                    var carno = res.data.data;
+                    if (carno == parseInt("{{Auth::id()}}", 10)) {
+
+                        $('#who').html("あなたが落札者です");
+                        $('#who').css("color", "#DF7478");
+                    } else {
+
+                        $('#who').html("落札できませんでした。");
+                    }
+                }).catch(error => {
+                    console.log(error);
+                });
+            }
+        }, 1000);
     });
 </script>
+
 <!-- header -->
 @include('common.footer')
