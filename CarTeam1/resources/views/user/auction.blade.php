@@ -85,7 +85,7 @@
                     <input type="hidden" name="user" value="{{Auth::id()}}">
                     <input type="hidden" name="now" value="" id="nowprice">
                     <input type="hidden" name="carno" value="{{ $car->CARNO }}">
-                    <input type="text" name="price" id="inputPrice" pattern="\d*" oncopy="return false" onpaste="return false" style="ime-mode:disabled">
+                    <input type="text" name="price" id="inputPrice" pattern="\d*" oncopy="return false" onpaste="return false" style="ime-mode:disabled">,000
                     <input type="submit" name="" class="button01" value="入札" id="enterButton">
                 </form>
             </div>
@@ -170,6 +170,7 @@
                     var strscore = String(score) + "000";
                     score = parseInt(strscore, 10).toLocaleString();
                     var result = $('#RealtimeCountdownArea').html();
+                    console.log(result);
                     // 終了しました表示
                     if (result == "終了") {
                         //disabled属性を付与する
@@ -354,6 +355,8 @@
                         });
 
                     // 落札した・落札できなかったの表示
+
+
                 }
 
                 // 作成した文字列を表示

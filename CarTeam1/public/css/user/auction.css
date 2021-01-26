@@ -65,7 +65,7 @@ input[type="text"] {
     text-align        : center;
     background-color  : #58ACFA;
     /*ボタン色*/
-    border-radius     : 10px;
+    border-radius     : 5px;
     /*角丸*/
     -webkit-transition: all 0.5s;
     transition        : all 0.5s;
@@ -88,7 +88,7 @@ a.return-button {
     border          : none;
     cursor          : pointer;
     font-weight     : bolder;
-    border-radius   : 10px;
+    border-radius   : 5px;
     margin          : 30px 0;
     color           : #ffffff;
     padding         : 19px 12px 0 0;
@@ -104,7 +104,7 @@ a.return-button:hover {
     margin-left     : 30px;
     padding         : 15px;
     border          : solid 1px #E6E6E6;
-    border-radius   : 10px;
+    border-radius   : 5px;
     margin-bottom   : 15px;
     width           : 1050px;
 }
@@ -174,7 +174,7 @@ a.detail-button {
     border          : none;
     cursor          : pointer;
     font-weight     : bolder;
-    border-radius   : 10px;
+    border-radius   : 5px;
     margin-top      : 15px;
     color           : #ffffff;
     padding         : 16px 0 0 0;
@@ -195,7 +195,7 @@ a.detail-button:hover {
     padding-right   : 17px;
     border          : none;
     font-weight     : bolder;
-    border-radius   : 10px;
+    border-radius   : 5px;
     margin-top      : 15px;
     color           : #ffffff;
     padding         : 16px 0 0 0;
@@ -213,7 +213,7 @@ a.return-button {
     border          : none;
     cursor          : pointer;
     font-weight     : bolder;
-    border-radius   : 10px;
+    border-radius   : 5px;
     margin          : 30px 0;
     color           : #ffffff;
     padding         : 19px 12px 0 0;
@@ -245,4 +245,10 @@ a.return-button:hover {
     background: #C4C4C4;
     opacity   : 0.7;
     z-index   : 100;
+}
+
+footer {
+    position: absolute;
+    bottom  : 0;
+    padding : 0 10%;
 }
