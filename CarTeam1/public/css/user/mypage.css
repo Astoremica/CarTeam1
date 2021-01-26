@@ -82,6 +82,7 @@
 
 .detail {
     margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .car-item1 {
@@ -247,6 +248,14 @@ a.return-button:hover {
     padding         : 5px 15px;
     text-decoration : none;
 }
+.genre2 {
+    background-color: blue;
+    border-radius   : 5px;
+    color           : #fff;
+    margin          : 0 20px;
+    padding         : 5px 15px;
+    text-decoration : none;
+}
 
 .detail {
     margin-top   : 0px;
@@ -256,6 +265,10 @@ a.return-button:hover {
 .n-title {
     font-weight: bolder;
     color      : #DF7478;
+}
+.n-title2 {
+    font-weight: bolder;
+    color      : #81BEF7;
 }
 
 .n-nullimg {

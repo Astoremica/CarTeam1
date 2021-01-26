@@ -60,9 +60,9 @@
                   @if($transaction['k_status'] == 1 && $transaction['n_status'] == 1)
                     <h4>取引ステータス：取引終了</h4>
                   @elseif ($transaction['k_status'] == 1)
-                    <h4>取引ステータス：<span style="color: red;font-weight: bold">入金待ち</span></h4>
+                    <h4>取引ステータス：<span style="color: blue;font-weight: bold">納車待ち</span></h4>
                   @else 
-                    <h4>取引ステータス：提出書類確認中</h4>
+                    <h4>取引ステータス：<span style="color: red;font-weight: bold">入金待ち</span></h4>
                   @endif
                 </div>
                 <div class="car-item3">

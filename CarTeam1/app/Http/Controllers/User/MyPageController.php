@@ -59,7 +59,7 @@ class MyPageController extends Controller
     public function notification()
     {
         $user = User::find(Auth::id());
-        $transactions = Transaction::where('user_id', Auth::id())->where('k_status', 0)->get()->toArray();
+        $transactions = Transaction::where('user_id', Auth::id())->where('n_status', 0)->get()->toArray();
         foreach ($transactions as &$transaction) {
             $transaction['end_date'] = Car::find($transaction['CARNO'])->STRDT;
             $transaction['MKRNM'] = Car::find($transaction['CARNO'])->MKRNM;

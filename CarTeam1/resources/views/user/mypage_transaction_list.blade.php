@@ -59,9 +59,9 @@
                   <div class="car-item2">
                     <h3>{{ $car['CARNM'] }}</h3>
                     @if ($transaction['k_status'] == 0)
-                    <h4>取引ステータス：<span style="color: red;font-weight: bold">入金待ち</span></h4>
+                      <h4>取引ステータス：<span style="color: red;font-weight: bold">入金待ち</span></h4>
                     @else
-                      <h4>取引ステータス：納車待ち</h4>
+                      <h4>取引ステータス：<span style="color: blue;font-weight: bold">納車待ち</span></h4>
                     @endif
                   </div>
                   <div class="car-item3">
