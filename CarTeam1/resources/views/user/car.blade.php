@@ -36,7 +36,7 @@
         @if((date('Y/m/d H:i') > $car['STRDT']))
         <h2>終了</h2>
         @else
-        <h2>{{ $car['STRDT'] }} 〜</h2>
+        <h2>{{  date('Y年n月j日 H:i',  strtotime($car['STRDT'])) }} 〜</h2>
         @endif
       </div>
       <?php $cnt = 0; ?>
