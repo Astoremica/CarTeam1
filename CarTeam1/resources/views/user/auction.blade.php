@@ -12,7 +12,7 @@
 
     <a href="javascript:history.back()" class="btn return-button">〈 前に戻る</a>
 
-    <h3 class="column-title1"><span class="maker">{{ $car['MKRNM'] }}</span> {{ $car['CARNM'] }} {{ $car->GRADE }}</h3>
+    <h3 class="column-title1"><span class="maker">{{ $car['MKRNM'] }}</span> {{ $car['CARNM'] }} {{ $car->GRADE }}<span id="who"></span></h3>
     <div class="d-flex">
         <div class="item-left">
             <?php $filename = 'img/cars/' . $car['CARNO'] . '_1.jpg'; ?>
@@ -378,17 +378,23 @@
         // 1秒ごとに実行
         // setInterval(showCountdown(), 1000);
         setInterval(function() {
-            axios.get('http://localhost:9000/who/{{ $car->CARNO }}').then((res) => {
-                var carno = res.data.data;
-                if (carno == parseInt("{{Auth::id()}}", 10)) {
+            var result = $('#RealtimeCountdownArea').html();
+            // 終了しました表示
+            if (result == "終了") {
+                axios.get('http://localhost:9000/who/{{ $car->CARNO }}').then((res) => {
+                    var carno = res.data.data;
+                    if (carno == parseInt("{{Auth::id()}}", 10)) {
 
-                } else {
+                        $('#who').html("あなたが落札者です");
+                        $('#who').css("color", "#DF7478");
+                    } else {
 
-                    console.log("no");
-                }
-            }).catch(error => {
-                console.log(error);
-            });
+                        $('#who').html("落札できませんでした。");
+                    }
+                }).catch(error => {
+                    console.log(error);
+                });
+            }
         }, 1000);
     });
 </script>
