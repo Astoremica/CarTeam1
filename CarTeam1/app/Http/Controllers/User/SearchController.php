@@ -214,7 +214,7 @@ class SearchController extends Controller
           $user = User::find(Auth::id());
           $favorites = $user->favorites()->get();
 
-          return view('user.search', compact('cars', 'car_name', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm','favorites'));
+          return view('user.search', compact('cars', 'car_name', 'sort', 'min_price', 'max_price', 'min_nensk', 'max_nensk', 'min_soukm', 'max_soukm','favorites'));
         }
       }
     }

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .main-img {
     margin-bottom: 15px;
 }
@@ -26,7 +27,7 @@
 
 .column-price {
     border-left: 6px #81BEF7 solid;
-    margin-top: 20px;
+    margin-top : 20px;
     margin-left: 60px;
 }
 
@@ -40,7 +41,7 @@
 
 .column-auction {
     border-left: 6px #74df74 solid;
-    margin-top: 20px;
+    margin-top : 20px;
     margin-left: 60px;
 }
 
@@ -53,17 +54,17 @@
 }
 
 .price {
-    margin: 0 0 0 10px;
-    font-size: 15px;
+    margin     : 0 0 0 10px;
+    font-size  : 15px;
     font-weight: bolder;
 }
 
 .column-some {
-    color: #0174DF;
-    padding: 10px 30px 0 30px;
-    text-align: center;
+    color       : #0174DF;
+    padding     : 10px 30px 0 30px;
+    text-align  : center;
     border-right: 1px solid #c4c4c4;
-    margin-top: 10px;
+    margin-top  : 10px;
 }
 
 .column-some:nth-of-type(4) {
@@ -75,22 +76,22 @@
 }
 
 .display {
-    margin-top: -15px;
+    margin-top : -15px;
     font-weight: 900;
 }
 
 .column-title {
-    border-left: 6px #DF7478 solid;
+    border-left  : 6px #DF7478 solid;
     border-bottom: solid 1px #DF7478;
-    padding: 10px 0 10px 10px;
-    margin-top: 50px;
+    padding      : 10px 0 10px 10px;
+    margin-top   : 50px;
     margin-bottom: 20px;
 }
 
 .column-title1 {
-    border-left: 6px #DF7478 solid;
+    border-left  : 6px #DF7478 solid;
     border-bottom: solid 1px #DF7478;
-    padding: 10px 0 10px 10px;
+    padding      : 10px 0 10px 10px;
     margin-bottom: 20px;
 }
 
@@ -99,19 +100,19 @@
 }
 
 .damage-list {
-    border: solid 1px #c4c4c4;
+    border    : solid 1px #c4c4c4;
     text-align: center;
 }
 
 .column-con {
     border-right: 1px solid #c4c4c4;
-    padding: 15px 15px 0 15px;
-    margin: 5px 0;
-    width: 79px;
+    padding     : 15px 15px 0 15px;
+    margin      : 5px 0;
+    width       : 79px;
 }
 
 .damage-det {
-    font-size: 11.5px;
+    font-size : 11.5px;
     margin-top: -8px;
 }
 
@@ -122,22 +123,22 @@
 .return-button,
 a.return-button {
     background-color: #DF7478 !important;
-    opacity: 0.8;
-    width: 160px;
-    height: 60px;
-    padding-right: 17px;
-    border: none;
-    cursor: pointer;
-    font-weight: bolder;
-    border-radius: 10px;
-    margin: 30px 0;
-    color: #ffffff;
-    padding: 19px 12px 0 0;
+    opacity         : 0.8;
+    width           : 160px;
+    height          : 60px;
+    padding-right   : 17px;
+    border          : none;
+    cursor          : pointer;
+    font-weight     : bolder;
+    border-radius   : 5px;
+    margin          : 30px 0;
+    color           : #ffffff;
+    padding         : 19px 12px 0 0;
 }
 
 .return-button:hover,
 a.return-button:hover {
-    color: #fff;
+    color           : #fff;
     background-color: #f08186 !important;
 }
 
@@ -148,43 +149,43 @@ a.return-button:hover {
 .auction-button,
 a.auction-button {
     background-color: #74df74 !important;
-    opacity: 0.8;
-    width: 140px;
-    height: 50px;
-    padding-right: 17px;
-    border: none;
-    cursor: pointer;
-    font-weight: bolder;
-    border-radius: 10px;
-    color: #ffffff;
-    padding: 14px 0 0 0;
-    margin-left: 30px;
+    opacity         : 0.8;
+    width           : 140px;
+    height          : 50px;
+    padding-right   : 17px;
+    border          : none;
+    cursor          : pointer;
+    font-weight     : bolder;
+    border-radius   : 5px;
+    color           : #ffffff;
+    padding         : 14px 0 0 0;
+    margin-left     : 30px;
 }
 
 .auction-button:hover,
 a.auction-button:hover {
-    color: #fff;
+    color           : #fff;
     background-color: #7ff57f !important;
 }
 
 .maker {
-    font-size: 15px;
-    font-weight: bolder;
+    font-size   : 15px;
+    font-weight : bolder;
     margin-right: 10px;
 }
 
 .car-end {
     background-color: #BDBDBD !important;
-    opacity: 0.8;
-    width: 160px !important;
-    height: 55px;
-    padding-right: 17px;
-    border: none;
-    font-weight: bolder;
-    border-radius: 10px;
-    margin-top: 5px;
-    color: #ffffff;
-    padding: 16px 0 0 0;
-    margin-left: 30px;
-    text-align: center;
+    opacity         : 0.8;
+    width           : 160px !important;
+    height          : 55px;
+    padding-right   : 17px;
+    border          : none;
+    font-weight     : bolder;
+    border-radius   : 5px;
+    margin-top      : 5px;
+    color           : #ffffff;
+    padding         : 16px 0 0 0;
+    margin-left     : 30px;
+    text-align      : center;
 }
