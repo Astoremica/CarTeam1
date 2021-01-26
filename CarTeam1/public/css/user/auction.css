@@ -286,6 +286,7 @@ a.return-button:hover {
     border-left: 6px #74df74 solid;
     margin-left: 10px;
     margin-top: 40px;
+    width: 550px;
 }
 
 .change-price h5 {
