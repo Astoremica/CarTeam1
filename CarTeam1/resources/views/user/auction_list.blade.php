@@ -14,7 +14,7 @@
     @if(!$cars->isEmpty())
     @foreach($cars as $car)
     @if($nextDay !== substr($car['STRDT'],0,10))
-    <h3 class="title">{{ substr($car['STRDT'],0,10) }} 開催予定</h3>
+    <h3 class="title">{{ date('Y年n月j日',  strtotime(substr($car['STRDT'],0,10))) }} 開催予定</h3>
     <?php $nextDay = substr($car['STRDT'], 0, 10); ?>
     @else
     @endif

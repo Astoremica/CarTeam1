@@ -37,7 +37,7 @@
                         @endif
                         <p class="brandName">{{ $car['MARNM'] }}</p>
                         <p class="carName">{{ $car['CARNM'] }}</p>
-                        <p class="startTime">開始：{{ $car['STRDT'] }}</p>
+                        <p class="startTime">開始：{{ date('Y年n月j日 H:i',  strtotime($car['STRDT'])) }}</p>
                 @if($car['STRDT'] > $nowDate)
                     </a>
                 @else
