@@ -1,14 +1,13 @@
 @charset "UTF-8";
-
 .container {
     margin: 0 auto !important;
 }
 
 .img {
-    width      : 150px !important;
-    text-align : center;
+    width: 150px !important;
+    text-align: center;
     margin-left: 70px;
-    margin-top : 10px;
+    margin-top: 10px;
 }
 
 .nickname {
@@ -17,31 +16,31 @@
 
 .card {
     text-align: center;
-    margin    : 20px 0;
+    margin: 20px 0;
 }
 
 .button {
-    margin-bottom   : 10px;
-    height          : 50px;
-    border          : solid 1px #E6E6E6 !important;
+    margin-bottom: 10px;
+    height: 50px;
+    border: solid 1px #E6E6E6 !important;
     background-color: #ffffff !important;
-    color           : gray !important;
-    line-height     : 35px !important;
+    color: gray !important;
+    line-height: 35px !important;
 }
 
 .button01 {
-    width             : 150px;
-    line-height       : 50px;
-    color             : #FFF;
-    text-decoration   : none;
-    text-align        : center;
-    background-color  : #58ACFA !important;
+    width: 150px;
+    line-height: 50px;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    background-color: #58ACFA !important;
     /*ボタン色*/
-    border-radius     : 5px;
+    border-radius: 5px;
     /*角丸*/
     -webkit-transition: all 0.5s;
-    transition        : all 0.5s;
-    border            : none !important;
+    transition: all 0.5s;
+    border: none !important;
 }
 
 .button01:hover {
@@ -50,9 +49,9 @@
 }
 
 .title {
-    margin       : 20px 0 10px 30px;
-    border-left  : 8px #DF7478 solid;
-    padding      : 10px 0 10px 10px;
+    margin: 20px 0 10px 30px;
+    border-left: 8px #DF7478 solid;
+    padding: 10px 0 10px 10px;
     border-bottom: 1px solid #DF7478;
 }
 
@@ -61,18 +60,18 @@
 }
 
 .title-img {
-    margin-top  : -4px;
+    margin-top: -4px;
     margin-right: 5px;
 }
 
 .cars {
     background-color: #ffffff;
-    margin-left     : 30px;
-    padding         : 15px;
-    border          : solid 1px #E6E6E6;
-    border-radius   : 5px;
-    margin-bottom   : 15px;
-    width           : 790px;
+    margin-left: 30px;
+    padding: 15px;
+    border: solid 1px #E6E6E6;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 790px;
 }
 
 .car-title1,
@@ -93,58 +92,58 @@
 }
 
 .car-item2 h3 {
-    margin-top   : 10px;
+    margin-top: 10px;
     margin-bottom: 60px;
 }
 
 .detail-button,
 a.detail-button {
     background-color: #DF7478 !important;
-    opacity         : 0.8;
-    width           : 160px !important;
-    height          : 55px;
-    padding-right   : 17px;
-    border          : none;
-    cursor          : pointer;
-    font-weight     : bolder;
-    border-radius   : 5px;
-    margin-top      : 75px;
-    color           : #ffffff;
-    padding         : 16px 0 0 0;
+    opacity: 0.8;
+    width: 160px !important;
+    height: 55px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin-top: 75px;
+    color: #ffffff;
+    padding: 16px 0 0 0;
 }
 
 .detail-button:hover,
 a.detail-button:hover {
-    color           : #fff;
+    color: #fff;
     background-color: #f08186 !important;
 }
 
 .column {
-    padding   : 5px 5px 0 5px;
+    padding: 5px 5px 0 5px;
     text-align: center;
-    height    : 70px;
+    height: 70px;
 }
 
 .column:nth-of-type(1) {
-    border-right : 1px solid #c4c4c4;
-    margin-right : 15px;
+    border-right: 1px solid #c4c4c4;
+    margin-right: 15px;
     padding-right: 15px;
 }
 
 .price {
-    font-size  : 30px;
-    margin-top : -20px;
+    font-size: 30px;
+    margin-top: -20px;
     font-weight: bolder;
 }
 
 .fav-title {
-    font-size    : 13px;
+    font-size: 13px;
     margin-bottom: 10px;
 }
 
 .p-title {
     text-align: left;
-    font-size : 13px;
+    font-size: 13px;
 }
 
 .fav {
@@ -154,22 +153,22 @@ a.detail-button:hover {
 .fav-button,
 a.fav-button {
     background-color: #DF7478 !important;
-    opacity         : 0.8;
-    width           : 160px !important;
-    height          : 55px;
-    padding-right   : 17px;
-    border          : none;
-    cursor          : pointer;
-    font-weight     : bolder;
-    border-radius   : 5px;
-    color           : #ffffff;
-    padding         : 16px 0 0 0;
-    margin-left     : 390px;
+    opacity: 0.8;
+    width: 160px !important;
+    height: 55px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 16px 0 0 0;
+    margin-left: 390px;
 }
 
 .fav-button:hover,
 a.fav-button:hover {
-    color           : #fff;
+    color: #fff;
     background-color: #f08186 !important;
 }
 
@@ -179,18 +178,18 @@ a.fav-button:hover {
 
 .car-end {
     background-color: #BDBDBD !important;
-    opacity         : 0.8;
-    width           : 160px !important;
-    height          : 55px;
-    padding-right   : 17px;
-    border          : none;
-    font-weight     : bolder;
-    border-radius   : 5px;
-    margin-top      : 5px;
-    color           : #DF7478;
-    padding         : 16px 0 0 0;
-    margin-left     : 390px;
-    text-align      : center;
+    opacity: 0.8;
+    width: 160px !important;
+    height: 55px;
+    padding-right: 17px;
+    border: none;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #DF7478;
+    padding: 16px 0 0 0;
+    margin-left: 390px;
+    text-align: center;
 }
 
 .null-img {
@@ -198,7 +197,7 @@ a.fav-button:hover {
 }
 
 .null {
-    margin   : 10px 30px;
+    margin: 10px 30px;
     font-size: 18px;
 }
 
@@ -209,57 +208,62 @@ a.fav-button:hover {
 .return-button,
 a.return-button {
     background-color: #DF7478 !important;
-    opacity         : 0.8;
-    width           : 160px;
-    height          : 60px;
-    padding-right   : 17px;
-    border          : none;
-    cursor          : pointer;
-    font-weight     : bolder;
-    border-radius   : 5px;
-    margin          : 10px 0 30px 30px;
-    color           : #ffffff;
-    padding         : 19px 12px 0 0;
+    opacity: 0.8;
+    width: 160px;
+    height: 60px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin: 10px 0 30px 30px;
+    color: #ffffff;
+    padding: 19px 12px 0 0;
 }
 
 .return-button:hover,
 a.return-button:hover {
-    color           : #fff;
+    color: #fff;
     background-color: #f08186 !important;
 }
 
 .notifications {
-    margin-top   : 30px;
+    margin-top: 30px;
     margin-bottom: 10px;
 }
 
 .items {
-    width        : 800px;
+    width: 800px;
     border-bottom: 1px solid #ccc !important;
-    margin-left  : 30px;
+    margin-left: 30px;
+    padding-top: 10px;
+}
+
+.items:nth-of-type(1) {
+    padding-top: 0px;
 }
 
 .genre {
     background-color: red;
-    border-radius   : 5px;
-    color           : #fff;
-    margin          : 0 20px;
-    padding         : 5px 15px;
-    text-decoration : none;
+    border-radius: 5px;
+    color: #fff;
+    margin: 0 20px;
+    padding: 5px 15px;
+    text-decoration: none;
 }
 
 .detail {
-    margin-top   : 0px;
+    margin-top: 0px;
     margin-bottom: 15px;
 }
 
 .n-title {
     font-weight: bolder;
-    color      : #DF7478;
+    color: #DF7478;
 }
 
 .n-nullimg {
-    margin-top   : -15px;
+    margin-top: -15px;
     margin-bottom: -20px;
 }
 
@@ -270,24 +274,24 @@ a.return-button:hover {
 .n-detail-button,
 a.n-detail-button {
     background-color: #DF7478 !important;
-    opacity         : 0.8;
-    width           : 120px !important;
-    height          : 35px;
-    padding-right   : 17px;
-    border          : none;
-    cursor          : pointer;
-    font-weight     : bolder;
-    border-radius   : 5px;
-    color           : #ffffff;
-    padding         : 16px 0 0 0;
-    margin-top      : -10px;
-    line-height     : 0px;
-    margin-left     : 350px;
+    opacity: 0.8;
+    width: 120px !important;
+    height: 35px;
+    padding-right: 17px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 16px 0 0 0;
+    margin-top: -10px;
+    line-height: 0px;
+    margin-left: 350px;
 }
 
 .n-detail-button:hover,
 a.n-detail-button:hover {
-    color           : #fff;
+    color: #fff;
     background-color: #f08186 !important;
 }
 
